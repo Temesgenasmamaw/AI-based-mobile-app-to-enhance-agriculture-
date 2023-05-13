@@ -1,0 +1,138 @@
+{
+    "Home": "Home",
+    "Diseases": "Diseases",
+    "Language": "Language",
+    "TakePhoto": "Take Photo",
+    "Camera": "Camera",
+    "Gallery": "Browse Gallery",
+    "Prediction": "Prediction",
+    "ANTH": "Anthracnose Mango Disease",
+    "BLAC": "Powdery mildew Disease",
+    "HEAL": "Healthy Mango",
+    "NOT": "Not Mango Leaf",
+    "WHITE":"White mango disease",
+    "Causes": "Causes of disease",
+    "Prevention": "Management",
+    "Name": "Name",
+    "Solution": "Solution",
+    "ChangeLanguage": "Change Language",
+    "ListOfDisease": "List Of Disease",
+    "mdp": "Smart Agriculture",
+
+    "DarkTheme":"Dark theme",
+    "EnableDark":"Enable dark theme",
+    "Contact": "Contact",
+    "contactus": "contact us",
+    "Share": "Share",
+    "shareMangoApp": "Share mango app",
+    "Feedback": "Feedback",
+    "GiveComment": "Give us a comment",
+    "RateUs": "Rate Us",
+    "RateOurApp": "rate our app",
+    "About": "About",
+    "Aboutapp": "about app",
+    "Others": "Others",
+    "PrivacyPolicy": "Privacy & Policy",
+    "OurPrivacyPolicy": "Our privacy & policy",
+    "Updates": "Check for Updates",
+    "Version": "Version:1.0",
+
+    "Resource":"Resource",
+    "More":"More Info on Disease",
+    "PleaseEnter":"please enter your comment",
+    "ProcessingData":"Processing Data...",
+    "GiveFeedback":"Give Feedback",
+    "RatingDialog":"Rating Dialog",
+    "RateComment":"Rating this app and tell us others what you think.",
+    "Thanks":"Thanks for your support!",
+    "Submit":"Submit",
+    "Policy":"This app is created by BiT students to provide guidance on mango products. The information is drawn from published sources and the knowledge of experts.",
+    "AboutInfo":"We are under gradutate software engineering students in Bahir dar institute of technology.",
+     
+   "One":"1)",
+   "Two":"2)",
+   "Three":"3)",
+   "Four":"4)",
+   "Five":"5)",
+
+    "Mango":"Mango",
+    "Taxonomy":"Taxonomy",
+    "WhatIsMango":"Mango is a large green tree, valued mainly for its fruits, both green and ripe.Approximately 500 varieties have been reported in India.It can grow up to 15-30 metres (50-100 feet) tall[4] with a similar crown width and a trunk circumference of more than 3.7 m (12 ft).The leaves are simple, shiny and dark green.Red-yellow flowers appear at the end of winter, and also at the beginning of spring. Both male and female flowers are borne on same tree.The mango is an irregular, egg-shaped fruit which is a fleshy drupe.Mangos are typically 8-12 centimetres (3-5 inches) long and greenish yellow in color.mango were first grown in India over 5,000 years ago.",
+   "Taxo":"Mangoes are believed to have originated from the region between northwestern Myanmar, Bangladesh, and northeastern India. M. indica were domesticated separately in South Asia and Southeast Asia over centuries, resulting in two distinct genetic populations in modern mangoes - the Indian type and the Southeast Asian type.The species was first described by Linnaeus in 1753",
+   "Toxicity":"Urushiols in the fruit peel can trigger contact dermatitis in sensitised individuals.This reaction is more likely to occur in people who have been exposed to other plants from the family Anacardiaceae, such as poison oak and poison ivy, which are widespread in the United States.The wood is known to produce phenolic substances that can cause contact dermatitis"
+,"Toxicities":"Toxicity"
+   ,"Uses":"The tree is more known for its fruit rather than for its timber. However, mango trees can be converted to lumber once their fruit-bearing lifespan has finished. The wood is susceptible to damage from fungi and insects.The wood is used for musical instruments such as ukuleles,plywood and low-cost furniture"
+,"Use":"Uses"
+   ,"Advantages":"The most consumed part of a mango tree is its fruit.Below are some benefits of mango fruit.",
+"PreventsAnemia":"1) Prevents Anemia",
+"DefOfPreventsAnemia":" Mango is rich in iron. Consuming mango in adequate quantities helps in increasing iron levels. Also, the vitamin C present in mango increases the absorption of iron."
+,"ImprovesDigestion":"2) Improves Digestion",
+"DefOfImprovesDigestion":"Disorders of the digestive system are a major cause of poor health. Being rich in fiber and polyphenols, consuming mango aids in decreasing constipation and inflammation of the bowels.",
+"HelpsGainWeight":"3) Helps gain weight",
+"DefOfHelpsGainWeight":" Many individuals find it hard to gain weight. According to Ayurveda, consuming mango with milk helps in nourishing the body and gaining weight.",
+"BoostsImmunity":"4) Boosts immunity",
+"DefOfBoostsImmunity":"Apart from vitamin C, mango also contains folate, zinc and vitamin B6. All these contribute greatly towards strengthening the immune system and boosting our immunity.",
+"ImprovesEyesight":"5) Improves eyesight",
+"DefOfImprovesEyesight":"Do you know why the mango pulp has a rich yellow color? It is due to the presence of an abundance of carotenoids which help in improving eyesight.",
+"HeartHealthy":"6) Keeps heart healthy",
+"DefOfHeartHealthy":"Research shows that low selenium levels are linked to an increased risk of heart disease. Mango is a good source of selenium and B6, both of which promote heart health.",
+"LeaveUse":"What are the medicinal benefits of mango leaves?",
+"DecreaseBloodPressure":"1) Decreases blood pressure",
+"DefOfdecbloodP":"Extract of mango tree leaves has antihypertensive properties. As a result, having tea made with mango leaves a few times a day helps in decreasing blood pressure.",
+"ControllDiabet":"2) Helps in controlling diabetes",
+"DefOfControllDiabet":"Tender mango leaves which are pink or purple in color are rich in tannins and anthocyanins. Juice of these mango leaves taken on an empty stomach in the morning helps in controlling blood sugar levels.",
+"EliminateRadical":"3) Eliminates free radicals",
+"DefEliminateRadical":"Mango tree leaves contain antioxidants and vitamin C. Consuming mango leaf extract can help eliminate free radicals and protect the body from oxidative damage.",
+
+
+
+
+"DefinitionOfAnth": "The Anthracnose of Mango is a fungal disease cuased which is by the fungus Colletotrichum gloeosporiodes Penz.",
+    "Symptoms": "Symptoms",
+    "Symptom": "Pathogenic fungi are specialized ectoparasites that can classify as fungi under the order Erysiphales.Asexual spores form chains on short meristems spore branches and are ovoid, oval, unicellular, colorless, and do not branch on the disease's surface.",
+    "LifeCycle": "Life Cycle",
+    "LifeCyleOfBlack":"The disease is severe in old and dense orchards where light intensity is slow. Trees exposed to eastern side had fewer incidences while the trees in centre of the orchard had 95 % incidence. High incidence of insects and the sugary substance secreted by them favour development of sooty mold. Continuous and heavy rainfall washes down this substance but high humidity proved congenial for growth of the fungus."
+   , "Perennation": "A) Perennation",
+    "DefOfA": "Diseased twigs and leaves, which fall on ground, are a prolific source of perennation of the pathogen. It is considered that the pathogen has the ability to survive saprophytically for a long period of time in dead twigs.",
+    "PrimaryInfection": "B) Primary Infection",
+    "DefOfB": "Conidia developed on diseased plant part on ground, the source of perennation of the pathogen, are disseminated by air, brought on to the susceptible part of the plant, germinate in favourable conditions, and cause primary infection.",
+    "SecondaryInfection": "C) Secondary Infection",
+    "DefOfC": "Once the primary infection is established on the mango tree, the fungus further develops conidia in acervuli, which get disseminated by air-currents and cause secondary infections. Infection on mango fruits is mainly secondary in nature. Most of the infections on the fruits take place since the beginning of blossoming period until the fruits are more than half grown.",
+   
+    "ManagmentOfAnthOne": "Proper fertilization and watering during summer must be done to maintain tree vigour, which is important for keeping the infection of twigs away.",
+    "ManagmentOfAnthTwo": "Tree sanitation is essential. Diseased twigs should be pruned and burnt along with fallen leaves.",
+    "ManagmentOfAnthThree": "Pruning should be followed by spraying of suitable fungicides such as Bordeaux mixture (6:6: 50), 0.15% Cuprocide, Fytolan or Blitox-50, etc., which proves effective. Four to five sprayings between January to July give satisfactory control to the disease. A combination of Captan with Zineb for spraying the trees has been reported very effective.",
+    "ManagmentOfAnthFour": "Post-harvest fruit treatment in hot water at 51°C for 15 minutes is required to control fruit-rot.",
+    "ManagmentOfAnthFive": "Remove all diseased leaves and fruits from the field.",
+
+    "DefinitionOfWhite": "White scale is a common pest in mango farming, which can cause significant damage to the trees and reduce fruit yield.",
+    "SymptomOfWhite": "small white insect on the surface of the leaves.",
+
+    "ManagmentOfWhiteOne": "handpicking the scales or brushing them off with a soft brush can help to reduce infestations.",
+    "ManagmentOfWhiteTwo": "use of natural predators such as ladybugs, parasitic wasps, and lacewings can be an effective way to control white scale populations.",
+    "ManagmentOfWhiteThree": "Use insecticide",
+
+    
+    "DefinitionOfBlack": "it is fungi type which produces spores that appear as white powder on the surface of leaves",
+    "SymptomOfBlackOne": "produces spores that appear as white powder on the surface.",
+
+   
+    "ManagmentOfBlackOne": "Cut the mango tree branches to keep them short for easy management and air flow.",
+    "ManagmentOfBlackTwo": "Remove diseased leaves and flowers and bury or burn them to reduce the source of the disease.",
+    "ManagmentOfBlackThree": "Spray the trees with plant penetrating chemicals such as fungicides chemicals.",
+    "ManagmentOfBlackFour": "Spray on weekly intervals, following the instructions on the label.",
+    "ManagmentOfBlackFive": "Start spraying just before flowering and continue throughout the flowering period.",
+   
+    "HealthyDefinition": "It is healthy. No need of treatment",
+    "NotMangoDefinition": "The image you uploaded is not mango",
+
+
+
+
+   "recommendResult" :"is suitable crop for your farmland",
+   "Ph":"pH",
+   "rain":"rain fall",
+   "temp":"Temprature",
+   "altitude":"Altitude",
+   "crops":"ሰብል"
+}

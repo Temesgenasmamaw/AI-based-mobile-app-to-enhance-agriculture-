@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "agri-bot-hpd9",
+  "private_key_id": "d2b4fff6aae5f85c02f40e5793e1cdad548e1b02",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEnM0yHG8pH01/\nqe5Pd+kRzFSyU8ufqEWcGwDEhNQ+7CvRJVovEtg/XpzpSr5AAagNrWAaqMhKJscG\nbGsIaqNNUaxkHiBVALRzO2IPHEYSxnaxNRB/4qfZcVdL2ns151bMwNTb3oJkCJyU\nCX0C80zMd3kEaTdR1zq1Q57GzN35FzRflc9nKnjchF2Uh0uXidxHVV2RR0OTNNLj\nyCyIfZr5sX3BmMRw0V3ulgyyA3SzWB4WLMgGLImYEPFdTG2JdBCfRJTKQ8MijuRz\nkR6qhJevD/tE1JffHdgM/Ryn1f3CnNw1WSG+gQyECGW8y4IrJrke7a/3EysvEYQR\nAfG4TzUHAgMBAAECggEAC8at2P0wVfDfXht6Kp2urWI6Wx6pvjurRQOuXWxB9Ngw\nclZ1EFy7QbsTquV51QZEX+KtNEDnvjPpt84b8GUdYtmBedL+x23uC6OC5rogIv/A\nHDJmypdzdj1Tp+IY1HcGu+d7gwUmH4JkiSQIWM+PH1qzOjsTFSkkWwxcdjZ5v8be\ncBVZBlvj9CzEluCMP6Dge2RU5dz3U8RPh+VEHFlhLQtS9y5unGz47wjQBhZEGCjP\nhuPdM6H2t+o/GEQyxryCsxFpAqtOMEPaITqlYwBuqsGFl0yVzd51o0c4VJWk2doS\nRAR8U0bprvcvd4ZNsS+wLp9YVYdp62Xvj84MD8BgAQKBgQDuBn3B/sIhUKDQqpLh\nij5dUy79STabJJXlPacvwUUvlGAaEaL1D5u6ukQxeijzrdoUnBg9Wqt6vT36vsvh\nHt7LcieVhUO4Y6abY9zAkQVCCvnSGZOcQGEsmVcc9e/3xw3mMgzzFwNLX46YH2K1\np12O9fhWaZkC5dfHvnZddet2CQKBgQDTdbd1VwslzZS3zn1A/zi0wyPsI2v4u21S\nawiNXlcwisN5yOmbMX9f/I2+a54DjxXiMSnXDPMqYmnPf629ykgiEsIfWe+jYeeb\ngzgcKoJbLBMB/CfHzs6HKh094a7Mn815naPP4xsriq4UTsWtEd6kAmFq+VHYc1Jp\ng2WWfWeWjwKBgQCqzzGz41QAgFHHLIEXJRO3+RfBX6a2Er0WsvWlCXbSvBFy47Ej\nVz4T89M4BkgZBmt3WsTyUny4KdGufPjl5jdPm+3YGLgOPES1QiaKcgdp62J3aS9K\nc9DIJoojGEJKdyf8R3KPh7YvgrVbaTp2zVIQY2cA6+qH79S3XHCohRShsQKBgHLY\nul0me016zEzP/0Mv2pKCcZ4s1tVupj9fFnQBSwV4OBaKwiWhynZNaoaDWHzCV7ZT\n0U+VHvRkIuephqlPlcG7wmbYp8hqwim6KN1TUR1HYMNxOgHRFmZevyb+zbshB64H\nqhKcXANX/JfW+JG45Nza1iINayBN8fKQhLopPfuNAoGBAMBxdQf13U9Uq/y/rvJP\n2GGgk36KgIxoMd1m9yncz37MCx10WDcpCdsJYLYOVV3ZJxjEGMcdK2HOPtnqAcjT\nISUJTNrajtOb4V2PW159O9QLJcCL79pnKJQ5PVHUxGQGGoWMb5kyPqmlwOmWPj5f\nn86NQCIh4W61rn7yZxzng2JZ\n-----END PRIVATE KEY-----\n",
+  "client_email": "temesgen@agri-bot-hpd9.iam.gserviceaccount.com",
+  "client_id": "113677368869983548427",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/temesgen%40agri-bot-hpd9.iam.gserviceaccount.com"
+}
