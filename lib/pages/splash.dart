@@ -9,14 +9,14 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasySplashScreen(
       title: const Text(
-        "Mango App",
+        "Smart Agri App",
         style: TextStyle(
           fontSize: 21,
           fontWeight: FontWeight.bold,
         ),
       ),
       logo: Image.asset('assets/ai.png'),
-      logoWidth: 180,
+      logoWidth: 200,
       // backgroundColor: Colors.grey.shade400,
       showLoader: true,
       loadingTextPadding: const EdgeInsets.only(top: 8),
