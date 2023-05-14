@@ -44,6 +44,8 @@ dependencies:
   intl: ^0.17.0
   chapasdk:
   dialog_flowtter:
+  #firebase part
+  cloud_firestore:
   
 
 

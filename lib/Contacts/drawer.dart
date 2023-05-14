@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/chatBot/chat.dart';
 import 'package:mango_app/chatBot2/chat2.dart';
+import 'package:mango_app/pages/crop-database.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_share/flutter_share.dart';
 import '../Contacts/About.dart';
@@ -95,7 +96,16 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
         //     );
         //   },
         // ),
-
+        ListTile(
+          title: Text('Crop info'.tr()),
+          subtitle: Text("crop information".tr()),
+          leading: const Icon(Icons.info_outline),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => cropsInfo()),
+            );
+          },
+        ),
         ListTile(
           title: Text('About'.tr()),
           subtitle: Text("Aboutapp".tr()),
