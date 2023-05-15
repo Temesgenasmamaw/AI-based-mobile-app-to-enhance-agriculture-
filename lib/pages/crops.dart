@@ -7,7 +7,10 @@ import 'package:flutter_tts/flutter_tts.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
-import 'cropResult.dart';
+import '../crop-result/barly-result.dart';
+import '../crop-result/maize-result.dart';
+import '../crop-result/teff-result.dart';
+import '../crop-result/wheat-result.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -263,11 +266,30 @@ class _TabsState extends State<Tabs> {
                           }
                           print('predicted value:${crop}');
                         }
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Result(res: crop)));
+                        if (crop == "Sinde") {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      wheatResult(res: crop)));
+                        } else if (crop == "Teff") {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => teffResult(res: crop)));
+                        } else if (crop == 'Gebs') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      barlyResult(res: crop)));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      maizeResult(res: crop)));
+                        }
                       },
                       child: const Text(
                         'Recommend ',

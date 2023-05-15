@@ -73,7 +73,7 @@ class _ResourceState extends State<Resource> {
                         await flutterTts.speak("WhatIsMango".tr());
                       },
                       icon: const Icon(
-                        Icons.mic,
+                        Icons.volume_up,
                         size: 25,
                       )),
                   //ElevatedButton(onPressed: (){}, child:const Text('speak')),
@@ -83,7 +83,7 @@ class _ResourceState extends State<Resource> {
                         await flutterTts.stop();
                       },
                       icon: const Icon(
-                        Icons.mic_off,
+                        Icons.volume_off,
                         size: 25,
                       )),
                 ],
