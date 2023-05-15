@@ -2,14 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-class Language extends StatefulWidget {
-  const Language({Key? key}) : super(key: key);
+class Languages extends StatefulWidget {
+  const Languages({Key? key}) : super(key: key);
 
   @override
-  State<Language> createState() => _LanguageState();
+  State<Languages> createState() => _LanguagesState();
 }
 
-class _LanguageState extends State<Language> {
+class _LanguagesState extends State<Languages> {
   FlutterTts flutterTts = FlutterTts();
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _LanguageState extends State<Language> {
             onTap: () async {
               await context.setLocale(const Locale('am'));
                 await flutterTts.setVoice({
-                'language': 'am-ET',
+                'Languages': 'am-ET',
                 'variant': 'en-in-x-ene-network',
                 'gender': 'male',
               });

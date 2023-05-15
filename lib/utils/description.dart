@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class DisInfo {
   String ManDisease; //location name for the ui
   // String? remedy; //time in that location

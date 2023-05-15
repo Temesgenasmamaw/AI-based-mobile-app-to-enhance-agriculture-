@@ -7,6 +7,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
+import 'cropResult.dart';
+
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
 
@@ -23,17 +25,7 @@ class _TabsState extends State<Tabs> {
 
   String add = '0';
   String crop = ' ';
-  bool isSelect = false;
-
   FlutterTts flutterTts = FlutterTts();
-
-  Future<void> speak(String text, String languageCode) async {
-    await flutterTts.setLanguage(languageCode.tr());
-    await flutterTts.setSpeechRate(0.5);
-    await flutterTts.setPitch(1.0);
-    await flutterTts.setVolume(1.0);
-    await flutterTts.speak(text);
-  }
 
   @override
   void dispose() {
@@ -95,7 +87,7 @@ class _TabsState extends State<Tabs> {
                   )),
                   Tab(
                       child: Text(
-                    'Bokolo',
+                    'Maize',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -111,7 +103,7 @@ class _TabsState extends State<Tabs> {
                   )),
                   Tab(
                       child: Text(
-                    'Sinde',
+                    'Wheat',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -119,7 +111,7 @@ class _TabsState extends State<Tabs> {
                   )),
                   Tab(
                       child: Text(
-                    'Gebs',
+                    'Barly',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -234,128 +226,6 @@ class _TabsState extends State<Tabs> {
                     const SizedBox(
                       height: 20,
                     ),
-
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // TextFormField(
-                    //   controller: _emailController,
-                    //   keyboardType: TextInputType.emailAddress,
-                    //   decoration: const InputDecoration(
-                    //     prefixIcon: Icon(Icons.person),
-                    //     border: OutlineInputBorder(
-                    //         borderRadius:
-                    //             BorderRadius.all(Radius.circular(40))),
-                    //     labelText: 'Email',
-                    //     hintText: 'Enter your email',
-                    //   ),
-                    //   validator: (value) {
-                    //     if (value!.isEmpty) {
-                    //       return 'Please enter your email';
-                    //     }
-                    //     if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                    //         .hasMatch(value)) {
-                    //       return 'Please enter a valid email';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // TextFormField(
-                    //   controller: _passwordController,
-                    //   obscureText: true,
-                    //   decoration: const InputDecoration(
-                    //     prefixIcon: Icon(Icons.person),
-                    //     border: OutlineInputBorder(
-                    //         borderRadius:
-                    //             BorderRadius.all(Radius.circular(40))),
-                    //     labelText: 'Password',
-                    //     hintText: 'Enter your password',
-                    //   ),
-                    //   validator: (value) {
-                    //     if (value!.isEmpty) {
-                    //       return 'Please enter your password';
-                    //     }
-                    //     if (value.length < 6) {
-                    //       return 'Password must be at least 6 characters long';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // TextFormField(
-                    //   controller: _departmentController,
-                    //   decoration: const InputDecoration(
-                    //     prefixIcon: Icon(Icons.person),
-                    //     border: OutlineInputBorder(
-                    //         borderRadius:
-                    //             BorderRadius.all(Radius.circular(40))),
-                    //     labelText: 'Department',
-                    //     hintText: 'Enter your department',
-                    //   ),
-                    //   validator: (value) {
-                    //     if (value!.isEmpty) {
-                    //       return 'Please enter your department';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
-
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // ElevatedButton(
-                    //   onPressed: () async {
-                    //     if (_formKey.currentState!.validate()) {
-                    //       print('getting url.....');
-                    //       final response = await http.post(
-                    //           Uri.parse(
-                    //               'https://smart-agri-kawo.onrender.com/add'),
-                    //           headers: {"Content-Type": "application/json"},
-                    //           body: jsonEncode(
-                    //             <String, dynamic>{
-                    //               'Pregnancies': int.parse(_pHController.text),
-                    //               'Glucose': int.parse(_rainController.text),
-                    //               'BloodPressure':
-                    //                   int.parse(_altitudeController.text),
-                    //               'SkinThickness':
-                    //                   int.parse(_tempratureController.text),
-                    //             },
-                    //           ));
-
-                    //       if (response.statusCode == 200) {
-                    //         // Parse the predicted class from the JSON response
-                    //         // final results = jsonDecode(response.body)['result'];
-                    //         setState(() {
-                    //           add = jsonDecode(response.body)['add'].toString();
-                    //         });
-                    //       } else {
-                    //         // Handle errors
-                    //         print(
-                    //             'Request failed with status: ${response.statusCode}.');
-                    //       }
-                    //       print('predicted value:${add}');
-                    //     }
-                    //   },
-                    //   child: const Text(
-                    //     'Add',
-                    //     style: TextStyle(
-                    //         fontSize: 25, fontWeight: FontWeight.bold),
-                    //   ),
-                    //   style: ElevatedButton.styleFrom(
-                    //       backgroundColor: Colors.white,
-                    //       foregroundColor: Colors.black),
-                    // ),
-
-                    // SizedBox(
-                    //   height: 20,
-                    // ),
-                    // Text('Add Result:${add}'),
-
                     SizedBox(
                       height: 10,
                     ),
@@ -393,6 +263,11 @@ class _TabsState extends State<Tabs> {
                           }
                           print('predicted value:${crop}');
                         }
+
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Result(res: crop)));
                       },
                       child: const Text(
                         'Recommend ',
@@ -403,43 +278,6 @@ class _TabsState extends State<Tabs> {
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black),
                     ),
-
-                    SizedBox(
-                      height: 20,
-                    ),
-
-                    IconButton(
-                        padding: EdgeInsets.only(right: 0),
-                        onPressed: () async {
-                          print(flutterTts.getVoices);
-                          await flutterTts.setSpeechRate(0.3);
-                          await flutterTts.setPitch(1.0);
-                          await flutterTts.setVolume(1.0);
-                          await flutterTts.setVoice({
-                            'language': 'am-ET',
-                            'variant': 'en-in-x-ene-network',
-                            // 'gender': 'male',
-                          });
-                          // await flutterTts.setLanguage('am-ET');
-
-                          await flutterTts.speak(
-                              "${crop} is suitable crop for your farmland");
-                        },
-                        icon: const Icon(
-                          Icons.volume_up,
-                          size: 25,
-                        )),
-
-                    Text(
-                      '${crop} ',
-                      style: TextStyle(fontSize: 25, color: Colors.red),
-                    ),
-                    Text(
-                      'recommendResult'.tr(),
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    )
                   ],
                 ),
               ),

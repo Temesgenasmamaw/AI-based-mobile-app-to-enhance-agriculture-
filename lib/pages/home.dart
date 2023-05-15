@@ -8,6 +8,15 @@ import 'language.dart';
 import 'list_disease.dart';
 import 'upload.dart';
 
+class Language {
+  Locale locale;
+  String langName;
+  Language({
+    required this.locale,
+    required this.langName,
+  });
+}
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -23,20 +32,73 @@ class _HomeState extends State<Home> {
     ListDisease(),
     Resource(),
     Tabs(),
-    Language(),
+    Languages(),
   ];
+
+  List<Language> languageList = [
+    Language(
+      langName: 'En',
+      locale: const Locale('en'),
+    ),
+    Language(
+      langName: 'አማ',
+      locale: const Locale('am'),
+    ),
+  ];
+  Language? selectedLang;
 
   dynamic a;
   @override
   Widget build(BuildContext context) {
+    selectedLang = languageList.singleWhere((e) => e.locale == context.locale);
     return Scaffold(
       appBar: AppBar(
-          elevation: 20,
-          title: Text(
-            'mdp'.tr(),
-            style: const TextStyle(fontSize: 19),
+        elevation: 20,
+        title: Text(
+          'mdp'.tr(),
+          style: const TextStyle(fontSize: 19),
+        ),
+        centerTitle: true,
+        actions: [
+          DropdownButton<Language>(
+            iconSize: 35,
+            elevation: 25,
+            value: selectedLang,
+            underline: Container(
+              padding: const EdgeInsets.only(left: 4, right: 4),
+            ),
+            onChanged: (newValue) {
+              setState(() {
+                selectedLang = newValue!;
+              });
+              if (newValue!.langName == 'En') {
+                context.setLocale(const Locale('en'));
+              } else if (newValue.langName == 'አማ') {
+                context.setLocale(const Locale('am'));
+              } else {
+                print('please select language');
+              }
+              setState(() {});
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
+            items:
+                languageList.map<DropdownMenuItem<Language>>((Language value) {
+              return DropdownMenuItem<Language>(
+                value: value,
+                child: Text(
+                  value.langName,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              );
+            }).toList(),
           ),
-          centerTitle: true),
+        ],
+      ),
       drawer: Drawer(
         child: MyHeaderDrawer(),
       ),
