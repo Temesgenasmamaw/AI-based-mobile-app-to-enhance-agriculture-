@@ -46,6 +46,8 @@ dependencies:
   dialog_flowtter:
   #firebase part
   cloud_firestore:
+  firebase_auth:
+
   
 
 
@@ -60,6 +62,7 @@ dependencies:
   alan_voice:
   http:
   flutter_email_sender: ^5.2.0
+  firebase_storage: ^11.2.0
   # sound_stream: 
   # dialogflow_grpc: 
   # rxdart: 
