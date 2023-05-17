@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:mango_app/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'Authentication/splash_screen.dart';
 import 'Screens/SignUp.dart';
 import 'const/theme_data.dart';
 import 'pages/info.dart';

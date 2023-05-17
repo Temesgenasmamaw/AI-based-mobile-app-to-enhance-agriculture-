@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:mango_app/Authentication/login_page.dart';
 
 import '../common/theme_helper.dart';
+import 'loginOrRegister.dart';
 import 'widgets/header_widget.dart';
 
 class RegistrationPage extends StatefulWidget {
+  // final Function()? onTap;
+  const RegistrationPage({
+    Key? key,
+  }) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return _RegistrationPageState();
@@ -20,8 +25,97 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmController = TextEditingController();
 
   // bool _isObscure = true;
+
+  //sign up user
+  void signUp() async {
+    //show loading circle
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    try {
+      if (passwordController.text.trim() == confirmController.text.trim()) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        //pop the leading circle
+        Navigator.pop(context);
+        showSuccessMessage('Successfully created!');
+        // Navigator.pop(context);
+      } else {
+        print('password don\'t match');
+        //pop the leading circle
+        Navigator.pop(context);
+        showErorMessage('Password don\'t match');
+        // Navigator.pop(context);
+      }
+    } on FirebaseAuthException catch (e) {
+      //pop the leading circle
+      Navigator.pop(context);
+      showErorMessage(e.code);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+//show error message
+  void showErorMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text("${message}",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.redAccent)),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  child: const Text("okay"),
+                ),
+              ),
+            ],
+          );
+        });
+  }
+
+//show Success message
+  void showSuccessMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text("${message}",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green)),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  child: const Text("okay"),
+                ),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +196,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         // ),
 
                         SizedBox(height: 20.0),
-
+                        //email address
                         Container(
                           child: TextFormField(
+                            controller: emailController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
@@ -137,8 +232,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         // ),
 
                         // SizedBox(height: 20.0),
+
+                        //password
                         Container(
                           child: TextFormField(
+                            controller: passwordController,
                             obscureText: true,
                             decoration: ThemeHelper().textInputDecoration(
                               "Password*",
@@ -153,7 +251,28 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ), //password
+                        Container(
+                          child: TextFormField(
+                            obscureText: true,
+                            controller: confirmController,
+                            decoration: ThemeHelper().textInputDecoration(
+                              "confirm Password*",
+                              "confirm Password*",
+                            ),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Please enter confirm password";
+                              }
+                              return null;
+                            },
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
                         SizedBox(height: 15.0),
+                        //check box
                         FormField<bool>(
                           builder: (state) {
                             return Column(
@@ -248,6 +367,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   LoginPage()));
+
+                                      // widget.onTap;
                                     },
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -268,22 +389,5 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ),
       ),
     );
-  }
-
-  void signUp() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
-    } catch (e) {
-      print(e);
-    }
   }
 }

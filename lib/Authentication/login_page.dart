@@ -2,15 +2,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mango_app/Authentication/profile_page.dart';
+import 'package:mango_app/Screens/SignUp.dart';
 
 import '../common/theme_helper.dart';
 import 'forgot_password_page.dart';
+import 'loginOrRegister.dart';
 import 'registration_page.dart';
 import 'widgets/header_widget.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  // final Function()? onTap;
+  const LoginPage({Key? key});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -34,21 +39,14 @@ class _LoginPageState extends State<LoginPage> {
 //sign in
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+
+      //pop the leading circle
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
+      //pop the leading circle
       Navigator.pop(context);
-      // //WRONG EMAIL
-      // if (e.code == 'user-not-found') {
-      //   print('No user found for that email.');
-
-      //   wrongEmailMessage();
-      //   // Navigator.pop(context);
-      // } else if (e.code == 'wrong-password') {
-      //   print('Wrong password provided for that user.');
-      //   wrongPasswordMessage();
-      //   // Navigator.pop(context);
-      // }
       showErorMessage(e.code);
     }
   }
@@ -103,8 +101,8 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text("Wrong ${message}"),
-            content: Text("You have entered wrong ${message}"),
+            // title: Text(" ${message}"),
+            content: Text("${message}"),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
@@ -157,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 child: TextFormField(
                                   controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
                                   decoration: ThemeHelper().textInputDecoration(
                                       'User Name', 'Enter your user name'),
                                   validator: (value) {
@@ -177,8 +176,8 @@ class _LoginPageState extends State<LoginPage> {
                                   obscureText: true,
                                   decoration: ThemeHelper().textInputDecoration(
                                       'Password', 'Enter your password'),
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
+                                  validator: (val) {
+                                    if (val!.isEmpty) {
                                       return 'please enter password';
                                     }
                                     return null;
@@ -215,24 +214,24 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration:
                                     ThemeHelper().buttonBoxDecoration(context),
                                 child: ElevatedButton(
-                                  style: ThemeHelper().buttonStyle(),
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.fromLTRB(40, 10, 40, 10),
-                                    child: Text(
-                                      'Sign In'.toUpperCase(),
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                    // onPressed: () {
+                                    //   if()
+                                    // },
+                                    style: ThemeHelper().buttonStyle(),
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.fromLTRB(40, 10, 40, 10),
+                                      child: Text(
+                                        'Sign In'.toUpperCase(),
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
                                     ),
-                                  ),
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
+                                    onPressed: () {
                                       signIn();
-                                    }
-                                  },
-                                ),
+                                    }),
                               ),
                               const SizedBox(height: 20),
 
@@ -281,15 +280,16 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     onTap: () {
                                       setState(() {
-                                        showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return ThemeHelper().alartDialog(
-                                                "Google Plus",
-                                                "You tap on GooglePlus social icon.",
-                                                context);
-                                          },
-                                        );
+                                        // showDialog(
+                                        //   context: context,
+                                        //   builder: (BuildContext context) {
+                                        //     return ThemeHelper().alartDialog(
+                                        //         "Google Plus",
+                                        //         "You tap on GooglePlus social icon.",
+                                        //         context);
+                                        //   },
+                                        // );
+                                        signInWithGoogle();
                                       });
                                     },
                                   ),
@@ -330,6 +330,7 @@ class _LoginPageState extends State<LoginPage> {
                                   SizedBox(
                                     width: 30.0,
                                   ),
+                                  //facebook
                                   GestureDetector(
                                     child: FaIcon(
                                       FontAwesomeIcons.phone,
@@ -354,6 +355,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
 
                               const SizedBox(height: 30),
+                              //Don\'t have an account?
                               Container(
                                 margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
                                 //child: Text('Don\'t have an account? Create'),
@@ -374,6 +376,8 @@ class _LoginPageState extends State<LoginPage> {
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     RegistrationPage()));
+
+                                        // widget.onTap;
                                       },
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -391,5 +395,23 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
