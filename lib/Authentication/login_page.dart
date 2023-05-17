@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mango_app/Authentication/phone.dart';
 import 'package:mango_app/Authentication/profile_page.dart';
 import 'package:mango_app/Screens/SignUp.dart';
 
@@ -296,6 +297,7 @@ class _LoginPageState extends State<LoginPage> {
                                   SizedBox(
                                     width: 30.0,
                                   ),
+                                  //facebook
                                   GestureDetector(
                                     child: Container(
                                       padding: EdgeInsets.all(0),
@@ -330,7 +332,7 @@ class _LoginPageState extends State<LoginPage> {
                                   SizedBox(
                                     width: 30.0,
                                   ),
-                                  //facebook
+                                  //phone number
                                   GestureDetector(
                                     child: FaIcon(
                                       FontAwesomeIcons.phone,
@@ -338,17 +340,23 @@ class _LoginPageState extends State<LoginPage> {
                                       color: HexColor("#3E529C"),
                                     ),
                                     onTap: () {
-                                      setState(() {
-                                        showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return ThemeHelper().alartDialog(
-                                                "Facebook",
-                                                "You tap on Facebook social icon.",
-                                                context);
-                                          },
-                                        );
-                                      });
+                                      // setState(() {
+                                      //   showDialog(
+                                      //     context: context,
+                                      //     builder: (BuildContext context) {
+                                      //       return ThemeHelper().alartDialog(
+                                      //           "Facebook",
+                                      //           "You tap on Facebook social icon.",
+                                      //           context);
+                                      //     },
+                                      //   );
+                                      // });
+
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  phoneSignIn()));
                                     },
                                   ),
                                 ],
