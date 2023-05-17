@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../Contacts/drawer.dart';
 import 'Resource.dart';
 import 'crops.dart';
-import 'language.dart';
+// import 'language.dart';
 import 'list_disease.dart';
 import 'upload.dart';
 
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
     ListDisease(),
     Resource(),
     Tabs(),
-    Languages(),
+    // Languages(),
   ];
 
   List<Language> languageList = [
@@ -50,7 +50,13 @@ class _HomeState extends State<Home> {
   dynamic a;
   @override
   Widget build(BuildContext context) {
-    selectedLang = languageList.singleWhere((e) => e.locale == context.locale);
+    if (languageList.isNotEmpty) {
+      selectedLang =
+          languageList.singleWhere((e) => e.locale == context.locale);
+    } else {
+      print('list is empty');
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 20,
@@ -78,10 +84,10 @@ class _HomeState extends State<Home> {
               } else {
                 print('please select language');
               }
-              setState(() {});
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => Home()),
-              );
+              // setState(() {});
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(builder: (context) => Home()),
+              // );
             },
             items:
                 languageList.map<DropdownMenuItem<Language>>((Language value) {
@@ -130,10 +136,10 @@ class _HomeState extends State<Home> {
             icon: const Icon(Icons.info),
             label: 'Crops'.tr(),
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.language),
-            label: 'Language'.tr(),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(Icons.language),
+          //   label: 'Language'.tr(),
+          // ),
         ],
       ),
     );

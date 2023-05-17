@@ -1,7 +1,8 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:mango_app/Auth/Auth.dart';
+import 'package:mango_app/Authentication/auth.dart';
 import 'home.dart';
-import 'crop-database.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,7 +23,8 @@ class SplashScreen extends StatelessWidget {
       showLoader: true,
       loadingTextPadding: const EdgeInsets.only(top: 8),
       loadingText: const Text("Loading..."),
-      navigator: const Home(),
+      // navigator: const Home(),
+      navigator: authPage(),
       durationInSeconds: 5,
       gradientBackground: LinearGradient(
         begin: Alignment.topRight,

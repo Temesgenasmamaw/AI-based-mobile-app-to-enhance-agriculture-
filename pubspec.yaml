@@ -46,7 +46,10 @@ dependencies:
   dialog_flowtter:
   #firebase part
   cloud_firestore:
-  firebase_auth: ^4.6.0
+  firebase_auth:
+  flutter_facebook_auth:
+  google_sign_in:
+  firebase_core:
 
   
 
@@ -64,9 +67,14 @@ dependencies:
   flutter_email_sender: ^5.2.0
   firebase_storage: ^11.2.0
   firebase_messaging: ^14.6.0
+  email_validator: ^2.1.17
   # sound_stream: 
   # dialogflow_grpc: 
   # rxdart: 
+  otp_text_field:
+  font_awesome_flutter:
+  hexcolor:
+  
 
 dev_dependencies:
   flutter_test:

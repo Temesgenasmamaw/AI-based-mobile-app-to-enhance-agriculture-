@@ -1,29 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mango_app/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-
+import 'Authentication/splash_screen.dart';
+import 'Screens/SignUp.dart';
 import 'const/theme_data.dart';
 import 'pages/info.dart';
 import 'pages/prediction.dart';
 import 'pages/home.dart';
 import 'theme/theme-model.dart';
 
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
     EasyLocalization(
-      supportedLocales: const [
+      supportedLocales: [
         Locale('am'),
         Locale('en'),
-        Locale('es'),
-        Locale('fr')
+        // Locale('es'),
+        // Locale('fr')
       ],
       path:
           'assets/translations', // <-- change the path of the translation files
@@ -34,7 +32,8 @@ void main() async {
   );
 }
 
-// ignore: must_be_immutable
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -69,12 +68,24 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
+
             supportedLocales: context.supportedLocales,
             locale: context.locale,
+            navigatorKey: navigatorKey,
+            scaffoldMessengerKey: messengerKey,
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
             initialRoute: '/',
+            //   home: StreamBuilder<User?>(
+            // stream: FirebaseAuth.instance.authStateChanges(),
+            // builder: (context, snapshot) {
+            //   if (snapshot.hasData) {
+            //     return HomePage();
+            //   } else {
+            //     return Auth();
+            //   }
+            // }),
             routes: {
-              '/': (context) => const SplashScreen(),
+              '/': (context) =>  SplashScreen(),
               '/home': (context) => const Home(),
               '/info': (context) => const Info(),
               '/Prediction': (context) => const Prediction(),
