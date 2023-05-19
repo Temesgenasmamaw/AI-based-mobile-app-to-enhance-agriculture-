@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../common/theme_helper.dart';
 import 'forgot_password_verification_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'login_page.dart';
 import 'widgets/header_widget.dart';
 
@@ -16,6 +17,11 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final _forgotPasswordController = TextEditingController();
+  @override
+  void dispose() {
+    _forgotPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +134,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                                   .trim())
                                           .then((value) => {
                                                 print('Email sent'),
+                                                Fluttertoast.showToast(
+                                                  msg:
+                                                      'Password Reset is sent to your!',
+                                                  toastLength:
+                                                      Toast.LENGTH_SHORT,
+                                                  gravity: ToastGravity.BOTTOM,
+                                                  timeInSecForIosWeb: 1,
+                                                  backgroundColor:
+                                                      Colors.grey[600],
+                                                  textColor: Colors.white,
+                                                  fontSize: 16.0,
+                                                ),
                                                 Navigator.push(
                                                     context,
                                                     MaterialPageRoute(

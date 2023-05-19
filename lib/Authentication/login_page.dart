@@ -117,6 +117,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -266,7 +273,7 @@ class _LoginPageState extends State<LoginPage> {
 
                               const SizedBox(height: 20),
 
-                              // google + face book+phone number sign in buttons
+                              // google +phone number sign in buttons
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -278,57 +285,14 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     onTap: () {
                                       setState(() {
-                                        // showDialog(
-                                        //   context: context,
-                                        //   builder: (BuildContext context) {
-                                        //     return ThemeHelper().alartDialog(
-                                        //         "Google Plus",
-                                        //         "You tap on GooglePlus social icon.",
-                                        //         context);
-                                        //   },
-                                        // );
                                         signInWithGoogle();
                                       });
                                     },
                                   ),
                                   SizedBox(
-                                    width: 30.0,
+                                    width: 50.0,
                                   ),
-                                  //facebook
-                                  GestureDetector(
-                                    child: Container(
-                                      padding: EdgeInsets.all(0),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                        border: Border.all(
-                                            width: 5,
-                                            color: HexColor("#40ABF0")),
-                                        color: HexColor("#40ABF0"),
-                                      ),
-                                      child: FaIcon(
-                                        FontAwesomeIcons.facebook,
-                                        size: 23,
-                                        color: HexColor("#FFFFFF"),
-                                      ),
-                                    ),
-                                    onTap: () {
-                                      setState(() {
-                                        showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return ThemeHelper().alartDialog(
-                                                "Twitter",
-                                                "You tap on Twitter social icon.",
-                                                context);
-                                          },
-                                        );
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 30.0,
-                                  ),
+
                                   //phone number
                                   GestureDetector(
                                     child: FaIcon(
@@ -337,18 +301,6 @@ class _LoginPageState extends State<LoginPage> {
                                       color: HexColor("#3E529C"),
                                     ),
                                     onTap: () {
-                                      // setState(() {
-                                      //   showDialog(
-                                      //     context: context,
-                                      //     builder: (BuildContext context) {
-                                      //       return ThemeHelper().alartDialog(
-                                      //           "Facebook",
-                                      //           "You tap on Facebook social icon.",
-                                      //           context);
-                                      //     },
-                                      //   );
-                                      // });
-
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
