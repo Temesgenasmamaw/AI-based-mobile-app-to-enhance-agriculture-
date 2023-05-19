@@ -75,6 +75,8 @@ dependencies:
   font_awesome_flutter:
   hexcolor:
   carousel_slider:
+  animated_text_kit:
+  marquee:
   
 
 dev_dependencies:

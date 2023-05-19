@@ -1,13 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
+import 'package:mango_app/pages/landing2.dart';
 import '../Contacts/drawer.dart';
 import 'Resource.dart';
 import 'crops.dart';
-// import 'language.dart';
 import 'landing page.dart';
 import 'list_disease.dart';
 import 'upload.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Language {
   Locale locale;
@@ -66,7 +67,7 @@ class _HomeState extends State<Home> {
           'mdp'.tr(),
           style: const TextStyle(fontSize: 19),
         ),
-        centerTitle: true,
+        // centerTitle: true,
         actions: [
           DropdownButton<Language>(
             iconSize: 35,
@@ -104,6 +105,36 @@ class _HomeState extends State<Home> {
                 ),
               );
             }).toList(),
+          ),
+          IconButton(
+            icon: Icon(Icons.logout_outlined),
+            iconSize: 20,
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Confirmation'),
+                      content: Text('Are you sure you want to log out?'),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('Yes'),
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
+                            Navigator.pop(context);
+                          },
+                        ),
+                        TextButton(
+                          child: Text('No'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            ;
+                          },
+                        ),
+                      ],
+                    );
+                  });
+            },
           ),
         ],
       ),

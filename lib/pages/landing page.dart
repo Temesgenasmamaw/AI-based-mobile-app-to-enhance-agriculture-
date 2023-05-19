@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:marquee/marquee.dart';
 
 class landingPage extends StatefulWidget {
   const landingPage({super.key});
@@ -16,15 +17,13 @@ class _landingPageState extends State<landingPage> {
       width: double.infinity,
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/icons.png'),
-              // image: AssetImage('assets/icons.png'),
-              fit: BoxFit.cover)),
+              image: AssetImage('assets/icons.png'), fit: BoxFit.cover)),
       child: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.center,
           end: Alignment.bottomCenter,
-          colors: [Colors.black12, Colors.black12],
+          colors: [Colors.black12, Colors.black54],
         )),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -32,9 +31,25 @@ class _landingPageState extends State<landingPage> {
             alignment: Alignment.center,
             padding: EdgeInsets.all(32),
             child: Container(
-              margin: EdgeInsets.only(top: 150),
+              margin: EdgeInsets.only(top: 60),
               child: ListView(
                 children: [
+                  // Marquee(
+                  //   text: 'AI based Mobile App to Enhance Crop Productivity',
+                  //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  //   scrollAxis: Axis.horizontal,
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   blankSpace: 20.0,
+                  //   velocity: 100.0,
+                  //   pauseAfterRound: Duration(seconds: 1),
+                  //   startPadding: 10.0,
+                  //   accelerationDuration: Duration(seconds: 1),
+                  //   accelerationCurve: Curves.linear,
+                  //   decelerationDuration: Duration(milliseconds: 500),
+                  //   decelerationCurve: Curves.easeOut,
+                  // ),
+
+                  //Carousel start
                   CarouselSlider(
                     // carouselController: CarouselController.,
                     items: [
@@ -317,7 +332,7 @@ class _landingPageState extends State<landingPage> {
 
                     //Slider Container properties
                     options: CarouselOptions(
-                      height: 200.0,
+                      height: 130.0,
                       enlargeCenterPage: true,
                       autoPlay: true,
                       aspectRatio: 16 / 9,
@@ -325,6 +340,64 @@ class _landingPageState extends State<landingPage> {
                       enableInfiniteScroll: true,
                       autoPlayAnimationDuration: Duration(milliseconds: 1000),
                       viewportFraction: 0.8,
+                    ),
+                  ),
+
+                  //Carousel end
+                  const SizedBox(height: 30),
+                  Container(
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          ' Boost Agricultural productivity',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.camera),
+                            label: Text(
+                              'Capture or upload photo',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
+                            )),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.analytics),
+                            label: Text(
+                              'Analyse result',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
+                            )),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.input),
+                            label: Text(
+                              'know suitable crops for farm land',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
+                            )),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.info),
+                            label: Text(
+                              'Get info for type of disese',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
+                            )),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.info),
+                            label: Text(
+                              'know info for crops and fruits',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
+                            )),
+                      ],
                     ),
                   ),
                 ],

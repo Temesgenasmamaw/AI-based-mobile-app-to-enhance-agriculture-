@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mango_app/Authentication/profile_page.dart';
+import 'package:mango_app/pages/home.dart';
 
 class verifyPhone extends StatefulWidget {
   final String verificationId;
@@ -89,7 +90,7 @@ class _verifyPhoneState extends State<verifyPhone> {
                     // Sign the user in (or link) with the credential
                     await auth.signInWithCredential(credential);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()));
+                        MaterialPageRoute(builder: (context) => Home()));
                   } catch (e) {
                     print(e.toString());
                   }
