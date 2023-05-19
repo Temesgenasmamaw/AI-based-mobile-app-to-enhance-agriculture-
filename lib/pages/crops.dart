@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-// import 'package:toast/toast.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 import '../crop-result/barly-result.dart';
@@ -41,25 +39,7 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-    Widget okButton = TextButton(
-      child: Text(
-        "ok",
-        style: TextStyle(color: Colors.cyan, fontSize: 17),
-      ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-
-    Widget cancelButton = TextButton(
-      child: Text(
-        "Cancel",
-        style: TextStyle(color: Colors.cyan, fontSize: 17),
-      ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
+   
     return DefaultTabController(
       length: 5,
       child: Scaffold(

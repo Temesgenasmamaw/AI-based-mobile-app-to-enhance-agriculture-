@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mango_app/Authentication/login_page.dart';
+import 'package:mango_app/Authentication/registration_page.dart';
 import 'package:mango_app/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -67,27 +69,25 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
-
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             navigatorKey: navigatorKey,
             scaffoldMessengerKey: messengerKey,
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
             initialRoute: '/',
-            //   home: StreamBuilder<User?>(
-            // stream: FirebaseAuth.instance.authStateChanges(),
-            // builder: (context, snapshot) {
-            //   if (snapshot.hasData) {
-            //     return HomePage();
-            //   } else {
-            //     return Auth();
-            //   }
-            // }),
             routes: {
-              '/': (context) =>  SplashScreen(),
+              '/': (context) => SplashScreen(),
               '/home': (context) => const Home(),
               '/info': (context) => const Info(),
               '/Prediction': (context) => const Prediction(),
+              '/login': (context) => const LoginPage(),
+              '/register': (context) => const RegistrationPage(),
+
+               '/home': (context) => const Home(),
+              '/info': (context) => const Info(),
+              '/Prediction': (context) => const Prediction(),
+              '/login': (context) => const LoginPage(),
+              '/register': (context) => const RegistrationPage(),
             },
           );
         }));

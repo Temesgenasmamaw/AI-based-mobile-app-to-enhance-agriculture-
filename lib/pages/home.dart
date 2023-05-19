@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
-import 'package:mango_app/pages/landing2.dart';
 import '../Contacts/drawer.dart';
 import 'Resource.dart';
 import 'crops.dart';
@@ -69,6 +68,7 @@ class _HomeState extends State<Home> {
         ),
         // centerTitle: true,
         actions: [
+          //language button
           DropdownButton<Language>(
             iconSize: 35,
             elevation: 25,
@@ -106,6 +106,8 @@ class _HomeState extends State<Home> {
               );
             }).toList(),
           ),
+
+          //logout icon
           IconButton(
             icon: Icon(Icons.logout_outlined),
             iconSize: 20,
@@ -136,6 +138,7 @@ class _HomeState extends State<Home> {
                   });
             },
           ),
+        
         ],
       ),
       drawer: Drawer(

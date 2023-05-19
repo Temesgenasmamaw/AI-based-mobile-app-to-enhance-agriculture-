@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,15 @@ import 'forgot_password_page.dart';
 import 'registration_page.dart';
 import 'widgets/header_widget.dart';
 
+class Language {
+  Locale locale;
+  String langName;
+  Language({
+    required this.locale,
+    required this.langName,
+  });
+}
+
 class LoginPage extends StatefulWidget {
   // final Function()? onTap;
   const LoginPage({Key? key});
@@ -21,9 +31,21 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   double _headerHeight = 250;
-  Key _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  List<Language> languageList = [
+    Language(
+      langName: 'En',
+      locale: const Locale('en'),
+    ),
+    Language(
+      langName: 'አማ',
+      locale: const Locale('am'),
+    ),
+  ];
+  Language? selectedLang;
 
   void signIn() async {
     //show loading circle
@@ -125,8 +147,57 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (languageList.isNotEmpty) {
+      selectedLang =
+          languageList.singleWhere((e) => e.locale == context.locale);
+    } else {
+      print('list is empty');
+    }
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          //language button
+          DropdownButton<Language>(
+            iconSize: 35,
+            elevation: 25,
+            value: selectedLang,
+            underline: Container(
+              padding: const EdgeInsets.only(left: 4, right: 4),
+            ),
+            onChanged: (newValue) {
+              setState(() {
+                selectedLang = newValue!;
+              });
+              if (newValue!.langName == 'En') {
+                context.setLocale(const Locale('en'));
+              } else if (newValue.langName == 'አማ') {
+                context.setLocale(const Locale('am'));
+              } else {
+                print('please select language');
+              }
+              // setState(() {});
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(builder: (context) => Home()),
+              // );
+            },
+            items:
+                languageList.map<DropdownMenuItem<Language>>((Language value) {
+              return DropdownMenuItem<Language>(
+                value: value,
+                child: Text(
+                  value.langName,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -148,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 60, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Signin into your account',
+                        'signinToAccount'.tr(),
                         style: TextStyle(color: Colors.grey),
                       ),
                       SizedBox(height: 30.0),
@@ -162,10 +233,10 @@ class _LoginPageState extends State<LoginPage> {
                                   controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: ThemeHelper().textInputDecoration(
-                                      'User Name', 'Enter your user name'),
+                                      'UserName'.tr(), 'EnterUserName'.tr()),
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'please enter email';
+                                      return 'pleaseEnterEmail'.tr();
                                     }
                                     return null;
                                   },
@@ -180,10 +251,10 @@ class _LoginPageState extends State<LoginPage> {
                                   controller: passwordController,
                                   obscureText: true,
                                   decoration: ThemeHelper().textInputDecoration(
-                                      'Password', 'Enter your password'),
+                                      'password'.tr(), 'EnterPassword'.tr()),
                                   validator: (val) {
                                     if (val!.isEmpty) {
-                                      return 'please enter password';
+                                      return 'pleaseEnterPassword'.tr();
                                     }
                                     return null;
                                   },
@@ -207,7 +278,7 @@ class _LoginPageState extends State<LoginPage> {
                                     );
                                   },
                                   child: Text(
-                                    "Forgot your password?",
+                                    "forgotPassword".tr(),
                                     style: TextStyle(
                                       color: Colors.grey,
                                     ),
@@ -227,7 +298,7 @@ class _LoginPageState extends State<LoginPage> {
                                       padding:
                                           EdgeInsets.fromLTRB(40, 10, 40, 10),
                                       child: Text(
-                                        'Sign In'.toUpperCase(),
+                                        'signin'.tr().toUpperCase(),
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
@@ -235,7 +306,13 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      signIn();
+                                      if (_formKey.currentState!.validate()) {
+                                        try {
+                                          signIn();
+                                        } catch (e) {
+                                          print(e.toString());
+                                        }
+                                      }
                                     }),
                               ),
                               const SizedBox(height: 20),
@@ -256,7 +333,7 @@ class _LoginPageState extends State<LoginPage> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10.0),
                                       child: Text(
-                                        'Or continue with',
+                                        'continueWith'.tr(),
                                         style:
                                             TextStyle(color: Colors.grey[700]),
                                       ),
@@ -318,14 +395,14 @@ class _LoginPageState extends State<LoginPage> {
                                 //child: Text('Don\'t have an account? Create'),
                                 child: Text.rich(TextSpan(children: [
                                   TextSpan(
-                                    text: "Don\'t have an account? ",
+                                    text: "dontHaveAccount".tr(),
                                     style: TextStyle(
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15,
                                         color: Colors.black),
                                   ),
                                   TextSpan(
-                                    text: 'Register now',
+                                    text: 'createNewAccount'.tr(),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.push(
@@ -338,7 +415,7 @@ class _LoginPageState extends State<LoginPage> {
                                       },
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: Colors.black),
                                   ),
                                 ])),

@@ -105,7 +105,7 @@ class _cropsInfoState extends State<cropsInfo> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('crops update information'),
+        title: Text('crops Notes'),
       ),
       // Using StreamBuilder to display all products from Firestore in real-time
       body: StreamBuilder(

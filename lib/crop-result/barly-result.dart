@@ -71,6 +71,7 @@ class _barlyResultState extends State<barlyResult> {
                     color: Colors.red),
               ),
               Text('is suitable crop for your farmland', style: _style),
+              
               Stack(
                 children: [
                   Container(
@@ -129,7 +130,7 @@ class _barlyResultState extends State<barlyResult> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Ethiopian Teff Stack widget is a built-in widget in flutter SDK which allows us to make a layer of widgets by putting them on top of each other.Many of the times a simple row and column layout is not enough, we need a way to overlay one widget on top of the other, for example, we might want to show some text over an image, so to tackle such',
+                                'Barly is....',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,

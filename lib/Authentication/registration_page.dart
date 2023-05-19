@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -175,38 +176,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(
                           height: 30,
                         ),
-                        // Container(
-                        //   child: TextFormField(
-                        //     decoration: ThemeHelper().textInputDecoration(
-                        //         'First Name', 'Enter your first name'),
-                        //   ),
-                        //   decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                        // ),
-                        // SizedBox(
-                        //   height: 30,
-                        // ),
-
-                        // Container(
-                        //   child: TextFormField(
-                        //     decoration: ThemeHelper().textInputDecoration(
-                        //         'Last Name', 'Enter your last name'),
-                        //   ),
-                        //   decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                        // ),
-
                         SizedBox(height: 20.0),
                         //email address
                         Container(
                           child: TextFormField(
                             controller: emailController,
                             decoration: ThemeHelper().textInputDecoration(
-                                "E-mail address", "Enter your email"),
+                                "UserName".tr(), "EnterUserName".tr()),
                             keyboardType: TextInputType.emailAddress,
                             validator: (val) {
-                              if (!(val!.isEmpty) &&
-                                  !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                                      .hasMatch(val)) {
-                                return "Enter a valid email address";
+                              if (val!.isEmpty) {
+                                return "pleaseEnterEmail".tr();
+                              } else if (!RegExp(
+                                      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                                  .hasMatch(val)) {
+                                return "enterValidEmail".tr();
                               }
                               return null;
                             },
@@ -230,20 +214,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         //   decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         // ),
 
-                        // SizedBox(height: 20.0),
-
                         //password
                         Container(
                           child: TextFormField(
                             controller: passwordController,
                             obscureText: true,
                             decoration: ThemeHelper().textInputDecoration(
-                              "Password*",
-                              "Enter your password",
+                              "password".tr(),
+                              "EnterPassword".tr(),
                             ),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return "Please enter your password";
+                                return "pleaseEnterPassword".tr();
                               }
                               return null;
                             },
@@ -252,18 +234,20 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         SizedBox(
                           height: 20,
-                        ), //password
+                        ),
+
+                        //password
                         Container(
                           child: TextFormField(
                             obscureText: true,
                             controller: confirmController,
                             decoration: ThemeHelper().textInputDecoration(
-                              "confirm Password*",
-                              "confirm Password*",
+                              "confirmPassword".tr(),
+                              "confirmPassword".tr(),
                             ),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return "Please enter confirm password";
+                                return "pleaseConfirm".tr();
                               }
                               return null;
                             },
@@ -279,8 +263,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 Row(
                                   children: <Widget>[
                                     Checkbox(
-                                        checkColor: Colors.black,
-                                        focusColor: Colors.black,
+                                        checkColor: Colors.red,
+                                        focusColor: Colors.green,
                                         value: checkboxValue,
                                         onChanged: (value) {
                                           setState(() {
@@ -289,7 +273,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                           });
                                         }),
                                     Text(
-                                      "I accept all terms and conditions.",
+                                      "acceptPrivacy".tr(),
                                       style: TextStyle(color: Colors.black),
                                     ),
                                   ],
@@ -300,7 +284,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     state.errorText ?? '',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      color: Theme.of(context).colorScheme.error,
+                                      color:
+                                          Theme.of(context).colorScheme.error,
                                       fontSize: 12,
                                     ),
                                   ),
@@ -310,7 +295,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           },
                           validator: (value) {
                             if (!checkboxValue) {
-                              return 'You need to accept terms and conditions';
+                              return 'youNeedToAccept'.tr();
                             } else {
                               return null;
                             }
@@ -326,7 +311,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               padding:
                                   const EdgeInsets.fromLTRB(40, 10, 40, 10),
                               child: Text(
-                                "Register".toUpperCase(),
+                                "SignUp".tr().toUpperCase(),
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -351,14 +336,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               //child: Text('Don\'t have an account? Create'),
                               child: Text.rich(TextSpan(children: [
                                 TextSpan(
-                                  text: "Already have  an account! ",
+                                  text: "haveAccount".tr(),
                                   style: TextStyle(
                                       // fontWeight: FontWeight.bold,
-                                      fontSize: 20,
+                                      fontSize: 16,
                                       color: Colors.black),
                                 ),
                                 TextSpan(
-                                  text: 'sign in',
+                                  text: 'signin'.tr(),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(
@@ -371,7 +356,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     },
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20,
+                                      fontSize: 16,
                                       color: Colors.black),
                                 ),
                               ])),

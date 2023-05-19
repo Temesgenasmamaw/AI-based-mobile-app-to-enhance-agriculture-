@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../common/theme_helper.dart';
-import 'forgot_password_verification_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'login_page.dart';
 import 'widgets/header_widget.dart';
@@ -50,7 +50,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Forgot Password?',
+                              'forgotPassword'.tr(),
                               style: TextStyle(
                                   fontSize: 35,
                                   fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               height: 10,
                             ),
                             Text(
-                              'Enter the email address associated with your account.',
+                              'forgotEmailPassword'.tr(),
                               style: TextStyle(
                                   // fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -71,14 +71,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text(
-                              'We will email you a verification code to check your authenticity.',
-                              style: TextStyle(
-                                color: Colors.black38,
-                                // fontSize: 20,
-                              ),
-                              // textAlign: TextAlign.center,
-                            ),
+                            // Text(
+                            //   'We will email you a verification code to check your authenticity.',
+                            //   style: TextStyle(
+                            //     color: Colors.black38,
+                            //     // fontSize: 20,
+                            //   ),
+                            //   // textAlign: TextAlign.center,
+                            // ),
                           ],
                         ),
                       ),
@@ -91,14 +91,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               child: TextFormField(
                                 controller: _forgotPasswordController,
                                 decoration: ThemeHelper().textInputDecoration(
-                                    "Email", "Enter your email"),
+                                    "UserName".tr(), "EnterUserName".tr()),
                                 validator: (val) {
                                   if (val!.isEmpty) {
-                                    return "Email can't be empty";
+                                    return "pleaseEnterEmail".tr();
                                   } else if (!RegExp(
                                           r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
                                       .hasMatch(val)) {
-                                    return "Enter a valid email address";
+                                    return "enterValidEmail".tr();
                                   }
                                   return null;
                                 },
@@ -116,7 +116,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   padding:
                                       const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
-                                    "Send".toUpperCase(),
+                                    "send".tr().toUpperCase(),
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -135,8 +135,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           .then((value) => {
                                                 print('Email sent'),
                                                 Fluttertoast.showToast(
-                                                  msg:
-                                                      'Password Reset is sent to your!',
+                                                  msg: 'sendReset'.tr(),
                                                   toastLength:
                                                       Toast.LENGTH_SHORT,
                                                   gravity: ToastGravity.BOTTOM,
