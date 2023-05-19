@@ -1,8 +1,6 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/Auth/Auth.dart';
 import 'package:mango_app/Authentication/auth.dart';
-import 'home.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class SplashScreen extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      logo: Image.asset('assets/ai.png'),
+      logo: Image.asset('assets/cropTech.jfif'),
       logoWidth: 200,
       // backgroundColor: Colors.grey.shade400,
       showLoader: true,

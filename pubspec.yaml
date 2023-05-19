@@ -74,6 +74,7 @@ dependencies:
   otp_text_field:
   font_awesome_flutter:
   hexcolor:
+  carousel_slider:
   
 
 dev_dependencies:

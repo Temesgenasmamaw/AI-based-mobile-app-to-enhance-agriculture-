@@ -142,6 +142,7 @@ class _wheatResultState extends State<wheatResult> {
                       ))
                 ],
               ),
+            
             ],
           ),
         ),

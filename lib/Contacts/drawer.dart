@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/chatBot/chat.dart';
-import 'package:mango_app/chatBot2/chat2.dart';
 import 'package:mango_app/pages/crop-database.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_share/flutter_share.dart';

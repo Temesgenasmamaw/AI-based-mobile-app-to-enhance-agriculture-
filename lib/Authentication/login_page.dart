@@ -5,12 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mango_app/Authentication/phone.dart';
-import 'package:mango_app/Authentication/profile_page.dart';
-import 'package:mango_app/Screens/SignUp.dart';
 
 import '../common/theme_helper.dart';
 import 'forgot_password_page.dart';
-import 'loginOrRegister.dart';
 import 'registration_page.dart';
 import 'widgets/header_widget.dart';
 

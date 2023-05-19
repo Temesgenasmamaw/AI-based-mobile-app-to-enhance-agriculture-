@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:mango_app/Authentication/login_page.dart';
 
 import '../common/theme_helper.dart';
-import 'loginOrRegister.dart';
 import 'widgets/header_widget.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -301,7 +300,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     state.errorText ?? '',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      color: Theme.of(context).errorColor,
+                                      color: Theme.of(context).colorScheme.error,
                                       fontSize: 12,
                                     ),
                                   ),

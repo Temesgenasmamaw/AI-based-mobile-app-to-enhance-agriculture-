@@ -5,6 +5,7 @@ import '../Contacts/drawer.dart';
 import 'Resource.dart';
 import 'crops.dart';
 // import 'language.dart';
+import 'landing page.dart';
 import 'list_disease.dart';
 import 'upload.dart';
 
@@ -28,6 +29,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
+    landingPage(),
     UploadImage(),
     ListDisease(),
     Resource(),
@@ -125,8 +127,13 @@ class _HomeState extends State<Home> {
             //  backgroundColor: Colors.grey[100],
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.list),
+            icon: const Icon(Icons.home),
             label: 'Diseases'.tr(),
+            //  backgroundColor: Colors.grey[100],
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.list),
+            label: 'info on disease'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.info),
