@@ -79,42 +79,7 @@ class _phoneSignInState extends State<phoneSignIn> {
                   ),
                 ),
                 onPressed: () {
-                  auth.verifyPhoneNumber(
-                      phoneNumber: _phoneController.text,
-                      verificationCompleted:
-                          (PhoneAuthCredential credential) async {
-                        await auth.signInWithCredential(credential);
-                      },
-                      verificationFailed: (FirebaseAuthException e) {
-                        if (e.code == 'invalid-phone-number') {
-                          print('The provided phone number is not valid.');
-                        }
-                      },
-                      codeSent:
-                          (String verificationId, int? resendToken) async {
-                        // Update the UI - wait for the user to enter the SMS code
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => verifyPhone(
-                                      verificationId: verificationId,
-                                    )));
-
-                        // String smsCode = 'xxxx';
-
-                        // // Create a PhoneAuthCredential with the code
-                        // PhoneAuthCredential credential =
-                        //     PhoneAuthProvider.credential(
-                        //         verificationId: verificationId,
-                        //         smsCode: smsCode);
-
-                        // // Sign the user in (or link) with the credential
-                        // await auth.signInWithCredential(credential);
-                      },
-                      codeAutoRetrievalTimeout: (String verificationId) {
-                        print(verificationId.toString());
-                      });
+                  verifyPhoneCode();
                 },
               )
             ],
@@ -122,5 +87,62 @@ class _phoneSignInState extends State<phoneSignIn> {
         ),
       ),
     );
+  }
+
+  void verifyPhoneCode() async {
+    //show loading circle
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+
+    auth.verifyPhoneNumber(
+        phoneNumber: _phoneController.text,
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await auth.signInWithCredential(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          //pop the leading circle
+          Navigator.pop(context);
+          showErrormessage(e.toString());
+        },
+        codeSent: (String verificationId, int? resendToken) async {
+          // Update the UI - wait for the user to enter the SMS code
+
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => verifyPhone(
+                        verificationId: verificationId,
+                      )));
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {
+          print(verificationId.toString());
+        });
+  }
+
+  void showErrormessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            // title: Text(" ${message}"),
+            content: Text("${message}"),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  child: const Text("okay"),
+                ),
+              ),
+            ],
+          );
+        });
   }
 }

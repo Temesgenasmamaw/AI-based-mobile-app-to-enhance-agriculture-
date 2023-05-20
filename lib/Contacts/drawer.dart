@@ -10,7 +10,7 @@ import '../Contacts/contact.dart';
 import '../Contacts/feedback.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
-import '../dialog chatbot3/home_chat.dart';
+import '../chatBot2/chat2.dart';
 import '../theme/theme-model.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
@@ -92,7 +92,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           leading: const Icon(Icons.mic),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => chatApp()),
+              MaterialPageRoute(builder: (context) => voiceChat()),
             );
           },
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../chatBot2/chat2.dart';
+
 class landingPage extends StatefulWidget {
   const landingPage({super.key});
 
@@ -389,7 +391,9 @@ class _landingPageState extends State<landingPage> {
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
                         TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                             
+                            },
                             icon: Icon(Icons.info),
                             label: Text(
                               'know info for crops and fruits',

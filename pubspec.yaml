@@ -69,7 +69,11 @@ dependencies:
   firebase_storage: ^11.2.0
   firebase_messaging: ^14.6.0
   email_validator: ^2.1.17
-  sound_stream: 
+  #floating action button effect
+  avatar_glow: 
+  #copy text to clipboard
+  clipboard:
+  # sound_stream: 
   dialogflow_grpc: 
   google_speech:
   rxdart: 
