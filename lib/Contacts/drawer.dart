@@ -10,6 +10,7 @@ import '../Contacts/contact.dart';
 import '../Contacts/feedback.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
+import '../dialog chatbot3/home_chat.dart';
 import '../theme/theme-model.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
@@ -85,16 +86,16 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           },
         ),
 
-        // ListTile(
-        //   title: Text('Voice Bot'.tr()),
-        //   subtitle: Text("search in bot".tr()),
-        //   leading: const Icon(Icons.mic),
-        //   onTap: () {
-        //     Navigator.of(context).push(
-        //       MaterialPageRoute(builder: (context) =>  MyHomePage()),
-        //     );
-        //   },
-        // ),
+        ListTile(
+          title: Text('Voice Bot'.tr()),
+          subtitle: Text("search in bot".tr()),
+          leading: const Icon(Icons.mic),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => chatApp()),
+            );
+          },
+        ),
         ListTile(
           title: Text('Crop info'.tr()),
           subtitle: Text("crop information".tr()),

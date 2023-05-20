@@ -62,15 +62,17 @@ dependencies:
   fluttertoast: ^8.2.1
   flutter_tts:
   speech_to_text:
+  flutter_speech:
   alan_voice:
   http:
   flutter_email_sender: ^5.2.0
   firebase_storage: ^11.2.0
   firebase_messaging: ^14.6.0
   email_validator: ^2.1.17
-  # sound_stream: 
-  # dialogflow_grpc: 
-  # rxdart: 
+  sound_stream: 
+  dialogflow_grpc: 
+  google_speech:
+  rxdart: 
   otp_text_field:
   font_awesome_flutter:
   hexcolor:

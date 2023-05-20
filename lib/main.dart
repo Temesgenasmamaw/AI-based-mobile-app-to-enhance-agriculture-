@@ -12,6 +12,7 @@ import 'pages/prediction.dart';
 import 'pages/home.dart';
 import 'theme/theme-model.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -78,12 +79,6 @@ class _MyAppState extends State<MyApp> {
             routes: {
               '/': (context) => SplashScreen(),
               '/home': (context) => const Home(),
-              '/info': (context) => const Info(),
-              '/Prediction': (context) => const Prediction(),
-              '/login': (context) => const LoginPage(),
-              '/register': (context) => const RegistrationPage(),
-
-               '/home': (context) => const Home(),
               '/info': (context) => const Info(),
               '/Prediction': (context) => const Prediction(),
               '/login': (context) => const LoginPage(),
