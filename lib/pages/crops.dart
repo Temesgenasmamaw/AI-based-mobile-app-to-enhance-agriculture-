@@ -299,8 +299,7 @@ class _TabsState extends State<Tabs> {
                             await flutterTts.setSpeechRate(0.5);
                             await flutterTts.setPitch(1.0);
                             await flutterTts.setVolume(1.0);
-                            await flutterTts
-                                .speak("info about maize is comming soon".tr());
+                            await flutterTts.speak("maizeDesc".tr());
                           },
                           icon: const Icon(
                             Icons.volume_up,
@@ -320,7 +319,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("info about maize is comming soon".tr(),
+                    child: Text("maizeDesc".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16)),
                   ),
@@ -339,8 +338,7 @@ class _TabsState extends State<Tabs> {
                             await flutterTts.setSpeechRate(0.5);
                             await flutterTts.setPitch(1.0);
                             await flutterTts.setVolume(1.0);
-                            await flutterTts
-                                .speak("info about teff is comming soon".tr());
+                            await flutterTts.speak("teffDesc".tr());
                           },
                           icon: const Icon(
                             Icons.volume_up,
@@ -360,7 +358,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("nfo about teff is comming soon".tr(),
+                    child: Text("teffDesc".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16)),
                   ),
@@ -379,8 +377,7 @@ class _TabsState extends State<Tabs> {
                             await flutterTts.setSpeechRate(0.5);
                             await flutterTts.setPitch(1.0);
                             await flutterTts.setVolume(1.0);
-                            await flutterTts
-                                .speak("info about wheat is comming soon".tr());
+                            await flutterTts.speak("wheatDesc".tr());
                           },
                           icon: const Icon(
                             Icons.volume_up,
@@ -400,7 +397,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("info about maize is wheat soon".tr(),
+                    child: Text("wheatDesc".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16)),
                   ),
@@ -419,8 +416,7 @@ class _TabsState extends State<Tabs> {
                             await flutterTts.setSpeechRate(0.5);
                             await flutterTts.setPitch(1.0);
                             await flutterTts.setVolume(1.0);
-                            await flutterTts
-                                .speak("info about barly is comming soon".tr());
+                            await flutterTts.speak("barleyDesc".tr());
                           },
                           icon: const Icon(
                             Icons.volume_up,
@@ -440,7 +436,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("info about barly is comming soon".tr(),
+                    child: Text("barleyDesc".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16)),
                   ),
