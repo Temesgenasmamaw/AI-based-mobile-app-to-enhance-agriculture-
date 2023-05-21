@@ -11,25 +11,30 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
   Future<void> sendFeedbackEmail() async {
     final String email = 'asmamawtemesgen16@gmail.com';
-    // final String subject = 'Feedback on Firebase App';
-    // final String body = 'Please enter your feedback here.';
+   final Uri params = Uri(
+  scheme: 'mailto',
+  path: email,
+  query: 'subject=This is the subject&body=this is body',
+);
+final url = params.toString();
+launch(url);
 
-    final Uri params = Uri(
-      scheme: 'googlegmail',
-      path: email,
-      // queryParameters: {
-      //   'subject': subject,
-      //   'body': body,
-      // },
-    );
+    // final Uri params = Uri(
+    //   scheme: 'googlegmail',
+    //   path: email,
+    //   queryParameters: {
+    //     'subject': subject,
+    //     'body': body,
+    //   },
+    // );
 
-    String url = params.toString();
+    // String url = params.toString();
 
-    if (await canLaunchUrl(url as Uri)) {
-      await canLaunchUrl(url as Uri);
-    } else {
-      throw 'Could not launch $url';
-    }
+    // if (await canLaunchUrl(url as Uri)) {
+    //   await canLaunchUrl(url as Uri);
+    // } else {
+    //   throw 'Could not launch $url';
+    // }
   }
 
   @override

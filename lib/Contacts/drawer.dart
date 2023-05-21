@@ -8,7 +8,6 @@ import '../Contacts/About.dart';
 import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
-import '../chatBot2/chat2.dart';
 import '../databases/crop-database.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
