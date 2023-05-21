@@ -11,18 +11,12 @@ class voiceChat extends StatefulWidget {
 class _voiceChatState extends State<voiceChat> {
   _voiceChatState() {
     _initAlanButton();
-    // AlanVoice.addButton(
-    //     "d85004c5a55c73349e11b328e68824782e956eca572e1d8b807a3e2338fdd0dc/stage");
-
-    // /// Handle commands from Alan AI Studio
-    // AlanVoice.onCommand.add((command) {
-    //   debugPrint("got new command ${command.toString()}");
-    // });
+    
   }
 
   void _initAlanButton() {
     AlanVoice.addButton(
-        "d85004c5a55c73349e11b328e68824782e956eca572e1d8b807a3e2338fdd0dc/stage",
+        "06d014b53c99bfc79e11b328e68824782e956eca572e1d8b807a3e2338fdd0dc/stage",
         buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT);
 
     AlanVoice.onCommand.add((command) {

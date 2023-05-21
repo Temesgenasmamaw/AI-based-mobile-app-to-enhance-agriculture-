@@ -2,16 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/chatBot/chat.dart';
-import 'package:mango_app/pages/crop-database.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_share/flutter_share.dart';
 import '../Contacts/About.dart';
 import '../Contacts/contact.dart';
-import '../Contacts/feedback.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
 import '../chatBot2/chat2.dart';
+import '../databases/crop-database.dart';
 import '../theme/theme-model.dart';
+import 'feedback.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
   @override
@@ -86,23 +86,23 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           },
         ),
 
-        ListTile(
-          title: Text('Voice Bot'.tr()),
-          subtitle: Text("search in bot".tr()),
-          leading: const Icon(Icons.mic),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => voiceChat()),
-            );
-          },
-        ),
+        // ListTile(
+        //   title: Text('Voice Bot'.tr()),
+        //   subtitle: Text("search in bot".tr()),
+        //   leading: const Icon(Icons.mic),
+        //   onTap: () {
+        //     Navigator.of(context).push(
+        //       MaterialPageRoute(builder: (context) => voiceChat()),
+        //     );
+        //   },
+        // ),
         ListTile(
           title: Text('Crop info'.tr()),
           subtitle: Text("crop information".tr()),
           leading: const Icon(Icons.info_outline),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => cropsInfo()),
+              MaterialPageRoute(builder: (context) => cropNote()),
             );
           },
         ),
@@ -164,7 +164,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           leading: const Icon(Icons.feedback),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => feedback()),
+              MaterialPageRoute(builder: (context) => FeedbackScreen()),
             );
           },
         ),

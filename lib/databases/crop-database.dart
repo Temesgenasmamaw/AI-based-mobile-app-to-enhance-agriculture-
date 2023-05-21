@@ -1,19 +1,35 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-class cropsInfo extends StatefulWidget {
-  const cropsInfo({super.key});
+class cropNote extends StatelessWidget {
+  const cropNote({Key? key}) : super(key: key);
 
   @override
-  State<cropsInfo> createState() => _cropsInfoState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      title: 'Note keeper on crops',
+      home: HomePage(),
+    );
+  }
 }
 
-class _cropsInfoState extends State<cropsInfo> {
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // text fields' controllers
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
 
-  final CollectionReference _crops =
-      FirebaseFirestore.instance.collection('crops');
+  final CollectionReference _productss =
+      FirebaseFirestore.instance.collection('Crop note');
 
   // This function is triggered when the floatting button or one of the edit buttons is pressed
   // Adding a product if no documentSnapshot is passed
@@ -65,14 +81,20 @@ class _cropsInfoState extends State<cropsInfo> {
                     if (name != null && price != null) {
                       if (action == 'create') {
                         // Persist a new product to Firestore
-                        await _crops.add({"name": name, "price": price});
+                        await _productss.add({"name": name, "price": price});
+                        Fluttertoast.showToast(
+                            msg: "Your data is successfuly Created!",
+                            toastLength: Toast.LENGTH_LONG);
                       }
 
                       if (action == 'update') {
                         // Update the product
-                        await _crops
+                        await _productss
                             .doc(documentSnapshot!.id)
                             .update({"name": name, "price": price});
+                        Fluttertoast.showToast(
+                            msg: "Your data is successfuly Updated!",
+                            toastLength: Toast.LENGTH_LONG);
                       }
 
                       // Clear the text fields
@@ -92,24 +114,24 @@ class _cropsInfoState extends State<cropsInfo> {
 
   // Deleteing a product by id
   Future<void> _deleteProduct(String productId) async {
-    await _crops.doc(productId).delete();
+    // Navigator.pop(context);
+    await _productss.doc(productId).delete();
 
     // Show a snackbar
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('You have successfully deleted a product')));
+    // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    //     content: Text('You have successfully deleted a product')));
   }
 
   @override
   Widget build(BuildContext context) {
-    // text fields' controllers
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('crops Notes'),
+        title: const Text('Note keeper on crops'),
+        centerTitle: true,
       ),
       // Using StreamBuilder to display all products from Firestore in real-time
       body: StreamBuilder(
-        stream: _crops.snapshots(),
+        stream: _productss.snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
           if (streamSnapshot.hasData) {
             return ListView.builder(
@@ -129,13 +151,45 @@ class _cropsInfoState extends State<cropsInfo> {
                           // Press this button to edit a single product
                           IconButton(
                               icon: const Icon(Icons.edit),
-                              onPressed: () =>
-                                  _createOrUpdate(documentSnapshot)),
+                              onPressed: () {
+                                _createOrUpdate(documentSnapshot);
+                              }),
+
                           // This icon button is used to delete a single product
                           IconButton(
                               icon: const Icon(Icons.delete),
-                              onPressed: () =>
-                                  _deleteProduct(documentSnapshot.id)),
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: Text('Confirmation'),
+                                        content: Text(
+                                            'Are you sure you want to delete?'),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: Text('Yes'),
+                                            onPressed: () {
+                                              // Navigator.pop(context);
+                                              _deleteProduct(
+                                                  documentSnapshot.id);
+                                              Navigator.pop(context);
+                                              Fluttertoast.showToast(
+                                                  msg:
+                                                      "Your data is successfuly deleted!");
+                                            },
+                                          ),
+                                          TextButton(
+                                            child: Text('No'),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                              ;
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    });
+                              }),
                         ],
                       ),
                     ),

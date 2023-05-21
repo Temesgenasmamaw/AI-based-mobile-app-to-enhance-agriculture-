@@ -1,74 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class feedback extends StatefulWidget {
-  const feedback({Key? key}) : super(key: key);
-
+class FeedbackScreen extends StatefulWidget {
   @override
-  State<feedback> createState() => _feedbackState();
+  _FeedbackScreenState createState() => _FeedbackScreenState();
 }
 
-class _feedbackState extends State<feedback> {
-  TextEditingController recipientController = TextEditingController();
-  TextEditingController subjectController = TextEditingController();
-  TextEditingController bodyController = TextEditingController();
+class _FeedbackScreenState extends State<FeedbackScreen> {
+  TextEditingController _feedbackController = TextEditingController();
+
+  Future<void> sendFeedbackEmail() async {
+    final String email = 'asmamawtemesgen16@gmail.com';
+    // final String subject = 'Feedback on Firebase App';
+    // final String body = 'Please enter your feedback here.';
+
+    final Uri params = Uri(
+      scheme: 'googlegmail',
+      path: email,
+      // queryParameters: {
+      //   'subject': subject,
+      //   'body': body,
+      // },
+    );
+
+    String url = params.toString();
+
+    if (await canLaunchUrl(url as Uri)) {
+      await canLaunchUrl(url as Uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  void dispose() {
+    _feedbackController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+        title: Text('Send Feedback'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextFormField(
-              controller: recipientController,
-              decoration: InputDecoration(
-                hintText: "Recipient",
-              ),
-            ),
-            TextFormField(
-              controller: subjectController,
-              decoration: InputDecoration(
-                hintText: "Subject",
-              ),
-            ),
-            TextFormField(
-              controller: bodyController,
-              decoration: InputDecoration(
-                hintText: "Body",
-              ),
-            ),
-            GestureDetector(
-              onTap: () async {
-                String recipient = recipientController.text;
-                String subject = subjectController.text;
-                String body = bodyController.text;
-
-                final Uri email = Uri(
-                  scheme: 'mailto',
-                  path: recipient,
-                  query: 'subject=' +
-                      Uri.encodeComponent(subject) +
-                      '&body=' +
-                      Uri.encodeComponent(body),
-                );
-
-                if (await canLaunchUrl(email)) {
-                  await launchUrl(email);
-                } else {
-                  debugPrint('error');
-                }
-              },
-              child: Container(
-                height: 50,
-                width: 120,
-                color: Colors.orange,
-                child: Center(
-                  child: Text("Send"),
+            Expanded(
+              child: TextFormField(
+                controller: _feedbackController,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: 'Feedback',
+                  border: OutlineInputBorder(),
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: sendFeedbackEmail,
+              child: Text('Send Feedback'),
+            ),
           ],
         ),
       ),

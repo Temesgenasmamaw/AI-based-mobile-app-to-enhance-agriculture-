@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
-import '../chatBot2/chat2.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class landingPage extends StatefulWidget {
   const landingPage({super.key});
@@ -74,8 +73,7 @@ class _landingPageState extends State<landingPage> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://sabiagrik.com/wp-content/uploads/2019/07/Soil-analy.jpg"),
+                                image: AssetImage("assets/soil.jpg"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -129,8 +127,7 @@ class _landingPageState extends State<landingPage> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/R.fd9ae2afe2d4b65788ec77d210c5789c?rik=dMFDvMI5aDwqxg&pid=ImgRaw&r=0"),
+                                image: AssetImage("assets/planting.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -184,8 +181,7 @@ class _landingPageState extends State<landingPage> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://www.rtb.cgiar.org/wp-content/uploads/2018/06/Phone-App-2-630x421.png"),
+                                image: AssetImage("assets/detect.png"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -239,8 +235,7 @@ class _landingPageState extends State<landingPage> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/R.d851518fee6fb96448ea21deb6795864?rik=38lKiBVnfDNVmg&pid=ImgRaw&r=0"),
+                                image: AssetImage("assets/spray.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -294,8 +289,7 @@ class _landingPageState extends State<landingPage> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/OIP.kbr-QB-x8J6TE74JymSwxQHaLH?pid=ImgDet&rs=1"),
+                                image: AssetImage("assets/bestCrop.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -391,9 +385,7 @@ class _landingPageState extends State<landingPage> {
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
                         TextButton.icon(
-                            onPressed: () {
-                             
-                            },
+                            onPressed: () {},
                             icon: Icon(Icons.info),
                             label: Text(
                               'know info for crops and fruits',

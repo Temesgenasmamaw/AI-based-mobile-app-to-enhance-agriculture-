@@ -39,7 +39,6 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-   
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -137,7 +136,9 @@ class _TabsState extends State<Tabs> {
                         hintText: 'Enter pH value(0-14)',
                       ),
                       validator: (value) {
-                        if (value!.isEmpty) {
+                        if (value!.isEmpty ||
+                            double.parse(value) > 14 ||
+                            double.parse(value) < 0) {
                           return 'please Enter correct pH value';
                         }
                         return null;
@@ -155,7 +156,7 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'rain'.tr(),
-                        hintText: 'Enter Rain fall value',
+                        hintText: 'Enter Rain fall in mm',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -176,7 +177,7 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'temp'.tr(),
-                        hintText: 'Enter Temprature value',
+                        hintText: 'Enter Temprature in Celsius',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -197,7 +198,7 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'altitude'.tr(),
-                        hintText: 'Enter altitude value in metre',
+                        hintText: 'Enter altitude in metre',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -239,36 +240,38 @@ class _TabsState extends State<Tabs> {
                               crop = jsonDecode(response.body)['predict']
                                   .toString();
                             });
+
+                            if (crop == "Sinde") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          wheatResult(res: 'Wheat/' + crop)));
+                            } else if (crop == "Teff") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          teffResult(res: crop)));
+                            } else if (crop == 'Gebs') {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          barlyResult(res: 'Barley/' + crop)));
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          maizeResult(res: 'Maize/' + crop)));
+                            }
                           } else {
                             // Handle errors
                             print(
                                 'Request failed with status: ${response.statusCode}.');
                           }
                           print('predicted value:${crop}');
-                        }
-                        if (crop == "Sinde") {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      wheatResult(res: crop)));
-                        } else if (crop == "Teff") {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => teffResult(res: crop)));
-                        } else if (crop == 'Gebs') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      barlyResult(res: crop)));
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      maizeResult(res: crop)));
                         }
                       },
                       child: const Text(
