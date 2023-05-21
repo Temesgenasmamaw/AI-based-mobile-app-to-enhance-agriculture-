@@ -11,30 +11,14 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
   Future<void> sendFeedbackEmail() async {
     final String email = 'asmamawtemesgen16@gmail.com';
-   final Uri params = Uri(
-  scheme: 'mailto',
-  path: email,
-  query: 'subject=This is the subject&body=this is body',
-);
-final url = params.toString();
-launch(url);
-
-    // final Uri params = Uri(
-    //   scheme: 'googlegmail',
-    //   path: email,
-    //   queryParameters: {
-    //     'subject': subject,
-    //     'body': body,
-    //   },
-    // );
-
-    // String url = params.toString();
-
-    // if (await canLaunchUrl(url as Uri)) {
-    //   await canLaunchUrl(url as Uri);
-    // } else {
-    //   throw 'Could not launch $url';
-    // }
+    final Uri params = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: 'subject=Feed backs of app&body=${_feedbackController.text}',
+    );
+    final url = params.toString();
+    final urlPath = Uri.parse(url);
+    launchUrl(urlPath);
   }
 
   @override

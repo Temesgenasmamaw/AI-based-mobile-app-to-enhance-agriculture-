@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
-                                        title: Text('Confirmation'),
+                                        title: Text('Delete'),
                                         content: Text(
                                             'Are you sure you want to delete?'),
                                         actions: <Widget>[
