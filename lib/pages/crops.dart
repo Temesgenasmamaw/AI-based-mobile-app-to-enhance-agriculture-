@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
+import 'package:mango_app/fertilizer/fertilizerResul.dart';
 
 import '../crop-result/barly-result.dart';
 import '../crop-result/maize-result.dart';
@@ -18,15 +19,37 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-  final _formKey = GlobalKey<FormState>();
+  final _cropKey = GlobalKey<FormState>();
+  final _fertilizerKey = GlobalKey<FormState>();
+
+  String? selectedValue = null;
+  //crop recommendation
   final _pHController = TextEditingController();
   final _rainController = TextEditingController();
   final _altitudeController = TextEditingController();
   final _tempratureController = TextEditingController();
 
+  //fertilizer recommendation
+  final _nitrogenController = TextEditingController();
+  final _phosphorusController = TextEditingController();
+  final _potassiumeController = TextEditingController();
+  final _cropNameController = TextEditingController();
+
   String add = '0';
   String crop = ' ';
+  String fertilizer = ' ';
   FlutterTts flutterTts = FlutterTts();
+
+  //dropdownItems
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(child: Text("Teff"), value: "Teff"),
+      DropdownMenuItem(child: Text("Wheat"), value: "Wheat"),
+      DropdownMenuItem(child: Text("Maize"), value: "Maize"),
+      DropdownMenuItem(child: Text("Barley"), value: "Barley"),
+    ];
+    return menuItems;
+  }
 
   @override
   void dispose() {
@@ -34,13 +57,17 @@ class _TabsState extends State<Tabs> {
     _rainController;
     _altitudeController;
     _tempratureController;
+    _nitrogenController;
+    _phosphorusController;
+    _potassiumeController;
+    _cropNameController;
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 6,
       child: Scaffold(
           body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -62,6 +89,14 @@ class _TabsState extends State<Tabs> {
                   Tab(
                       child: Text(
                     'Recommend',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  )),
+                  Tab(
+                      child: Text(
+                    'Fertilizer',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -110,7 +145,7 @@ class _TabsState extends State<Tabs> {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               child: Form(
-                key: _formKey,
+                key: _cropKey,
                 child: Column(
                   children: [
                     const SizedBox(
@@ -215,7 +250,7 @@ class _TabsState extends State<Tabs> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
+                        if (_cropKey.currentState!.validate()) {
                           print('getting url.....');
                           final response = await http.post(
                               Uri.parse(
@@ -234,8 +269,6 @@ class _TabsState extends State<Tabs> {
                               ));
 
                           if (response.statusCode == 200) {
-                            // Parse the predicted class from the JSON response
-                            // final results = jsonDecode(response.body)['result'];
                             setState(() {
                               crop = jsonDecode(response.body)['predict']
                                   .toString();
@@ -266,6 +299,182 @@ class _TabsState extends State<Tabs> {
                                       builder: (context) =>
                                           maizeResult(res: 'Maize/' + crop)));
                             }
+                          } else {
+                            // Handle errors
+                            print(
+                                'Request failed with status: ${response.statusCode}.');
+                          }
+                          print('predicted value:${crop}');
+                        }
+                      },
+                      child: const Text(
+                        'Recommend ',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              child: Form(
+                autovalidateMode: AutovalidateMode.always,
+                key: _fertilizerKey,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Fill input values',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: _nitrogenController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40))),
+                        labelText: 'nitrogen'.tr(),
+                        hintText: 'Enter nitrogen',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'please Enter  nitrogen';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: _phosphorusController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40))),
+                        labelText: 'phosphorus'.tr(),
+                        hintText: 'Enter phosphorus',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'please Enter phosphorus';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: _potassiumeController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40))),
+                        labelText: 'potassium'.tr(),
+                        hintText: 'Enter potassium',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'please Enter potassium';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
+
+                    //drop down crop names
+
+                    DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          filled: true,
+                          // fillColor: Colors.blueAccent,
+                        ),
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return "can't empty";
+                        //   } else {
+                        //     return null;
+                        //   }
+                        // },
+                        hint: Text('choose one crop'),
+                        isExpanded: true,
+                        dropdownColor: Colors.greenAccent,
+                        value: selectedValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedValue = newValue!;
+                          });
+                        },
+                        items: dropdownItems),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        if (_fertilizerKey.currentState!.validate()) {
+                          print('getting url.....');
+                          final response = await http.post(
+                              Uri.parse(
+                                  'https://smart-agri-kawo.onrender.com/fertilizer'),
+                              headers: {"Content-Type": "application/json"},
+                              body: jsonEncode(
+                                <String, dynamic>{
+                                  'nitrogen':
+                                      double.parse(_nitrogenController.text),
+                                  'phosphorus':
+                                      double.parse(_phosphorusController.text),
+                                  'potassium':
+                                      double.parse(_potassiumeController.text),
+                                  'cropname': selectedValue!,
+                                },
+                              ));
+
+                          if (response.statusCode == 200) {
+                            setState(() {
+                              fertilizer =
+                                  jsonDecode(response.body)['fertilizer']
+                                      .toString();
+                            });
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FertilizerResult(
+                                        fertilizerResult: fertilizer)));
                           } else {
                             // Handle errors
                             print(
