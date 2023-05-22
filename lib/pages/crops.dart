@@ -45,7 +45,7 @@ class _TabsState extends State<Tabs> {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(child: Text("Teff"), value: "Teff"),
       DropdownMenuItem(child: Text("Wheat"), value: "Wheat"),
-      DropdownMenuItem(child: Text("Maize"), value: "Maize"),
+      DropdownMenuItem(child: Text("maize"), value: "maize"),
       DropdownMenuItem(child: Text("Barley"), value: "Barley"),
     ];
     return menuItems;
@@ -254,7 +254,7 @@ class _TabsState extends State<Tabs> {
                           print('getting url.....');
                           final response = await http.post(
                               Uri.parse(
-                                  'https://smart-agri-kawo.onrender.com/predict'),
+                                  'https://ai-based-agri-app.onrender.com/predict'),
                               headers: {"Content-Type": "application/json"},
                               body: jsonEncode(
                                 <String, dynamic>{
@@ -450,7 +450,7 @@ class _TabsState extends State<Tabs> {
                           print('getting url.....');
                           final response = await http.post(
                               Uri.parse(
-                                  'https://smart-agri-kawo.onrender.com/fertilizer'),
+                                  'https://ai-based-agri-app.onrender.com/fertilizer'),
                               headers: {"Content-Type": "application/json"},
                               body: jsonEncode(
                                 <String, dynamic>{

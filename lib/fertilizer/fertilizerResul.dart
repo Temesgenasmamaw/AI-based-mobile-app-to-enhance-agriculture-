@@ -15,9 +15,13 @@ class _FertilizerResultState extends State<FertilizerResult> {
       appBar: AppBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Center(child: Text('${widget.fertilizerResult}')),
+        child: Center(
+            child: Text(
+          '${widget.fertilizerResult}',
+          style: TextStyle(fontSize: 20),
+          
+        )),
       ),
     );
   }
-   
 }
