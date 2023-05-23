@@ -169,7 +169,6 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _pHController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(WindIcon.towards_e as IconData?),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -192,7 +191,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _rainController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -213,7 +212,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _tempratureController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -234,7 +233,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _altitudeController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -280,7 +279,7 @@ class _TabsState extends State<Tabs> {
                                       double.parse(_altitudeController.text),
                                 },
                               ));
-
+                          Navigator.pop(context);
                           if (response.statusCode == 200) {
                             setState(() {
                               crop = jsonDecode(response.body)['predict']
@@ -312,7 +311,7 @@ class _TabsState extends State<Tabs> {
                                       builder: (context) =>
                                           maizeResult(res: 'Maize/' + crop)));
                             }
-                            Navigator.of(context);
+                            // Navigator.of(context);
                           } else {
                             // Handle errors
                             print(
@@ -365,7 +364,7 @@ class _TabsState extends State<Tabs> {
                       height: 10,
                     ),
                     Text(
-                      'Fill input values',
+                      'Fill input values in kg/ha',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
@@ -376,8 +375,9 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _nitrogenController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
+                            gapPadding: 10,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'nitrogen'.tr(),
@@ -397,7 +397,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _phosphorusController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -418,7 +418,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _potassiumeController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -489,6 +489,7 @@ class _TabsState extends State<Tabs> {
 
                         if (_fertilizerKey.currentState!.validate()) {
                           print('getting url.....');
+
                           final response = await http.post(
                               Uri.parse(
                                   'https://ai-based-agri-app.onrender.com/fertilizer'),

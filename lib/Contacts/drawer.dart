@@ -128,6 +128,18 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           },
         ),
         ListTile(
+          title: Text('Feedback'.tr()),
+          subtitle: Text(
+            "GiveComment".tr(),
+          ),
+          leading: const Icon(Icons.feedback),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => FeedbackScreen()),
+            );
+          },
+        ),
+        ListTile(
           title: Text('Share'.tr()),
           subtitle: Text(
             "share app".tr(),
@@ -137,6 +149,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             share();
           },
         ),
+
         const Divider(
           thickness: 3,
           indent: 10,
@@ -155,18 +168,6 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           ],
         ),
 
-        ListTile(
-          title: Text('Feedback'.tr()),
-          subtitle: Text(
-            "GiveComment".tr(),
-          ),
-          leading: const Icon(Icons.feedback),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => FeedbackScreen()),
-            );
-          },
-        ),
         ListTile(
           title: Text('RateUs'.tr()),
           subtitle: Text(

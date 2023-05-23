@@ -38,7 +38,7 @@ class _teffResultState extends State<teffResult> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recomend teffResult'),
+        title: Text('Recomend Teff Result'),
         actions: [],
       ),
       body: SingleChildScrollView(
@@ -107,12 +107,12 @@ class _teffResultState extends State<teffResult> {
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Color.fromARGB(255, 10, 8, 8)),
+                              color: Colors.greenAccent),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Ethiopian Teff Stack widget is a built-in widget in flutter SDK which allows us to make a layer of widgets by putting them on top of each other.Many of the times a simple row and column layout is not enough, we need a way to overlay one widget on top of the other, for example, we might want to show some text over an image, so to tackle such',
+                                'Ethiopian Teff ',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,

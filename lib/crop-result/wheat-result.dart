@@ -90,31 +90,13 @@ class _wheatResultState extends State<wheatResult> {
                         ),
                       ],
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1"),
-                          fit: BoxFit.cover, 
-
+                        image: AssetImage(
+                            "assets/wheat.jpg"),
+                        fit: BoxFit.cover,
                       ), //DecorationImage
                     ), //BoxDecoration
                     //Text
                   ),
-                  // Container(
-                  //   height: 200,
-                  //   width: 200,
-                  //   padding: EdgeInsets.all(15.0),
-                  //   alignment: Alignment.bottomCenter,
-                  //   decoration: BoxDecoration(
-                  //     image: DecorationImage(
-                  //         image: NetworkImage(
-                  //             "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1") //NetworkImage
-                  //         ), //DecorationImage
-                  //   ), //BoxDecoration
-                  //   child: Text(
-                  //     "GeeksforGeeks",
-                  //     style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  //   ), //Text
-                  // ),
-
                   Positioned(
                       bottom: 0,
                       child: Padding(
@@ -129,7 +111,7 @@ class _wheatResultState extends State<wheatResult> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Ethiopian Teff Stack widget is a built-in widget in flutter SDK which allows us to make a layer of widgets by putting them on top of each other.Many of the times a simple row and column layout is not enough, we need a way to overlay one widget on top of the other, for example, we might want to show some text over an image, so to tackle such',
+                                'Wheat',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -142,7 +124,6 @@ class _wheatResultState extends State<wheatResult> {
                       ))
                 ],
               ),
-            
             ],
           ),
         ),

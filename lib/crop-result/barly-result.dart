@@ -71,7 +71,6 @@ class _barlyResultState extends State<barlyResult> {
                     color: Colors.red),
               ),
               Text('is suitable crop for your farmland', style: _style),
-              
               Stack(
                 children: [
                   Container(
@@ -91,31 +90,12 @@ class _barlyResultState extends State<barlyResult> {
                         ),
                       ],
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1"),
-                          fit: BoxFit.cover, 
-
+                        image: AssetImage("assets/barley.jfif"),
+                        fit: BoxFit.cover,
                       ), //DecorationImage
                     ), //BoxDecoration
                     //Text
                   ),
-                  // Container(
-                  //   height: 200,
-                  //   width: 200,
-                  //   padding: EdgeInsets.all(15.0),
-                  //   alignment: Alignment.bottomCenter,
-                  //   decoration: BoxDecoration(
-                  //     image: DecorationImage(
-                  //         image: NetworkImage(
-                  //             "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1") //NetworkImage
-                  //         ), //DecorationImage
-                  //   ), //BoxDecoration
-                  //   child: Text(
-                  //     "GeeksforGeeks",
-                  //     style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  //   ), //Text
-                  // ),
-
                   Positioned(
                       bottom: 0,
                       child: Padding(
@@ -125,12 +105,12 @@ class _barlyResultState extends State<barlyResult> {
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Color.fromARGB(255, 10, 8, 8)),
+                              color: Colors.greenAccent),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Barly is....',
+                                'Barley ',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
