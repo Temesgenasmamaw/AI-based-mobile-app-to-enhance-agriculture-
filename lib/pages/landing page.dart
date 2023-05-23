@@ -357,7 +357,8 @@ class _landingPageState extends State<landingPage> {
                             icon: Icon(Icons.camera),
                             label: Text(
                               'Capture or upload photo',
-                              style: TextStyle(fontSize: 19),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 19),
                             )),
                         TextButton.icon(
                             onPressed: () {},

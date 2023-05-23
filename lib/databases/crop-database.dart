@@ -83,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                         // Persist a new product to Firestore
                         await _productss.add({"name": name, "price": price});
                         Fluttertoast.showToast(
-                            msg: "Your data is successfuly Created!",
+                            msg: "successfuly Created!",
+                            fontSize: 18,
+                            textColor: Colors.green,
                             toastLength: Toast.LENGTH_LONG);
                       }
 
@@ -93,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             .doc(documentSnapshot!.id)
                             .update({"name": name, "price": price});
                         Fluttertoast.showToast(
-                            msg: "Your data is successfuly Updated!",
+                            msg: "successfuly Updated!",
                             toastLength: Toast.LENGTH_LONG);
                       }
 
@@ -176,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                                               Navigator.pop(context);
                                               Fluttertoast.showToast(
                                                   msg:
-                                                      "Your data is successfuly deleted!");
+                                                      "data is successfuly deleted!");
                                             },
                                           ),
                                           TextButton(
