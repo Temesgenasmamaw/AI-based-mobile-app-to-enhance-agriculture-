@@ -72,11 +72,15 @@ class _HomeState extends State<Home> {
         actions: [
           //language button
           DropdownButton<Language>(
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.white,
+            ),
             iconSize: 35,
             elevation: 25,
             value: selectedLang,
             underline: Container(
-              padding: const EdgeInsets.only(left: 4, right: 4),
+              padding: const EdgeInsets.only(left: 1, right: 4),
             ),
             onChanged: (newValue) {
               setState(() {
@@ -101,9 +105,9 @@ class _HomeState extends State<Home> {
                 child: Text(
                   value.langName,
                   style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
                 ),
               );
             }).toList(),
