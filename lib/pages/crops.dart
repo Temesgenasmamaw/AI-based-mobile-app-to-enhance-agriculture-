@@ -10,6 +10,12 @@ import '../crop-result/barly-result.dart';
 import '../crop-result/maize-result.dart';
 import '../crop-result/teff-result.dart';
 import '../crop-result/wheat-result.dart';
+import '../fertilizer/KHigh.dart';
+import '../fertilizer/Klow.dart';
+import '../fertilizer/NHigh.dart';
+import '../fertilizer/Nlow.dart';
+import '../fertilizer/PHigh.dart';
+import '../fertilizer/Plow.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -470,11 +476,87 @@ class _TabsState extends State<Tabs> {
                                   jsonDecode(response.body)['fertilizer']
                                       .toString();
                             });
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FertilizerResult(
-                                        fertilizerResult: fertilizer)));
+                            if (fertilizer == "Nlow") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Nlow(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));
+                            }
+                            else if (fertilizer == "NHigh") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NHigh(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));
+                            }
+                            else if (fertilizer == "Plow") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Plow(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));
+                            }
+                            else if (fertilizer == "PHigh") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PHigh(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));
+                            }
+                            else if (fertilizer == "Klow") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Klow(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));
+                            }
+                            else { Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => KHigh(
+                                          n: double.parse(
+                                              _nitrogenController.text),
+                                          p: double.parse(
+                                              _phosphorusController.text),
+                                          k: double.parse(
+                                              _potassiumeController.text),
+                                          name: selectedValue!)));}
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => FertilizerResult(
+                            //             fertilizerResult: fertilizer)));
                           } else {
                             // Handle errors
                             print(
