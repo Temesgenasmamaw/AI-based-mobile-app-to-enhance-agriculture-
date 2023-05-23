@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:mango_app/const/theme_data.dart';
 
 class teffResult extends StatefulWidget {
   final String res;
@@ -84,37 +85,19 @@ class _teffResultState extends State<teffResult> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black54,
+                          // color: Colors.black54,
                           offset: Offset(1.0, 1.0),
                           blurRadius: 10.0,
                         ),
                       ],
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1"),
-                          fit: BoxFit.cover, 
-
+                        image: NetworkImage(
+                            "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1"),
+                        fit: BoxFit.cover,
                       ), //DecorationImage
                     ), //BoxDecoration
                     //Text
                   ),
-                  // Container(
-                  //   height: 200,
-                  //   width: 200,
-                  //   padding: EdgeInsets.all(15.0),
-                  //   alignment: Alignment.bottomCenter,
-                  //   decoration: BoxDecoration(
-                  //     image: DecorationImage(
-                  //         image: NetworkImage(
-                  //             "https://th.bing.com/th/id/OIP.R2wzdAV5WlW2kU6pAcBqHAHaFj?pid=ImgDet&rs=1") //NetworkImage
-                  //         ), //DecorationImage
-                  //   ), //BoxDecoration
-                  //   child: Text(
-                  //     "GeeksforGeeks",
-                  //     style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  //   ), //Text
-                  // ),
-
                   Positioned(
                       bottom: 0,
                       child: Padding(

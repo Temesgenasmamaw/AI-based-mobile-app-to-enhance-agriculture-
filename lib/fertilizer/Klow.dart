@@ -21,7 +21,19 @@ class _KlowState extends State<Klow> {
       appBar: AppBar(
         title: Text('Low potassium recommendations'),
       ),
-      body: SingleChildScrollView(child: Center( child: Container(padding: EdgeInsets.all(20), child: Text('The K value of your soil is low\n\nTake suggestions\n\n1.  Use Potash fertilizers since they contain high values potassium.\n\n2.  Mix in muricate of potash or sulphate of potash\n\n 3.  Bury banana peels an inch below the soils surface.\n\n4. Try kelp meal or seaweed'))),),
+      body: SingleChildScrollView(child: Center( child: Column(
+        children: [
+          Container(
+              padding: EdgeInsets.fromLTRB(60, 15, 0, 10),
+              child: Text(
+                'Your Input values are:\n\nNitrogen=${widget.n}\nPhosphorus=${widget.p}\nPotassium=${widget.k}\ncrop name=${widget.name}',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            
+          Container(padding: EdgeInsets.all(20), child: Text('The K value of your soil is low\n\nTake suggestions\n\n1.  Use Potash fertilizers since they contain high values potassium.\n\n2.  Mix in muricate of potash or sulphate of potash\n\n 3.  Bury banana peels an inch below the soils surface.\n\n4. Try kelp meal or seaweed')),
+        ],
+      )),),
     );
   }
 }

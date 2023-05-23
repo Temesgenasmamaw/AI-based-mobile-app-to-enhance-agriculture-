@@ -257,6 +257,13 @@ class _TabsState extends State<Tabs> {
                     ElevatedButton(
                       onPressed: () async {
                         if (_cropKey.currentState!.validate()) {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              });
                           print('getting url.....');
                           final response = await http.post(
                               Uri.parse(
@@ -273,7 +280,7 @@ class _TabsState extends State<Tabs> {
                                       double.parse(_altitudeController.text),
                                 },
                               ));
-
+                          Navigator.of(context);
                           if (response.statusCode == 200) {
                             setState(() {
                               crop = jsonDecode(response.body)['predict']
@@ -452,6 +459,14 @@ class _TabsState extends State<Tabs> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            });
+
                         if (_fertilizerKey.currentState!.validate()) {
                           print('getting url.....');
                           final response = await http.post(
@@ -469,13 +484,14 @@ class _TabsState extends State<Tabs> {
                                   'cropname': selectedValue!,
                                 },
                               ));
-
+                          Navigator.pop(context);
                           if (response.statusCode == 200) {
                             setState(() {
                               fertilizer =
                                   jsonDecode(response.body)['fertilizer']
                                       .toString();
                             });
+
                             if (fertilizer == "Nlow") {
                               Navigator.push(
                                   context,
@@ -488,8 +504,7 @@ class _TabsState extends State<Tabs> {
                                           k: double.parse(
                                               _potassiumeController.text),
                                           name: selectedValue!)));
-                            }
-                            else if (fertilizer == "NHigh") {
+                            } else if (fertilizer == "NHigh") {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -501,8 +516,7 @@ class _TabsState extends State<Tabs> {
                                           k: double.parse(
                                               _potassiumeController.text),
                                           name: selectedValue!)));
-                            }
-                            else if (fertilizer == "Plow") {
+                            } else if (fertilizer == "Plow") {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -514,8 +528,7 @@ class _TabsState extends State<Tabs> {
                                           k: double.parse(
                                               _potassiumeController.text),
                                           name: selectedValue!)));
-                            }
-                            else if (fertilizer == "PHigh") {
+                            } else if (fertilizer == "PHigh") {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -527,8 +540,7 @@ class _TabsState extends State<Tabs> {
                                           k: double.parse(
                                               _potassiumeController.text),
                                           name: selectedValue!)));
-                            }
-                            else if (fertilizer == "Klow") {
+                            } else if (fertilizer == "Klow") {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -540,8 +552,8 @@ class _TabsState extends State<Tabs> {
                                           k: double.parse(
                                               _potassiumeController.text),
                                           name: selectedValue!)));
-                            }
-                            else { Navigator.push(
+                            } else {
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => KHigh(
@@ -551,12 +563,8 @@ class _TabsState extends State<Tabs> {
                                               _phosphorusController.text),
                                           k: double.parse(
                                               _potassiumeController.text),
-                                          name: selectedValue!)));}
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => FertilizerResult(
-                            //             fertilizerResult: fertilizer)));
+                                          name: selectedValue!)));
+                            }
                           } else {
                             // Handle errors
                             print(
