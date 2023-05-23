@@ -87,7 +87,7 @@ class _landingPageState extends State<landingPage> {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromARGB(255, 10, 8, 8)),
+                                      color: Colors.greenAccent),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -95,9 +95,9 @@ class _landingPageState extends State<landingPage> {
                                       Text(
                                         'analyse soil content ',
                                         style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
                                         overflow: TextOverflow.visible,
                                       ),
                                     ],
@@ -141,7 +141,7 @@ class _landingPageState extends State<landingPage> {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromARGB(255, 10, 8, 8)),
+                                      color: Colors.greenAccent),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -149,9 +149,9 @@ class _landingPageState extends State<landingPage> {
                                       Text(
                                         'Planting horizontally ',
                                         style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
                                         overflow: TextOverflow.visible,
                                       ),
                                     ],
@@ -195,7 +195,7 @@ class _landingPageState extends State<landingPage> {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromARGB(255, 10, 8, 8)),
+                                      color: Colors.greenAccent),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -203,9 +203,9 @@ class _landingPageState extends State<landingPage> {
                                       Text(
                                         'detect disease ',
                                         style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
                                         overflow: TextOverflow.visible,
                                       ),
                                     ],
@@ -249,7 +249,7 @@ class _landingPageState extends State<landingPage> {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromARGB(255, 10, 8, 8)),
+                                      color: Colors.greenAccent),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -259,6 +259,7 @@ class _landingPageState extends State<landingPage> {
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
+                                          color: Colors.black,
                                         ),
                                         overflow: TextOverflow.visible,
                                       ),
@@ -303,7 +304,7 @@ class _landingPageState extends State<landingPage> {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromARGB(255, 10, 8, 8)),
+                                      color: Colors.greenAccent),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -311,10 +312,10 @@ class _landingPageState extends State<landingPage> {
                                       Text(
                                         'Get best result ',
                                         style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                        overflow: TextOverflow.visible,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                        // overflow: TextOverflow.visible,
                                       ),
                                     ],
                                   ),

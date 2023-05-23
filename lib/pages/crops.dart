@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
-import 'package:mango_app/fertilizer/fertilizerResul.dart';
+import 'package:weather_icons/weather_icons.dart';
 
 import '../crop-result/barly-result.dart';
 import '../crop-result/maize-result.dart';
@@ -49,10 +49,10 @@ class _TabsState extends State<Tabs> {
   //dropdownItems
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(child: Text("Barley"), value: "Barley"),
+      DropdownMenuItem(child: Text("Maize"), value: "Maize"),
       DropdownMenuItem(child: Text("Teff"), value: "Teff"),
       DropdownMenuItem(child: Text("Wheat"), value: "Wheat"),
-      DropdownMenuItem(child: Text("maize"), value: "maize"),
-      DropdownMenuItem(child: Text("Barley"), value: "Barley"),
     ];
     return menuItems;
   }
@@ -169,7 +169,7 @@ class _TabsState extends State<Tabs> {
                       keyboardType: TextInputType.number,
                       controller: _pHController,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
+                        prefixIcon: Icon(WindIcon.towards_e as IconData?),
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -280,7 +280,7 @@ class _TabsState extends State<Tabs> {
                                       double.parse(_altitudeController.text),
                                 },
                               ));
-                          Navigator.of(context);
+
                           if (response.statusCode == 200) {
                             setState(() {
                               crop = jsonDecode(response.body)['predict']
@@ -312,10 +312,30 @@ class _TabsState extends State<Tabs> {
                                       builder: (context) =>
                                           maizeResult(res: 'Maize/' + crop)));
                             }
+                            Navigator.of(context);
                           } else {
                             // Handle errors
                             print(
                                 'Request failed with status: ${response.statusCode}.');
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    // title: Text(" ${message}"),
+                                    content: Text("${response.statusCode}"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text("okay"),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
                           }
                           print('predicted value:${crop}');
                         }
@@ -361,11 +381,11 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'nitrogen'.tr(),
-                        hintText: 'Enter nitrogen',
+                        hintText: 'Enter nitrogen in kg/ha',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'please Enter  nitrogen';
+                          return 'please Enter  nitrogen in kg/ha';
                         }
                         return null;
                       },
@@ -382,11 +402,11 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'phosphorus'.tr(),
-                        hintText: 'Enter phosphorus',
+                        hintText: 'Enter phosphorus in kg/ha',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'please Enter phosphorus';
+                          return 'please Enter phosphorus in kg/ha';
                         }
                         return null;
                       },
@@ -403,11 +423,11 @@ class _TabsState extends State<Tabs> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
                         labelText: 'potassium'.tr(),
-                        hintText: 'Enter potassium',
+                        hintText: 'Enter potassium in kg/ha',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'please Enter potassium';
+                          return 'please Enter potassium in kg/ha';
                         }
                         return null;
                       },
@@ -444,7 +464,7 @@ class _TabsState extends State<Tabs> {
                         //     return null;
                         //   }
                         // },
-                        hint: Text('choose one crop'),
+                        hint: Text('choose a crop'),
                         isExpanded: true,
                         dropdownColor: Colors.greenAccent,
                         value: selectedValue,
@@ -569,6 +589,25 @@ class _TabsState extends State<Tabs> {
                             // Handle errors
                             print(
                                 'Request failed with status: ${response.statusCode}.');
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    // title: Text(" ${message}"),
+                                    content: Text("${response.statusCode}"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text("okay"),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
                           }
                           print('predicted value:${crop}');
                         }

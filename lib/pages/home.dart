@@ -32,9 +32,10 @@ class _HomeState extends State<Home> {
   static const List<Widget> _widgetOptions = <Widget>[
     landingPage(),
     UploadImage(),
+    Tabs(),
     ListDisease(),
     Resource(),
-    Tabs(),
+
     // Languages(),
   ];
 
@@ -203,9 +204,13 @@ class _HomeState extends State<Home> {
             //  backgroundColor: Colors.grey[100],
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
+            icon: const Icon(Icons.health_and_safety),
             label: 'Diseases'.tr(),
             //  backgroundColor: Colors.grey[100],
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.perm_device_information_outlined),
+            label: 'Crops'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.list),
@@ -215,10 +220,7 @@ class _HomeState extends State<Home> {
             icon: const Icon(Icons.info),
             label: 'Resource'.tr(),
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.info),
-            label: 'Crops'.tr(),
-          ),
+
           // BottomNavigationBarItem(
           //   icon: const Icon(Icons.language),
           //   label: 'Language'.tr(),
