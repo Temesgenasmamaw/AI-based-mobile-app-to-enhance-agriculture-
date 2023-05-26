@@ -8,6 +8,7 @@ class ThemeHelper {
       labelText: lableText,
       hintText: hintText,
       hintStyle: TextStyle(color: Colors.black),
+      labelStyle: TextStyle(color: Colors.black),
       // fillColor: Colors.black,
       // suffixIcon: Icon(Icons.visibility),
       // filled: true,
