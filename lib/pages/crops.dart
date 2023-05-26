@@ -265,7 +265,7 @@ class _TabsState extends State<Tabs> {
                           print('getting url.....');
                           final response = await http.post(
                               Uri.parse(
-                                  'https://ai-based-agri-app.onrender.com/predict'),
+                                  'https://smart-agriculture.up.railway.app/predict'),
                               headers: {"Content-Type": "application/json"},
                               body: jsonEncode(
                                 <String, dynamic>{
@@ -491,7 +491,7 @@ class _TabsState extends State<Tabs> {
 
                           final response = await http.post(
                               Uri.parse(
-                                  'https://ai-based-agri-app.onrender.com/fertilizer'),
+                                  'https://smart-agriculture.up.railway.app/fertilizer'),
                               headers: {"Content-Type": "application/json"},
                               body: jsonEncode(
                                 <String, dynamic>{

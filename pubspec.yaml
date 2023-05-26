@@ -87,6 +87,11 @@ dependencies:
   path: ^1.8.3
   cached_network_image:
   weather_icons: 3.0.0
+  #sqlite
+  sqflite:
+  photo_view:
+  country_code_picker:
+  equatable:
   
 
 dev_dependencies:

@@ -51,7 +51,6 @@ class _HomeState extends State<Home> {
   ];
   Language? selectedLang;
 
-  dynamic a;
   @override
   Widget build(BuildContext context) {
     if (languageList.isNotEmpty) {
@@ -113,7 +112,7 @@ class _HomeState extends State<Home> {
             }).toList(),
           ),
 
-//profile
+          //profile
           // SizedBox(
           //   width: 2,
           // ),

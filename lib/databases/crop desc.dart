@@ -68,13 +68,12 @@ class _cropsPriceState extends State<cropsPrice> {
                       if (action == 'create') {
                         // Persist a new product to Firestore
                         await _productss.add({"name": name, "price": price});
-                         Navigator.pop(context);
+                        //  Navigator.pop(context);
                         Fluttertoast.showToast(
                             msg: "successfuly Created!",
                             fontSize: 18,
                             textColor: Colors.green,
                             toastLength: Toast.LENGTH_LONG);
-
                       }
 
                       if (action == 'update') {
@@ -82,8 +81,8 @@ class _cropsPriceState extends State<cropsPrice> {
                         await _productss
                             .doc(documentSnapshot!.id)
                             .update({"name": name, "price": price});
-                             Navigator.pop(context);
-                            Fluttertoast.showToast(
+                        // Navigator.pop(context);
+                        Fluttertoast.showToast(
                             msg: "successfuly Updated!",
                             toastLength: Toast.LENGTH_LONG);
                       }
@@ -108,15 +107,16 @@ class _cropsPriceState extends State<cropsPrice> {
     await _productss.doc(productId).delete();
 
     // Show a snackbar
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('You have successfully deleted a product')));
+    ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('You have successfully deleted')));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kindacode.com'),
+        title: const Text('Crop information'),
+        centerTitle: true,
       ),
       // Using StreamBuilder to display all products from Firestore in real-time
       body: StreamBuilder(
@@ -145,7 +145,7 @@ class _cropsPriceState extends State<cropsPrice> {
                           // This icon button is used to delete a single product
                           IconButton(
                               icon: const Icon(Icons.delete),
-                              onPressed: (){
+                              onPressed: () {
                                 showDialog(
                                     context: context,
                                     builder: (context) {
@@ -161,9 +161,9 @@ class _cropsPriceState extends State<cropsPrice> {
                                               _deleteProduct(
                                                   documentSnapshot.id);
                                               Navigator.pop(context);
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "data is successfuly deleted!");
+                                              // Fluttertoast.showToast(
+                                              //     msg:
+                                              //         "data is successfuly deleted!");
                                             },
                                           ),
                                           TextButton(
@@ -176,11 +176,7 @@ class _cropsPriceState extends State<cropsPrice> {
                                         ],
                                       );
                                     });
-                             
-                              }
-                                  
-                                  ),
-                                  
+                              }),
                         ],
                       ),
                     ),

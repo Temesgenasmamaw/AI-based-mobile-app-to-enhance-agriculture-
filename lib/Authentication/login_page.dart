@@ -11,7 +11,6 @@ import 'package:marquee/marquee.dart';
 // import 'package:provider/provider.dart';
 import '../common/theme_helper.dart';
 // import '../theme/theme-model.dart';
-import '../const/theme_data.dart';
 import 'forgot_password_page.dart';
 import 'registration_page.dart';
 import 'widgets/header_widget.dart';
@@ -400,8 +399,7 @@ class _LoginPageState extends State<LoginPage> {
                                           print(e.toString());
                                         }
                                       }
-                                    }
-                                    ),
+                                    }),
                               ),
                               const SizedBox(height: 20),
 
@@ -535,5 +533,8 @@ class _LoginPageState extends State<LoginPage> {
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
+
+   
   }
+  
 }
