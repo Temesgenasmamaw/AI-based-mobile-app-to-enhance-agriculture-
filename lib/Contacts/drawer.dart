@@ -8,7 +8,7 @@ import '../Contacts/About.dart';
 import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
-import '../databases/crop-database.dart';
+import '../databases/crop desc.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
 
@@ -101,7 +101,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           leading: const Icon(Icons.info_outline),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => cropNote()),
+              MaterialPageRoute(builder: (context) => cropsPrice()),
             );
           },
         ),
