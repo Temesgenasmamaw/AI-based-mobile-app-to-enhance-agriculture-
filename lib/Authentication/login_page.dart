@@ -400,7 +400,8 @@ class _LoginPageState extends State<LoginPage> {
                                           print(e.toString());
                                         }
                                       }
-                                    }),
+                                    }
+                                    ),
                               ),
                               const SizedBox(height: 20),
 

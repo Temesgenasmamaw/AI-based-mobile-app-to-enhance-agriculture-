@@ -7,11 +7,12 @@ class FeedbackScreen extends StatefulWidget {
 }
 
 class _FeedbackScreenState extends State<FeedbackScreen> {
+  final _feedbackKey = GlobalKey<FormState>();
   TextEditingController _feedbackController = TextEditingController();
 
   Future<void> sendFeedbackEmail() async {
     final String email = 'asmamawtemesgen16@gmail.com';
-    final Uri params = Uri(
+    final Uri params = await Uri(
       scheme: 'mailto',
       path: email,
       query: 'subject=Feed backs of app&body=${_feedbackController.text}',
@@ -41,6 +42,12 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               child: TextFormField(
                 controller: _feedbackController,
                 maxLines: null,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'can not be empty';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: 'Feedback',
                   border: OutlineInputBorder(),
@@ -49,7 +56,15 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: sendFeedbackEmail,
+              onPressed: () {
+                if (_feedbackKey.currentState!.validate()) {
+                  try {
+                    sendFeedbackEmail();
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                }
+              },
               child: Text('Send Feedback'),
             ),
           ],

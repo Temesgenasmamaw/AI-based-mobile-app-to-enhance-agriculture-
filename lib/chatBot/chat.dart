@@ -10,7 +10,7 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
-  DialogFlowtter? dialogFlowtter;
+  DialogFlowtter? dialogFlowtter = null;
   final TextEditingController _controller = TextEditingController();
 
   List<Map<String, dynamic>> messages = [];
@@ -78,7 +78,10 @@ class _ChatState extends State<Chat> {
       DetectIntentResponse response = await dialogFlowtter!.detectIntent(
           queryInput: QueryInput(text: TextInput(text: text)),
           audioConfig: OutputAudioConfig());
-      if (response.message == null) return;
+      if (response.message == null) {
+        print('Response message is null');
+        return;
+      }
       setState(() {
         addMessage(response.message!);
       });
