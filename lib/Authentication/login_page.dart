@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
+// import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/Authentication/phone.dart';
+import 'package:marquee/marquee.dart';
+// import 'package:provider/provider.dart';
 import '../common/theme_helper.dart';
+// import '../theme/theme-model.dart';
+import '../const/theme_data.dart';
 import 'forgot_password_page.dart';
 import 'registration_page.dart';
 import 'widgets/header_widget.dart';
@@ -29,10 +34,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  double _headerHeight = 250;
+  double _headerHeight = 100;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  bool _passwordInVisible = true; //a boolean value
 
   List<Language> languageList = [
     Language(
@@ -135,7 +142,6 @@ class _LoginPageState extends State<LoginPage> {
             ],
           );
         });
-  
   }
 
   @override
@@ -147,6 +153,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // final themeChange = Provider.of<DarkThemeProvider>(context);
     if (languageList.isNotEmpty) {
       selectedLang =
           languageList.singleWhere((e) => e.locale == context.locale);
@@ -190,12 +197,30 @@ class _LoginPageState extends State<LoginPage> {
                   value.langName,
                   style: const TextStyle(
                     fontSize: 20,
+                    color: Colors.blueAccent,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               );
             }).toList(),
           ),
+
+          // ListTileSwitch(
+          //   value: themeChange.darkTheme,
+          //   leading: const Icon(Icons.dark_mode),
+          //   onChanged: (value) {
+          //     setState(() {
+          //       themeChange.darkTheme = value;
+          //     });
+          //   },
+          //   visualDensity: VisualDensity.comfortable,
+          //   switchType: SwitchType.cupertino,
+          //   switchActiveColor: Color(0xFFA10299),
+          //   title: Text('DarkTheme'.tr()),
+          //   subtitle: Text(
+          //     "EnableDark".tr(),
+          //   ),
+          // ),
         ],
       ),
       body: SingleChildScrollView(
@@ -213,10 +238,24 @@ class _LoginPageState extends State<LoginPage> {
                       20, 10, 20, 10), // This will be the login form
                   child: Column(
                     children: [
-                      Text(
-                        'Hello',
-                        style: TextStyle(
-                            fontSize: 60, fontWeight: FontWeight.bold),
+                      Container(
+                        height: 25.0, // provide a fixed height
+                        width: MediaQuery.of(context).size.width,
+                        child: Marquee(
+                          text: 'Enhance Crop Productivity by AI',
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                          scrollAxis: Axis.horizontal,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          blankSpace: 20.0,
+                          velocity: 50.0,
+                          pauseAfterRound: Duration(seconds: 1),
+                          startPadding: 10.0,
+                          accelerationDuration: Duration(seconds: 1),
+                          accelerationCurve: Curves.linear,
+                          decelerationDuration: Duration(milliseconds: 500),
+                          decelerationCurve: Curves.easeOut,
+                        ),
                       ),
                       Text(
                         'signinToAccount'.tr(),
@@ -230,6 +269,7 @@ class _LoginPageState extends State<LoginPage> {
                               // email
                               Container(
                                 child: TextFormField(
+                                  textInputAction: TextInputAction.next,
                                   controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: ThemeHelper().textInputDecoration(
@@ -249,9 +289,48 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 child: TextFormField(
                                   controller: passwordController,
-                                  obscureText: true,
-                                  decoration: ThemeHelper().textInputDecoration(
-                                      'password'.tr(), 'EnterPassword'.tr()),
+                                  obscureText: _passwordInVisible,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide:
+                                            BorderSide(color: Colors.grey)),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            color: Colors.grey.shade400)),
+                                    errorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            color: Colors.red, width: 2.0)),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            color: Colors.red, width: 2.0)),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        _passwordInVisible
+                                            ? Icons.visibility_off
+                                            : Icons
+                                                .visibility, //change icon based on boolean value
+                                        color:
+                                            Theme.of(context).primaryColorDark,
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          _passwordInVisible =
+                                              !_passwordInVisible; //change boolean value
+                                        });
+                                      },
+                                    ),
+                                  ),
                                   validator: (val) {
                                     if (val!.isEmpty) {
                                       return 'pleaseEnterPassword'.tr();

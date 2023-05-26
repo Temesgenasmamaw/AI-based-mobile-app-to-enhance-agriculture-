@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:mango_app/const/theme_data.dart';
 
 class teffResult extends StatefulWidget {
   final String res;
