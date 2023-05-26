@@ -269,11 +269,45 @@ class _LoginPageState extends State<LoginPage> {
                               // email
                               Container(
                                 child: TextFormField(
+                                  style: TextStyle(color: Colors.black),
+
                                   textInputAction: TextInputAction.next,
                                   controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
-                                  decoration: ThemeHelper().textInputDecoration(
-                                      'UserName'.tr(), 'EnterUserName'.tr()),
+                                  // decoration: ThemeHelper().textInputDecoration(
+                                  //     'UserName'.tr(), 'EnterUserName'.tr()),
+
+                                  decoration: InputDecoration(
+                                    labelText: 'UserName'.tr(),
+                                    labelStyle: TextStyle(color: Colors.black),
+                                    hintText: 'EnterUserName'.tr(),
+                                    // filled: true,
+                                    hintStyle: TextStyle(color: Colors.black),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide:
+                                            BorderSide(color: Colors.grey)),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            // color: Colors.grey.shade400
+                                            )),
+                                    errorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            color: Colors.red, width: 2.0)),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                        borderSide: BorderSide(
+                                            color: Colors.red, width: 2.0)),
+                                  ),
+
                                   validator: (value) {
                                     if (value!.isEmpty) {
                                       return 'pleaseEnterEmail'.tr();
@@ -290,8 +324,13 @@ class _LoginPageState extends State<LoginPage> {
                                 child: TextFormField(
                                   controller: passwordController,
                                   obscureText: _passwordInVisible,
+                                  style: TextStyle(color: Colors.black),
                                   decoration: InputDecoration(
-                                    filled: true,
+                                    hintText: 'EnterPassword'.tr(),
+                                    labelStyle: TextStyle(color: Colors.black),
+                                    label: Text('password').tr(),
+                                    // filled: true,
+                                    hintStyle: TextStyle(color: Colors.black),
                                     contentPadding:
                                         EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     focusedBorder: OutlineInputBorder(
@@ -303,7 +342,8 @@ class _LoginPageState extends State<LoginPage> {
                                         borderRadius:
                                             BorderRadius.circular(100.0),
                                         borderSide: BorderSide(
-                                            color: Colors.grey.shade400)),
+                                            // color: Colors.grey.shade400
+                                            )),
                                     errorBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(100.0),
@@ -338,8 +378,9 @@ class _LoginPageState extends State<LoginPage> {
                                     return null;
                                   },
                                 ),
-                                decoration:
-                                    ThemeHelper().inputBoxDecorationShaddow(),
+
+                                // decoration:
+                                //     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
                               SizedBox(height: 15.0),
 
