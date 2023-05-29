@@ -9,6 +9,7 @@ import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
 import '../databases/crop desc.dart';
+import '../pages/new-resource.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
 
@@ -105,6 +106,18 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             );
           },
         ),
+
+        ListTile(
+          title: Text('resource'.tr()),
+          subtitle: Text("all resource".tr()),
+          leading: const Icon(Icons.info),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const AllInfo()),
+            );
+          },
+        ),
+
         ListTile(
           title: Text('About'.tr()),
           subtitle: Text("Aboutapp".tr()),

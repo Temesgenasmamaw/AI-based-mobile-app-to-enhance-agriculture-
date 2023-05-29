@@ -132,6 +132,7 @@ class _maizeResultState extends State<maizeResult> {
                       ))
                 ],
               ),
+             
               SizedBox(
                 height: 30,
               ),

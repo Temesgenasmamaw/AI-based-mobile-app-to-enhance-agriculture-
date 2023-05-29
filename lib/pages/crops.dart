@@ -167,12 +167,11 @@ class _TabsState extends State<Tabs> {
                       height: 20,
                     ),
                     TextFormField(
-                      keyboardType: TextInputType.number,
                       controller: _pHController,
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
                       autocorrect: true,
-                      
                       decoration: InputDecoration(
-                        
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -194,6 +193,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _rainController,
+                      textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
@@ -215,6 +215,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _tempratureController,
+                      textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
@@ -236,6 +237,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _altitudeController,
+                      // textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
@@ -383,6 +385,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _nitrogenController,
+                      textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
@@ -405,6 +408,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _phosphorusController,
+                      textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
@@ -426,6 +430,7 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _potassiumeController,
+                      textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         // prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
