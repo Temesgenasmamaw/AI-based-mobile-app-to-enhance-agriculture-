@@ -169,7 +169,10 @@ class _TabsState extends State<Tabs> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       controller: _pHController,
+                      autocorrect: true,
+                      
                       decoration: InputDecoration(
+                        
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40))),
@@ -816,6 +819,8 @@ class _TabsState extends State<Tabs> {
     print('Languages:');
     print(languages.toList());
     print('is am-ET LanguageAvailable');
+    await flutterTts.setLanguage("am-ET");
+    await flutterTts.speak("ሰላም አንተው ልዑል");
 
     var isAvailable = await flutterTts.isLanguageAvailable("am-ET");
     print(isAvailable);
@@ -824,9 +829,9 @@ class _TabsState extends State<Tabs> {
     print('getDefaultVoice:');
     print(await flutterTts.getDefaultVoice);
     print('is am-ET LanguageInstalled:');
-    print(await flutterTts.isLanguageInstalled("am-ET"));
-    await flutterTts.speak('EnterPassword'.tr());
-    await tts.speak('welcome ');
+    print(await flutterTts.isLanguageInstalled("en-IN"));
+    // await flutterTts.speak('EnterPassword'.tr());
+    // await tts.speak('welcome ');
     // print(await tts.getVoice());
   }
 }

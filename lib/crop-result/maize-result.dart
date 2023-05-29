@@ -71,8 +71,9 @@ class _maizeResultState extends State<maizeResult> {
                     color: Colors.red),
               ),
               Text('is suitable crop for your farmland', style: _style),
+             
               SizedBox(
-                height: 30,
+                height: 50,
               ),
               Stack(
                 children: [
@@ -369,6 +370,7 @@ class _maizeResultState extends State<maizeResult> {
                       ))
                 ],
               ),
+            
             ],
           ),
         ),

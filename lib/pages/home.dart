@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                   style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white),
+                      color: Colors.blueAccent),
                 ),
               );
             }).toList(),
