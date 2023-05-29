@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../crop-result/barly-result.dart';
 import '../crop-result/maize-result.dart';
@@ -44,6 +45,7 @@ class _TabsState extends State<Tabs> {
   String crop = ' ';
   String fertilizer = ' ';
   FlutterTts flutterTts = FlutterTts();
+  TextToSpeech tts = TextToSpeech();
 
   //dropdownItems
   List<DropdownMenuItem<String>> get dropdownItems {
@@ -262,7 +264,7 @@ class _TabsState extends State<Tabs> {
                                   child: CircularProgressIndicator(),
                                 );
                               });
-                          print('getting url.....');
+
                           final response = await http.post(
                               Uri.parse(
                                   'https://smart-agriculture.up.railway.app/predict'),
@@ -347,6 +349,11 @@ class _TabsState extends State<Tabs> {
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black),
                     ),
+                    ElevatedButton(
+                        onPressed: () async {
+                          await listVoicesAndLanguages();
+                        },
+                        child: Text('language'))
                   ],
                 ),
               ),
@@ -442,6 +449,7 @@ class _TabsState extends State<Tabs> {
                     //drop down crop names
 
                     DropdownButtonFormField(
+                        // controller:_cropNameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide:
@@ -456,13 +464,12 @@ class _TabsState extends State<Tabs> {
                           filled: true,
                           // fillColor: Colors.blueAccent,
                         ),
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return "can't empty";
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
+                        validator: (value) {
+                          if (value == null) {
+                            return 'Please select an option';
+                          }
+                          return null;
+                        },
                         hint: Text('choose a crop'),
                         isExpanded: true,
                         dropdownColor: Colors.greenAccent,
@@ -470,6 +477,7 @@ class _TabsState extends State<Tabs> {
                         onChanged: (String? newValue) {
                           setState(() {
                             selectedValue = newValue!;
+                            _cropNameController.text = newValue;
                           });
                         },
                         items: dropdownItems),
@@ -785,5 +793,40 @@ class _TabsState extends State<Tabs> {
         ),
       )),
     );
+  }
+
+  Future<void> listVoicesAndLanguages() async {
+    // Create an instance of FlutterTts
+    final FlutterTts flutterTts = FlutterTts();
+
+    // Initialize FlutterTts
+    await flutterTts.setSharedInstance(true);
+    // await flutterTts.init();
+
+    // Retrieve available voices and languages
+    List<dynamic> voices = await flutterTts.getVoices;
+    List<dynamic> languages = await flutterTts.getLanguages;
+    // Print available voices and languages
+    print('Voices:');
+    // for (dynamic voice in voices) {
+    //   print(voice.toString());
+    // }
+    print(voices.toList());
+
+    print('Languages:');
+    print(languages.toList());
+    print('is am-ET LanguageAvailable');
+
+    var isAvailable = await flutterTts.isLanguageAvailable("am-ET");
+    print(isAvailable);
+    print('getEngines:');
+    print(await flutterTts.getEngines);
+    print('getDefaultVoice:');
+    print(await flutterTts.getDefaultVoice);
+    print('is am-ET LanguageInstalled:');
+    print(await flutterTts.isLanguageInstalled("am-ET"));
+    await flutterTts.speak('EnterPassword'.tr());
+    await tts.speak('welcome ');
+    // print(await tts.getVoice());
   }
 }

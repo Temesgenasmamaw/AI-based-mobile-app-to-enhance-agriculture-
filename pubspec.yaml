@@ -60,7 +60,10 @@ dependencies:
   easy_splash_screen: ^1.0.4
   toast: ^0.2.9
   fluttertoast: ^8.2.1
-  flutter_tts:
+  # flutter_tts:
+  flutter_tts: ^3.6.3
+  #
+  text_to_speech: ^0.2.3
   speech_to_text:
   flutter_speech:
   alan_voice:
