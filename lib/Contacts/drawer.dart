@@ -1,5 +1,10 @@
+
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/chatBot/chat.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +16,9 @@ import '../Contacts/rate-us.dart';
 import '../databases/crop desc.dart';
 import '../pages/new-resource.dart';
 import '../theme/theme-model.dart';
+import 'add-image.dart';
 import 'feedback.dart';
+import 'image-utils.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
   @override
@@ -19,9 +26,17 @@ class MyHeaderDrawer extends StatefulWidget {
 }
 
 class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
+  late Future<ListResult> futureLists;
+  @override
+  void initState() {
+    futureLists = FirebaseStorage.instance.ref('files/images/').list();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return ListView(
       // Important: Remove any padding from the ListView.
       padding: EdgeInsets.zero,
@@ -34,17 +49,26 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 70,
-                width: 100,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage('assets/crop.png'),
+              Stack(children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 80,
+                  width: 100,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/crop.png'),
+                    ),
                   ),
                 ),
-              ),
+                Positioned(
+                    bottom: -5,
+                    left: 50,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add_a_photo),
+                    )),
+              ]),
               Text(
                 "Smart Agri-app",
                 style: TextStyle(color: Colors.white, fontSize: 20),

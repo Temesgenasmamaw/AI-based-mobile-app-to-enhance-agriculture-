@@ -204,22 +204,7 @@ class _LoginPageState extends State<LoginPage> {
             }).toList(),
           ),
 
-          // ListTileSwitch(
-          //   value: themeChange.darkTheme,
-          //   leading: const Icon(Icons.dark_mode),
-          //   onChanged: (value) {
-          //     setState(() {
-          //       themeChange.darkTheme = value;
-          //     });
-          //   },
-          //   visualDensity: VisualDensity.comfortable,
-          //   switchType: SwitchType.cupertino,
-          //   switchActiveColor: Color(0xFFA10299),
-          //   title: Text('DarkTheme'.tr()),
-          //   subtitle: Text(
-          //     "EnableDark".tr(),
-          //   ),
-          // ),
+       
         ],
       ),
       body: SingleChildScrollView(

@@ -112,48 +112,6 @@ class _HomeState extends State<Home> {
             }).toList(),
           ),
 
-          //profile
-          // SizedBox(
-          //   width: 2,
-          // ),
-          // CircleAvatar(
-          //   backgroundImage: NetworkImage(
-          //       "https://th.bing.com/th/id/R.997b7179d918196046611fe719de9a75?rik=%2bgNrzOvlhkzdIg&pid=ImgRaw&r=0"),
-          //   maxRadius: 25,
-          //   child: IconButton(
-          //     onPressed: () {
-          //       showDialog(
-          //           context: context,
-          //           builder: (context) {
-          //             return AlertDialog(
-          //               title: Text('${user.email}'),
-          //               content: Text('Are you sure you want to log out?'),
-          //               actions: <Widget>[
-          //                 TextButton(
-          //                   child: Text('Yes'),
-          //                   onPressed: () async {
-          //                     await FirebaseAuth.instance.signOut();
-          //                     Navigator.pop(context);
-          //                   },
-          //                 ),
-          //                 TextButton(
-          //                   child: Text('No'),
-          //                   onPressed: () {
-          //                     Navigator.pop(context);
-          //                     ;
-          //                   },
-          //                 ),
-          //               ],
-          //             );
-          //           });
-          //     },
-          //     icon: Icon(Icons.arrow_drop_down),
-          //     iconSize: 30,
-          //     alignment: Alignment.centerRight,
-          //     padding: EdgeInsets.only(left: 35),
-          //   ),
-          // ),
-
           //logout icon
           IconButton(
             icon: Icon(Icons.logout_outlined),
@@ -185,6 +143,7 @@ class _HomeState extends State<Home> {
                   });
             },
           ),
+        
         ],
       ),
       drawer: Drawer(
