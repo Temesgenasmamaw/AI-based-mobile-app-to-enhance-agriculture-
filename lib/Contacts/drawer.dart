@@ -3,8 +3,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:mango_app/chatBot/chat.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +14,7 @@ import '../Contacts/rate-us.dart';
 import '../databases/crop desc.dart';
 import '../pages/new-resource.dart';
 import '../theme/theme-model.dart';
-import 'add-image.dart';
 import 'feedback.dart';
-import 'image-utils.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
   @override

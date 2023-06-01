@@ -6,6 +6,7 @@ class ThemeHelper {
       [String lableText = "", String hintText = ""]) {
     return InputDecoration(
       labelText: lableText,
+      prefixIcon: Icon(Icons.email),
       hintText: hintText,
       hintStyle: TextStyle(color: Colors.black),
       labelStyle: TextStyle(color: Colors.black),

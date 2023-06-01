@@ -203,8 +203,6 @@ class _LoginPageState extends State<LoginPage> {
               );
             }).toList(),
           ),
-
-       
         ],
       ),
       body: SingleChildScrollView(
@@ -280,6 +278,7 @@ class _LoginPageState extends State<LoginPage> {
                                     hintText: 'EnterPassword'.tr(),
                                     labelStyle: TextStyle(color: Colors.black),
                                     label: Text('password').tr(),
+                                    prefixIcon: Icon(Icons.lock),
                                     // filled: true,
                                     hintStyle: TextStyle(color: Colors.black),
                                     contentPadding:
@@ -518,8 +517,5 @@ class _LoginPageState extends State<LoginPage> {
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
-
-   
   }
-  
 }
