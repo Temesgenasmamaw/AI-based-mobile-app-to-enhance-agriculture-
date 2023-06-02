@@ -278,7 +278,10 @@ class _LoginPageState extends State<LoginPage> {
                                     hintText: 'EnterPassword'.tr(),
                                     labelStyle: TextStyle(color: Colors.black),
                                     label: Text('password').tr(),
-                                    prefixIcon: Icon(Icons.lock),
+                                    prefixIcon: Icon(
+                                      Icons.lock,
+                                      color: Colors.blueAccent,
+                                    ),
                                     // filled: true,
                                     hintStyle: TextStyle(color: Colors.black),
                                     contentPadding:
