@@ -70,6 +70,7 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
+            // localizationsDelegates:context.GlobalMaterialLocalizations.delegets,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             navigatorKey: navigatorKey,

@@ -1,5 +1,3 @@
-
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,7 @@ import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../Contacts/rate-us.dart';
 import '../databases/crop desc.dart';
-import '../pages/new-resource.dart';
+import '../pages/fruit-crop.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
 
@@ -66,7 +64,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
                     )),
               ]),
               Text(
-                "Smart Agri-app",
+                "Smart Agri-app".tr(),
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ],
@@ -133,7 +131,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           leading: const Icon(Icons.info),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const AllInfo()),
+              MaterialPageRoute(builder: (context) => const CropFruit()),
             );
           },
         ),

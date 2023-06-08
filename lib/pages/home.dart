@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../Contacts/drawer.dart';
 import 'Resource.dart';
 import 'crops.dart';
+import 'fruit-crop.dart';
 import 'landing page.dart';
 import 'list_disease.dart';
 import 'upload.dart';
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
     UploadImage(),
     Tabs(),
     ListDisease(),
-    Resource(),
+    CropFruit(),
 
     // Languages(),
   ];

@@ -223,9 +223,12 @@ class _AllInfoState extends State<AllInfo> {
                           ))
                     ],
                   ),
+                
                 );
-              }),
+              })
+              ,
         ),
+     
       ),
     );
   }

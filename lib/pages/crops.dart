@@ -74,7 +74,7 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 2,
       child: Scaffold(
           body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -95,7 +95,7 @@ class _TabsState extends State<Tabs> {
                 tabs: [
                   Tab(
                       child: Text(
-                    'Recommend',
+                    'Crop recommendation',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -109,38 +109,38 @@ class _TabsState extends State<Tabs> {
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic),
                   )),
-                  Tab(
-                      child: Text(
-                    'Maize',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Teff',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Wheat',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Barly',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  )),
+                  // Tab(
+                  //     child: Text(
+                  //   'Maize',
+                  //   style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontStyle: FontStyle.italic),
+                  // )),
+                  // Tab(
+                  //     child: Text(
+                  //   'Teff',
+                  //   style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontStyle: FontStyle.italic),
+                  // )),
+                  // Tab(
+                  //     child: Text(
+                  //   'Wheat',
+                  //   style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontStyle: FontStyle.italic),
+                  // )),
+                  // Tab(
+                  //     child: Text(
+                  //   'Barly',
+                  //   style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontStyle: FontStyle.italic),
+                  // )),
                 ],
               ),
             ),
@@ -639,162 +639,6 @@ class _TabsState extends State<Tabs> {
                     ),
                   ],
                 ),
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () async {
-                            print(flutterTts.getVoices);
-                            await flutterTts.setSpeechRate(0.5);
-                            await flutterTts.setPitch(1.0);
-                            await flutterTts.setVolume(1.0);
-                            await flutterTts.speak("maizeDesc".tr());
-                          },
-                          icon: const Icon(
-                            Icons.volume_up,
-                            size: 25,
-                          )),
-                      //ElevatedButton(onPressed: (){}, child:const Text('speak')),
-
-                      IconButton(
-                          onPressed: () async {
-                            await flutterTts.stop();
-                          },
-                          icon: const Icon(
-                            Icons.volume_off,
-                            size: 25,
-                          )),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("maizeDesc".tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () async {
-                            print(flutterTts.getVoices);
-                            await flutterTts.setSpeechRate(0.5);
-                            await flutterTts.setPitch(1.0);
-                            await flutterTts.setVolume(1.0);
-                            await flutterTts.speak("teffDesc".tr());
-                          },
-                          icon: const Icon(
-                            Icons.volume_up,
-                            size: 25,
-                          )),
-                      //ElevatedButton(onPressed: (){}, child:const Text('speak')),
-
-                      IconButton(
-                          onPressed: () async {
-                            await flutterTts.stop();
-                          },
-                          icon: const Icon(
-                            Icons.volume_off,
-                            size: 25,
-                          )),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("teffDesc".tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () async {
-                            print(flutterTts.getVoices);
-                            await flutterTts.setSpeechRate(0.5);
-                            await flutterTts.setPitch(1.0);
-                            await flutterTts.setVolume(1.0);
-                            await flutterTts.speak("wheatDesc".tr());
-                          },
-                          icon: const Icon(
-                            Icons.volume_up,
-                            size: 25,
-                          )),
-                      //ElevatedButton(onPressed: (){}, child:const Text('speak')),
-
-                      IconButton(
-                          onPressed: () async {
-                            await flutterTts.stop();
-                          },
-                          icon: const Icon(
-                            Icons.volume_off,
-                            size: 25,
-                          )),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("wheatDesc".tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () async {
-                            print(flutterTts.getVoices);
-                            await flutterTts.setSpeechRate(0.5);
-                            await flutterTts.setPitch(1.0);
-                            await flutterTts.setVolume(1.0);
-                            await flutterTts.speak("barleyDesc".tr());
-                          },
-                          icon: const Icon(
-                            Icons.volume_up,
-                            size: 25,
-                          )),
-                      //ElevatedButton(onPressed: (){}, child:const Text('speak')),
-
-                      IconButton(
-                          onPressed: () async {
-                            await flutterTts.stop();
-                          },
-                          icon: const Icon(
-                            Icons.volume_off,
-                            size: 25,
-                          )),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(12, 30, 3, 0),
-                    child: Text("barleyDesc".tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                  ),
-                ],
               ),
             ),
           ],
