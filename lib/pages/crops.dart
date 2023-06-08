@@ -86,12 +86,16 @@ class _TabsState extends State<Tabs> {
               expandedHeight: 200.0,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/crop.png',
+                  'assets/bottom.jfif',
                   fit: BoxFit.fitWidth,
                 ),
               ),
               bottom: TabBar(
                 isScrollable: true,
+                indicatorColor: Color.fromARGB(255, 255, 196, 68),
+                indicatorWeight: 10,
+                indicatorPadding: EdgeInsets.all(5),
+                // indicatorSize: TabBarIndicatorSize.label,
                 tabs: [
                   Tab(
                       child: Text(
@@ -109,38 +113,6 @@ class _TabsState extends State<Tabs> {
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic),
                   )),
-                  // Tab(
-                  //     child: Text(
-                  //   'Maize',
-                  //   style: TextStyle(
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontStyle: FontStyle.italic),
-                  // )),
-                  // Tab(
-                  //     child: Text(
-                  //   'Teff',
-                  //   style: TextStyle(
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontStyle: FontStyle.italic),
-                  // )),
-                  // Tab(
-                  //     child: Text(
-                  //   'Wheat',
-                  //   style: TextStyle(
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontStyle: FontStyle.italic),
-                  // )),
-                  // Tab(
-                  //     child: Text(
-                  //   'Barly',
-                  //   style: TextStyle(
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontStyle: FontStyle.italic),
-                  // )),
                 ],
               ),
             ),

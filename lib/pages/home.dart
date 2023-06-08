@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
     landingPage(),
     UploadImage(),
     Tabs(),
-    ListDisease(),
+    // ListDisease(),
     CropFruit(),
 
     // Languages(),
@@ -144,7 +144,6 @@ class _HomeState extends State<Home> {
                   });
             },
           ),
-        
         ],
       ),
       drawer: Drawer(
@@ -175,10 +174,10 @@ class _HomeState extends State<Home> {
             icon: const Icon(Icons.perm_device_information_outlined),
             label: 'Crops'.tr(),
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.list),
-            label: 'info on disease'.tr(),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(Icons.list),
+          //   label: 'info on disease'.tr(),
+          // ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.info),
             label: 'Resource'.tr(),

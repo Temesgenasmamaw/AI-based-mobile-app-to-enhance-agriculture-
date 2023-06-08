@@ -16,10 +16,6 @@ class _CropFruitState extends State<CropFruit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('mdp'.tr()),
-        // automaticallyImplyLeading: false,
-      ),
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
@@ -41,7 +37,8 @@ class _CropFruitState extends State<CropFruit> {
         body: Padding(
             padding: const EdgeInsets.all(8.0),
             // implement GridView.builder
-            child: GridView(
+            child:
+             GridView(
               // scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -362,7 +359,9 @@ class _CropFruitState extends State<CropFruit> {
                   ),
                 ),
               ],
-            )),
+            )
+            ),
+     
       ),
     );
   }

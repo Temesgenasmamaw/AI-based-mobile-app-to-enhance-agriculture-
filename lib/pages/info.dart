@@ -147,6 +147,7 @@ class _InfoState extends State<Info> {
         ], crossAxisAlignment: CrossAxisAlignment.start),
       ],
     ),
+   
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -224,6 +225,7 @@ class _InfoState extends State<Info> {
         ], crossAxisAlignment: CrossAxisAlignment.start),
       ],
     ),
+  
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -282,6 +284,7 @@ class _InfoState extends State<Info> {
         ], crossAxisAlignment: CrossAxisAlignment.start),
       ],
     ),
+   
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -301,7 +304,7 @@ class _InfoState extends State<Info> {
 
   @override
   Widget build(BuildContext context) {
-    DisInfo instance = ModalRoute.of(context)!.settings.arguments as DisInfo;
+     DisInfo instance = ModalRoute.of(context)!.settings.arguments as DisInfo;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF61A1D5),
@@ -345,6 +348,7 @@ class _InfoState extends State<Info> {
             ],
           ),
         ),
+     
       ),
     );
   }
