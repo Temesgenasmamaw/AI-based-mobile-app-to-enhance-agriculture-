@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mango_app/crop-result/barly-result.dart';
 
 import '../crop-result/maize-result.dart';
+import '../wheather/wheather-page.dart';
 import 'Resource.dart';
 
 class CropFruit extends StatefulWidget {
@@ -19,6 +20,20 @@ class _CropFruitState extends State<CropFruit> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => wheatherApi()));
+                    },
+                    icon: Icon(
+                      Icons.sunny,
+                      color: Colors.orange,
+                      size: 40,
+                    ))
+              ],
               // title: const Text('Tabs Demo'),
               automaticallyImplyLeading: false,
               pinned: true,
@@ -35,6 +50,8 @@ class _CropFruitState extends State<CropFruit> {
         },
         body: Padding(
             padding: const EdgeInsets.all(8.0),
+            //weather condition
+
             // implement GridView.builder
             child: GridView(
               // scrollDirection: Axis.horizontal,
@@ -104,7 +121,6 @@ class _CropFruitState extends State<CropFruit> {
                     ],
                   ),
                 ),
-                
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
