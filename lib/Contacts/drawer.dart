@@ -199,18 +199,18 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           ],
         ),
 
-        ListTile(
-          title: Text('RateUs'.tr()),
-          subtitle: Text(
-            "RateOurApp".tr(),
-          ),
-          leading: const Icon(Icons.rate_review),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => Rate()),
-            );
-          },
-        ),
+        // ListTile(
+        //   title: Text('RateUs'.tr()),
+        //   subtitle: Text(
+        //     "RateOurApp".tr(),
+        //   ),
+        //   leading: const Icon(Icons.rate_review),
+        //   onTap: () {
+        //     Navigator.of(context).push(
+        //       MaterialPageRoute(builder: (context) => Rate()),
+        //     );
+        //   },
+        // ),
 
         //********************************
         ListTile(

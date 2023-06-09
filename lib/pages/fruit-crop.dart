@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mango_app/crop-result/barly-result.dart';
 
@@ -26,19 +25,18 @@ class _CropFruitState extends State<CropFruit> {
               floating: true,
               expandedHeight: 200.0,
               flexibleSpace: FlexibleSpaceBar(
-                  // background: Image.asset(
-                  //   'assets/crop.png',
-                  //   fit: BoxFit.fitWidth,
-                  // ),
-                  ),
+                background: Image.asset(
+                  'assets/bottom.jfif',
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
             ),
           ];
         },
         body: Padding(
             padding: const EdgeInsets.all(8.0),
             // implement GridView.builder
-            child:
-             GridView(
+            child: GridView(
               // scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -106,6 +104,7 @@ class _CropFruitState extends State<CropFruit> {
                     ],
                   ),
                 ),
+                
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -359,9 +358,7 @@ class _CropFruitState extends State<CropFruit> {
                   ),
                 ),
               ],
-            )
-            ),
-     
+            )),
       ),
     );
   }

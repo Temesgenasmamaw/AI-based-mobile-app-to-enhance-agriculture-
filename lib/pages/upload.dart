@@ -159,7 +159,7 @@ class _UploadImageState extends State<UploadImage> {
                 Positioned(
                   // top: ,
                   width: w,
-                  height: h * 0.4,
+                  height: h * 0.6,
                   child: Padding(
                     padding: EdgeInsets.all(20),
                     child: Container(
@@ -197,7 +197,7 @@ class _UploadImageState extends State<UploadImage> {
                   ),
                 ),
                 Positioned(
-                  top: h * 0.44,
+                  top: h * 0.5,
                   width: w,
                   // bottom: h * 0.0005,
                   child: Container(
@@ -291,7 +291,7 @@ class _UploadImageState extends State<UploadImage> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 20,
-                mainAxisSpacing: 15,
+                mainAxisSpacing: 20,
               ),
               children: [
                 GestureDetector(
@@ -304,10 +304,12 @@ class _UploadImageState extends State<UploadImage> {
                   child: Stack(
                     children: [
                       Container(
-                        //height: 100,
-                        // width: 200,
+                        // height: 400,
+                        // width: 300,
+
+                        // transformAlignment: Alignment.centerRight,
                         height: MediaQuery.of(context).size.height / 2.5,
-                        padding: EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(20.0),
                         alignment: Alignment.bottomCenter,
 
                         decoration: BoxDecoration(

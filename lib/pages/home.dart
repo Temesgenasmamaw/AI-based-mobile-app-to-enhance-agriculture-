@@ -2,11 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
 import '../Contacts/drawer.dart';
-import 'Resource.dart';
+import '../wheather/wheather-page.dart';
 import 'crops.dart';
 import 'fruit-crop.dart';
 import 'landing page.dart';
-import 'list_disease.dart';
 import 'upload.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -34,8 +33,8 @@ class _HomeState extends State<Home> {
     landingPage(),
     UploadImage(),
     Tabs(),
-    // ListDisease(),
     CropFruit(),
+    wheatherApi()
 
     // Languages(),
   ];
@@ -183,10 +182,10 @@ class _HomeState extends State<Home> {
             label: 'Resource'.tr(),
           ),
 
-          // BottomNavigationBarItem(
-          //   icon: const Icon(Icons.language),
-          //   label: 'Language'.tr(),
-          // ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.sunny),
+            label: 'Wheather'.tr(),
+          ),
         ],
       ),
     );

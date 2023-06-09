@@ -47,6 +47,8 @@ class _RateState extends State<Rate> {
       // submitButton: Text('Submit'),
       onCancelled: () => print('cancelled'),
       onSubmitted: (response) {
+
+        
         print('rating: ${response.rating}, '
             'comment: ${response.comment}');
 

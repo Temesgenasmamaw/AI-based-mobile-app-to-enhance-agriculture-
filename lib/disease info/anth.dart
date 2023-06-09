@@ -30,13 +30,15 @@ class _AnthMangoDiseaseState extends State<AnthMangoDisease> {
               SizedBox(
                 height: 20,
               ),
-             Image(
-                  height: 200,
-                  width: 400,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage('assets/leafimages/anth.png'),
-                ),
-              
+              Container(
+                height: 200,
+                width: 400,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/leafimages/anth.png'),
+                        fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(20)),
+              ),
               const SizedBox(
                 height: 30.0,
               ),

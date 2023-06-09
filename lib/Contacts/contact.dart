@@ -131,7 +131,7 @@ class _ContactState extends State<Contact> {
                 ],
               ),
               Text(
-                'Mastewal Tesfa',
+                'Misganaw Nibret',
                 style: optionStyle1,
               ),
               const SizedBox(
@@ -181,14 +181,14 @@ class _ContactState extends State<Contact> {
                   Icon(Icons.email),
                   TextButton(
                       onPressed: () async {
-                        final _call = 'mailto.mastitesfa444@gmail.com';
+                        final _call = 'mailto.misganawnibret8@gmail.com';
                         if (await canLaunch(_call)) {
                           launch(_call);
                         } else {
                           //dailer is not opened
                         }
                       },
-                      child: Text("mastitesfa444@gmail.com"))
+                      child: Text("misganawnibret8@gmail.com"))
                 ],
               ),
               SizedBox(
