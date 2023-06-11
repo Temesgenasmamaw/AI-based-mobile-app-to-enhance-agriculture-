@@ -90,6 +90,7 @@ class _ResourceState extends State<Resource> {
                         )),
                   ],
                 ),
+                
                 Center(
                   child: Text("Mango".tr(),
                       style:

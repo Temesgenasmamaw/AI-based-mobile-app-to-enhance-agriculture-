@@ -335,6 +335,7 @@ class _LoginPageState extends State<LoginPage> {
                                 // decoration:
                                 //     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
+                             
                               SizedBox(height: 15.0),
 
                               //forgot password
@@ -363,9 +364,7 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration:
                                     ThemeHelper().buttonBoxDecoration(context),
                                 child: ElevatedButton(
-                                    // onPressed: () {
-                                    //   if()
-                                    // },
+                                   
                                     style: ThemeHelper().buttonStyle(),
                                     child: Padding(
                                       padding:

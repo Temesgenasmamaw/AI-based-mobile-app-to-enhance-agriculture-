@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'model/wheather.dart';
@@ -11,8 +12,10 @@ class wheatherApi extends StatefulWidget {
 }
 
 class _wheatherApiState extends State<wheatherApi> {
+  final _formKey = GlobalKey<FormState>();
   WeatherService weatherService = WeatherService();
   Weather weather = Weather();
+  final placeController = TextEditingController();
 
   String currentPlace = "";
   String currentCountry = "";
@@ -26,15 +29,16 @@ class _wheatherApiState extends State<wheatherApi> {
   double forcastTempF = 0;
   String wheatherIcon = '';
   double avghumidity = 0;
+  String p = 'Bahir Dar';
 
   @override
   void initState() {
     super.initState();
-    getWeather();
+    getWeather(p);
   }
 
-  void getWeather() async {
-    weather = await weatherService.getWeatherData("Bahir Dar");
+  void getWeather(String place) async {
+    weather = await weatherService.getWeatherData(place);
 
     setState(() {
       currentPlace = weather.placeName;
@@ -78,6 +82,78 @@ class _wheatherApiState extends State<wheatherApi> {
                           image: AssetImage('assets/wheather.jfif'),
                           fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(20)),
+                ),
+                Form(
+                  // child: TextFormField(
+                  //   controller: placeController,
+                  //   // The validator receives the text that the user has entered.
+                  //   validator: (value) {
+                  //     if (value == null || value.isEmpty) {
+                  //       return 'Please enter some text';
+                  //     }
+                  //     return null;
+                  //   },
+                  //   onChanged: (onChangedValue) {
+                  //     '${onChangedValue}';
+                  //   },
+                  // ),
+                  key: _formKey,
+                  child: Container(
+                    child: TextFormField(
+                      controller: placeController,
+                      // style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: 'Bahir Dar'.tr(),
+                        // labelStyle: TextStyle(color: Colors.white),
+                        label: Text('Enter Place Name').tr(),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          // color: Colors.blueAccent,
+                        ),
+                        // filled: true,
+                        hintStyle: TextStyle(color: Colors.white),
+                        contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100.0),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100.0),
+                            borderSide: BorderSide(
+                                // color: Colors.grey.shade400
+                                )),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100.0),
+                            borderSide:
+                                BorderSide(color: Colors.red, width: 2.0)),
+                        focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100.0),
+                            borderSide:
+                                BorderSide(color: Colors.red, width: 2.0)),
+                      ),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return 'Enter Place Name'.tr();
+                        }
+                        return null;
+                      },
+                    ),
+
+                    // decoration:
+                    //     ThemeHelper().inputBoxDecorationShaddow(),
+                  ),
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      try {
+                        getWeather(placeController.text);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                    }
+                  },
+                  child: Text('Submit'),
                 ),
 
                 SizedBox(

@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class Klow extends StatefulWidget {
    final String? name;
@@ -15,6 +17,15 @@ class Klow extends StatefulWidget {
 }
 
 class _KlowState extends State<Klow> {
+    FlutterTts flutterTts = FlutterTts();
+
+  Future<void> speak(String text, String languageCode) async {
+    await flutterTts.setLanguage(languageCode.tr());
+    await flutterTts.setSpeechRate(0.5);
+    await flutterTts.setPitch(1.0);
+    await flutterTts.setVolume(1.0);
+    await flutterTts.speak(text);
+  }
   @override
   Widget build(BuildContext context) {
     return    Scaffold(
@@ -23,6 +34,33 @@ class _KlowState extends State<Klow> {
       ),
       body: SingleChildScrollView(child: Center( child: Column(
         children: [
+          Row(
+                  children: [
+                    IconButton(
+                        onPressed: () async {
+                          print(flutterTts.getVoices);
+                          await flutterTts.setSpeechRate(0.5);
+                          await flutterTts.setPitch(1.0);
+                          await flutterTts.setVolume(1.0);
+                          await flutterTts.speak("WhatIsMango".tr());
+                        },
+                        icon: const Icon(
+                          Icons.volume_up,
+                          size: 25,
+                        )),
+                    //ElevatedButton(onPressed: (){}, child:const Text('speak')),
+
+                    IconButton(
+                        onPressed: () async {
+                          await flutterTts.stop();
+                        },
+                        icon: const Icon(
+                          Icons.volume_off,
+                          size: 25,
+                        )),
+                  ],
+                ),
+                
           Container(
               padding: EdgeInsets.fromLTRB(60, 15, 0, 10),
               child: Text(
