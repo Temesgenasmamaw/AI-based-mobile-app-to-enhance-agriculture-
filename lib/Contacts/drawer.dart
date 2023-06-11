@@ -9,6 +9,7 @@ import '../Contacts/About.dart';
 import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../databases/crop desc.dart';
+import '../news/news.dart';
 import '../pages/fruit-crop.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
@@ -93,7 +94,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
         ),
 
         ListTile(
-          title: Text('Chat Bot'.tr()),
+          title: Text('ChatBot'.tr()),
           subtitle: Text("search in bot".tr()),
           leading: const Icon(Icons.chat),
           onTap: () {
@@ -125,12 +126,12 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
         ),
 
         ListTile(
-          title: Text('resource'.tr()),
-          subtitle: Text("all resource".tr()),
+          title: Text('News'.tr()),
+          subtitle: Text("AllNews".tr()),
           leading: const Icon(Icons.info),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const CropFruit()),
+              MaterialPageRoute(builder: (context) => newsPage()),
             );
           },
         ),

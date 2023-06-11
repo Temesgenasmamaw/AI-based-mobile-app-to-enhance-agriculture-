@@ -75,7 +75,7 @@ class _wheatherApiState extends State<wheatherApi> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 200,
+                  height: 100,
                   width: 1000,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -890,7 +890,7 @@ class _wheatherApiState extends State<wheatherApi> {
                   height: 25,
                 ),
                 Text(
-                  'Next\'s day wheather condition',
+                  'Next 3 month wheather condition',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

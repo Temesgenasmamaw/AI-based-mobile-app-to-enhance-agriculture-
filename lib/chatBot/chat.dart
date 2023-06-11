@@ -55,7 +55,7 @@ class _ChatState extends State<Chat> {
                             _controller.clear();
                           },
                           icon: Icon(Icons.send)),
-                      IconButton(onPressed: () {}, icon: Icon(Icons.mic))
+                      // IconButton(onPressed: () {}, icon: Icon(Icons.mic))
                     ],
                   )
                 ],

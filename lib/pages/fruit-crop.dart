@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/crop-result/barly-result.dart';
 
-import '../crop-result/maize-result.dart';
+import '../crop resource/barley-resource.dart';
+import '../crop resource/maize-resource.dart';
+import '../crop resource/teff-resource.dart';
+import '../crop resource/wheat-resource.dart';
 import '../wheather/wheather-page.dart';
 import 'Resource.dart';
 
@@ -107,7 +110,7 @@ class _CropFruitState extends State<CropFruit> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Mango',
+                                    'Mango'.tr(),
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
@@ -126,9 +129,7 @@ class _CropFruitState extends State<CropFruit> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => maizeResult(
-                                  res: 'Maize',
-                                )));
+                            builder: (context) => maizeResorce()));
                   },
                   child: Stack(
                     children: [
@@ -170,7 +171,7 @@ class _CropFruitState extends State<CropFruit> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Maize',
+                                    'Maize'.tr(),
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -189,9 +190,7 @@ class _CropFruitState extends State<CropFruit> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => maizeResult(
-                                  res: 'Teff',
-                                )));
+                            builder: (context) => teffResource()));
                   },
                   child: Stack(
                     children: [
@@ -233,7 +232,7 @@ class _CropFruitState extends State<CropFruit> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Teff',
+                                    'Teff'.tr(),
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -252,9 +251,7 @@ class _CropFruitState extends State<CropFruit> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => maizeResult(
-                                  res: 'Wheat',
-                                )));
+                            builder: (context) => wheatResource()));
                   },
                   child: Stack(
                     children: [
@@ -296,7 +293,7 @@ class _CropFruitState extends State<CropFruit> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Wheat',
+                                    'Wheat'.tr(),
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -315,9 +312,7 @@ class _CropFruitState extends State<CropFruit> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => barlyResult(
-                                  res: 'Barley',
-                                )));
+                            builder: (context) => barlyResource()));
                   },
                   child: Stack(
                     children: [
@@ -359,7 +354,7 @@ class _CropFruitState extends State<CropFruit> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Barley',
+                                    'Barley'.tr(),
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

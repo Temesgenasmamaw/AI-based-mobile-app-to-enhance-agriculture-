@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -69,6 +70,21 @@ class _TabsState extends State<Tabs> {
     _potassiumeController;
     _cropNameController;
     super.dispose();
+  }
+
+  Future<File> fetchAmharicTtsAudio(String text) async {
+    final url = Uri.parse(
+        'https://code.responsivevoice.org/getvoice.php?t=${Uri.encodeComponent(text)}&tl=am-ET');
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final filePath =
+          'path/to/save/audio.mp3'; // Define a file path to save the audio
+      final file = File(filePath);
+      await file.writeAsBytes(response.bodyBytes);
+      return file;
+    } else {
+      throw Exception('Failed to fetch TTS audio');
+    }
   }
 
   @override
@@ -330,7 +346,13 @@ class _TabsState extends State<Tabs> {
                         onPressed: () async {
                           await listVoicesAndLanguages();
                         },
-                        child: Text('language'))
+                        child: Text('language')),
+                    ElevatedButton(
+                        onPressed: () async {
+                          // await listVoicesAndLanguages();
+                          playAmharicTts('አማርኛ የድምጽ');
+                        },
+                        child: Text('api language'))
                   ],
                 ),
               ),
@@ -655,5 +677,17 @@ class _TabsState extends State<Tabs> {
     // await flutterTts.speak('EnterPassword'.tr());
     // await tts.speak('welcome ');
     // print(await tts.getVoice());
+  }
+
+  void playAmharicTts(String text) async {
+    final audioFile = await fetchAmharicTtsAudio(text);
+    await flutterTts.setLanguage(
+        'en-US'); // Set a default language (not necessarily Amharic)
+    await flutterTts.setSpeechRate(0.8); // Adjust the speech rate if needed
+    await flutterTts.setVolume(1.0); // Adjust the volume if needed
+    await flutterTts.setPitch(1.0); // Adjust the pitch if needed
+    await flutterTts
+        .awaitSpeakCompletion(true); // Wait for previous speech completion
+    await flutterTts.speak(audioFile.path);
   }
 }
