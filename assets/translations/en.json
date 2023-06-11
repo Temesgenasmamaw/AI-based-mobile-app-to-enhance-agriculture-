@@ -147,14 +147,25 @@
    "_resourceWheat": "The process of cropping wheat in Ethiopia typically involves the following steps:\n\n1. Land preparation:\n The land for growing wheat is usually plowed and harrowed to break up any clumps, remove weeds, and create a loose soil bed for planting. The soil is also tested to determine the pH level and nutrient content.\n2. Seed selection and preparation: \nHigh-quality wheat seeds are selected for planting. The seeds are usually treated with fungicides or insecticides to protect them from pests and diseases. The seeds may also be soaked in water to improve germination.\n3. Planting:\n Wheat is typically planted in Ethiopia during the rainy season, which is usually around June to August. The seeds are sown by hand or with a planter at a depth of about 2-3 cm, with a spacing of about 20-25 cm between rows.\n4. Irrigation:\n Wheat requires regular watering, especially during the first few weeks after planting. In areas where there is not enough rainfall, irrigation may be necessary to ensure good crop growth.\n5. Fertilization: \nWheat is usually fertilized with chemical fertilizers to improve the yield. The amount and type of fertilizer used depend on the soil nutrient content and the growth stage of the crop.\n6. Weed control: \nWeeds can compete with wheat for nutrients and water, so it is important to control them. This can be done manually, through the use of herbicides, or through crop rotation.\n7. Pest and disease control: \nWheat is susceptible to a range of pests and diseases, including rust, smut, and aphids. Control measures include the use of insecticides and fungicides, as well as crop rotation and resistant varieties.\n8. Harvesting:\n Wheat is usually ready for harvesting after about 3-4 months, depending on the variety and growing conditions. The crop is usually harvested by hand using sickles or other cutting tools. The stalks are cut close to the ground and then bundled together for threshing.\n9. Threshing: \nThe bundles of wheat stalks are beaten with sticks or other tools to separate the grain from the stalks. This process is usually done on a large tarp or mat, and the grain is separated from the chaff by winnowing.\n10. Storage: \nThe wheat grain is then stored in a cool, dry place to protect it from pests and moisture. It can be milled into flour as needed for making bread, pasta, and other wheat-based products.\n\nOverall, the process of cropping wheat requires careful attention to detail and good management practices to ensure a successful harvest."
 ,
 "Maize":"Maize",
+
 "Teff":"Teff",
 "Wheat":"Wheat",
+
 "Barley":"Barley",
+"Maize/Bokolo":"Maize",
+"Wheat/Sinde":"Wheat",
+"Barley/Gebs":"Barley",
 "Crops":"Crops",
 "Wheather":"Wheather",
 "ChatBot":"Chat Bot",
 "News":"News",
-"AllNews":"All News"
+"AllNews":"All News",
+"teffResult":"teff is suitable crop type for your farm land.",
+"maizeResult":"maize is suitable crop type for your farm land.",
+"wheatResult":"wheat is suitable crop type for your farm land.",
+"barleyResult":"barley is suitable crop type for your farm land.",
+"suitable":"is suitable crop type for your farm land."
+
 
 
 }

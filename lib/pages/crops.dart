@@ -342,17 +342,17 @@ class _TabsState extends State<Tabs> {
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black),
                     ),
-                    ElevatedButton(
-                        onPressed: () async {
-                          await listVoicesAndLanguages();
-                        },
-                        child: Text('language')),
-                    ElevatedButton(
-                        onPressed: () async {
-                          // await listVoicesAndLanguages();
-                          playAmharicTts('አማርኛ የድምጽ');
-                        },
-                        child: Text('api language'))
+                    // ElevatedButton(
+                    //     onPressed: () async {
+                    //       await listVoicesAndLanguages();
+                    //     },
+                    //     child: Text('language')),
+                    // ElevatedButton(
+                    //     onPressed: () async {
+                    //       // await listVoicesAndLanguages();
+                    //       playAmharicTts('አማርኛ የድምጽ');
+                    //     },
+                    //     child: Text('api language'))
                   ],
                 ),
               ),
@@ -641,53 +641,53 @@ class _TabsState extends State<Tabs> {
     );
   }
 
-  Future<void> listVoicesAndLanguages() async {
-    // Create an instance of FlutterTts
-    final FlutterTts flutterTts = FlutterTts();
+  // Future<void> listVoicesAndLanguages() async {
+  //   // Create an instance of FlutterTts
+  //   final FlutterTts flutterTts = FlutterTts();
 
-    // Initialize FlutterTts
-    await flutterTts.setSharedInstance(true);
-    // await flutterTts.init();
+  //   // Initialize FlutterTts
+  //   await flutterTts.setSharedInstance(true);
+  //   // await flutterTts.init();
 
-    // Retrieve available voices and languages
-    List<dynamic> voices = await flutterTts.getVoices;
-    List<dynamic> languages = await flutterTts.getLanguages;
-    // Print available voices and languages
-    print('Voices:');
-    // for (dynamic voice in voices) {
-    //   print(voice.toString());
-    // }
-    print(voices.toList());
+  //   // Retrieve available voices and languages
+  //   List<dynamic> voices = await flutterTts.getVoices;
+  //   List<dynamic> languages = await flutterTts.getLanguages;
+  //   // Print available voices and languages
+  //   print('Voices:');
+  //   // for (dynamic voice in voices) {
+  //   //   print(voice.toString());
+  //   // }
+  //   print(voices.toList());
 
-    print('Languages:');
-    print(languages.toList());
-    print('is am-ET LanguageAvailable');
-    await flutterTts.setLanguage("am-ET");
-    await flutterTts.setVoice({'am-ET': "am-ET-x-etv-local"});
-    await flutterTts.speak("ሰላም እንዴት ነህ።");
+  //   print('Languages:');
+  //   print(languages.toList());
+  //   print('is am-ET LanguageAvailable');
+  //   await flutterTts.setLanguage("am-ET");
+  //   await flutterTts.setVoice({'am-ET': "am-ET-x-etv-local"});
+  //   await flutterTts.speak("ሰላም እንዴት ነህ።");
 
-    var isAvailable = await flutterTts.isLanguageAvailable("am-ET");
-    print(isAvailable);
-    print('getEngines:');
-    print(await flutterTts.getEngines);
-    print('getDefaultVoice:');
-    print(await flutterTts.getDefaultVoice);
-    print('is am-ET LanguageInstalled:');
-    print(await flutterTts.isLanguageInstalled("en-IN"));
-    // await flutterTts.speak('EnterPassword'.tr());
-    // await tts.speak('welcome ');
-    // print(await tts.getVoice());
-  }
+  //   var isAvailable = await flutterTts.isLanguageAvailable("am-ET");
+  //   print(isAvailable);
+  //   print('getEngines:');
+  //   print(await flutterTts.getEngines);
+  //   print('getDefaultVoice:');
+  //   print(await flutterTts.getDefaultVoice);
+  //   print('is am-ET LanguageInstalled:');
+  //   print(await flutterTts.isLanguageInstalled("en-IN"));
+  //   // await flutterTts.speak('EnterPassword'.tr());
+  //   // await tts.speak('welcome ');
+  //   // print(await tts.getVoice());
+  // }
 
-  void playAmharicTts(String text) async {
-    final audioFile = await fetchAmharicTtsAudio(text);
-    await flutterTts.setLanguage(
-        'en-US'); // Set a default language (not necessarily Amharic)
-    await flutterTts.setSpeechRate(0.8); // Adjust the speech rate if needed
-    await flutterTts.setVolume(1.0); // Adjust the volume if needed
-    await flutterTts.setPitch(1.0); // Adjust the pitch if needed
-    await flutterTts
-        .awaitSpeakCompletion(true); // Wait for previous speech completion
-    await flutterTts.speak(audioFile.path);
-  }
+  // void playAmharicTts(String text) async {
+  //   final audioFile = await fetchAmharicTtsAudio(text);
+  //   await flutterTts.setLanguage(
+  //       'en-US'); // Set a default language (not necessarily Amharic)
+  //   await flutterTts.setSpeechRate(0.8); // Adjust the speech rate if needed
+  //   await flutterTts.setVolume(1.0); // Adjust the volume if needed
+  //   await flutterTts.setPitch(1.0); // Adjust the pitch if needed
+  //   await flutterTts
+  //       .awaitSpeakCompletion(true); // Wait for previous speech completion
+  //   await flutterTts.speak(audioFile.path);
+  // }
 }

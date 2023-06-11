@@ -148,9 +148,17 @@
    "Teff":"ጤፍ",
    "Wheat":"ስንዴ",
    "Barley":"ገብስ",
+   "Maize/Bokolo":"በቆሎ",
+"Wheat/Sinde":"ስንዴ",
+"Barley/Gebs":"ገብስ",
    "Crops":"አዝዕርት",
    "Wheather":"አየር ንብረት",
    "ChatBot":"ቻት ቦት",
 "News":"አድስ ነገር",
-"AllNews":"አድስ ነገር ያንብቡ"
+"AllNews":"አድስ ነገር ያንብቡ",
+"teffResult":"ጤፍ ለእርሻ መሬትዎ ተስማሚ የሰብል አይነት ነው.",
+"maizeResult":"በቆሎ ለእርሻ መሬትዎ ተስማሚ የሰብል አይነት ነው.",
+"wheatResult":"ስንዴ ለእርሻ መሬትዎ ተስማሚ የሰብል አይነት ነው.",
+"barleyResult":"ገብስ ለእርሻ መሬትዎ ተስማሚ የሰብል አይነት ነው.",
+"suitable":"ለእርሻ መሬትዎ ተስማሚ የሰብል አይነት ነው"
 }
