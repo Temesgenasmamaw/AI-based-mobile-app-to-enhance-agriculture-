@@ -8,7 +8,6 @@ import 'package:flutter_share/flutter_share.dart';
 import '../Contacts/About.dart';
 import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
-import '../Contacts/rate-us.dart';
 import '../databases/crop desc.dart';
 import '../pages/fruit-crop.dart';
 import '../theme/theme-model.dart';

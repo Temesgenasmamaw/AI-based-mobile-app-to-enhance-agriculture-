@@ -641,7 +641,8 @@ class _TabsState extends State<Tabs> {
     print(languages.toList());
     print('is am-ET LanguageAvailable');
     await flutterTts.setLanguage("am-ET");
-    await flutterTts.speak("ሰላም አንተው ልዑል");
+    await flutterTts.setVoice({'am-ET': "am-ET-x-etv-local"});
+    await flutterTts.speak("ሰላም እንዴት ነህ።");
 
     var isAvailable = await flutterTts.isLanguageAvailable("am-ET");
     print(isAvailable);

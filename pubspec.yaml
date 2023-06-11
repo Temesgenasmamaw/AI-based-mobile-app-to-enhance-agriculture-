@@ -65,12 +65,12 @@ dependencies:
   toast: ^0.2.9
   fluttertoast: ^8.2.1
   # flutter_tts:
-  flutter_tts: ^3.6.3
+  flutter_tts: ^3.7.0
   #
   text_to_speech: ^0.2.3
   speech_to_text:
   flutter_speech:
-  alan_voice:
+  # alan_voice: 
   http:
   graphql_flutter:
   flutter_email_sender: ^5.2.0
