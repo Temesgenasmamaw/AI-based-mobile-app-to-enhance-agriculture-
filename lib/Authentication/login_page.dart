@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
 // import 'package:list_tile_switch/list_tile_switch.dart';
-import 'package:mango_app/Authentication/phone.dart';
+import 'package:agri_app/Authentication/phone.dart';
 import 'package:marquee/marquee.dart';
 // import 'package:provider/provider.dart';
 import '../common/theme_helper.dart';
@@ -224,7 +224,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 25.0, // provide a fixed height
                         width: MediaQuery.of(context).size.width,
                         child: Marquee(
-                          text: 'Enhance Crop Productivity by AI',
+                          text: 'EnhanceByAI'.tr(),
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
                           scrollAxis: Axis.horizontal,
@@ -488,7 +488,7 @@ class _LoginPageState extends State<LoginPage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
-                                        color: Colors.black),
+                                        color: Colors.blueAccent),
                                   ),
                                 ])),
                               ),

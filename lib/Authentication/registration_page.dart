@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/Authentication/login_page.dart';
+import 'package:agri_app/Authentication/login_page.dart';
 
 import '../common/theme_helper.dart';
 import 'widgets/header_widget.dart';
@@ -331,9 +331,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             obscureText: _passwordInVisible,
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
-                              hintText: 'EnterPassword'.tr(),
+                              hintText: 'confirmPassword'.tr(),
                               labelStyle: TextStyle(color: Colors.black),
-                              label: Text('password').tr(),
+                              label: Text('confirmPassword').tr(),
                               prefixIcon: Icon(
                                 Icons.lock,
                                 color: Colors.blueAccent,
@@ -376,7 +376,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return 'pleaseEnterPassword'.tr();
+                                return 'pleaseConfirm'.tr();
                               }
                               return null;
                             },

@@ -1,4 +1,4 @@
-# mango_app
+# agri_app
 
 AI Powered Mobile Application
 

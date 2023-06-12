@@ -1,4 +1,4 @@
-package com.EthioFruits.mango_app
+package com.EthioFruits.agri_app
 
 import io.flutter.embedding.android.FlutterActivity
 

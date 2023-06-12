@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/pages/home.dart';
+import 'package:agri_app/pages/home.dart';
 
 class verifyPhone extends StatefulWidget {
   final String verificationId;

@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/Authentication/login_page.dart';
-import 'package:mango_app/Authentication/registration_page.dart';
-import 'package:mango_app/pages/splash.dart';
+import 'package:agri_app/Authentication/login_page.dart';
+import 'package:agri_app/Authentication/registration_page.dart';
+import 'package:agri_app/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'Screens/SignUp.dart';
@@ -11,7 +11,6 @@ import 'pages/info.dart';
 import 'pages/prediction.dart';
 import 'pages/home.dart';
 import 'theme/theme-model.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

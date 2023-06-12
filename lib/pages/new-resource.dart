@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/crop-result/teff-result.dart';
+import 'package:agri_app/crop-result/teff-result.dart';
 
 class Language {
   Locale locale;
@@ -223,12 +223,9 @@ class _AllInfoState extends State<AllInfo> {
                           ))
                     ],
                   ),
-                
                 );
-              })
-              ,
+              }),
         ),
-     
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
-import 'package:mango_app/chatBot/message.dart';
+import 'package:agri_app/chatBot/message.dart';
 
 class Chat extends StatefulWidget {
   const Chat({Key? key}) : super(key: key);
