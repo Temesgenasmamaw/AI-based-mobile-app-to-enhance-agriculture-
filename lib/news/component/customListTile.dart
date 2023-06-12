@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../model/article.dart';
-import '../pages/article_detail_page.dart';
 
 Widget customListTile(Article article, BuildContext context) {
   final url = article.url;

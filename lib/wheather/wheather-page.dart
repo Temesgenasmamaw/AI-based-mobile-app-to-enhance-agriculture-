@@ -263,7 +263,7 @@ class _wheatherApiState extends State<wheatherApi> {
                                     color: Colors.grey,
                                   ),
                                   Text(
-                                    'It is ${currentWeather} today',
+                                    'It is ${currentWeather} today,   Humidity:${avghumidity}',
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold,

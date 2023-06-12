@@ -10,7 +10,7 @@ class ApiService {
   Future<List<Article>> getArticle() async {
     final queryParameters = {
       'country': 'us',
-      'category': 'technology',
+      'category': 'general',
       'apiKey': '501155f190aa46f7a2a5b2d3e4d8bbf1'
     };
 

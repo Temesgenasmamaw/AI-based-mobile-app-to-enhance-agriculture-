@@ -114,8 +114,8 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
         //   },
         // ),
         ListTile(
-          title: Text('Crop info'.tr()),
-          subtitle: Text("crop information".tr()),
+          title: Text('take price'.tr()),
+          subtitle: Text("record ccrop price".tr()),
           leading: const Icon(Icons.info_outline),
           onTap: () {
             Navigator.of(context).push(
