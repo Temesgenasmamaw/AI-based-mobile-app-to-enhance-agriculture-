@@ -11,7 +11,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   TextEditingController _feedbackController = TextEditingController();
 
   Future sendFeedbackEmail() async {
-    final String email = 'asmamawtemesgen16@gmail.com';
+    final String email = 'temesgenasmamaw1621@gmail.com';
     final Uri params = await Uri(
       scheme: 'mailto',
       path: email,
@@ -19,7 +19,19 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     );
     final url = params.toString();
     final urlPath = Uri.parse(url);
-    launchUrl(urlPath);
+    launch(url);
+  }
+
+  Future<void> sendFeedbackTelegram() async {
+    final String username = '@dgety';
+    final Uri params = Uri(
+      scheme: 'tg',
+      path: 'msg',
+      query:
+          'to=$username&text=${Uri.encodeComponent(_feedbackController.text)}',
+    );
+    final url = params.toString();
+    await launch(url);
   }
 
   @override
@@ -61,7 +73,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 onPressed: () {
                   if (_feedbackKey.currentState!.validate()) {
                     try {
-                      sendFeedbackEmail;
+                      sendFeedbackEmail();
                     } catch (e) {
                       print(e.toString());
                     }

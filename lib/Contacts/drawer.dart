@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
-import 'package:agri_app/chatBot/chat.dart';
+import 'package:ai_agri/chatBot/chat.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_share/flutter_share.dart';
 import '../Contacts/About.dart';
@@ -10,7 +10,6 @@ import '../Contacts/contact.dart';
 import '../Contacts/privacy.dart';
 import '../databases/crop desc.dart';
 import '../news/news.dart';
-import '../pages/fruit-crop.dart';
 import '../theme/theme-model.dart';
 import 'feedback.dart';
 

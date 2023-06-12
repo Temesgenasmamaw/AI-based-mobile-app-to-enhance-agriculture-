@@ -99,6 +99,7 @@ class _TabsState extends State<Tabs> {
               // title: const Text('Tabs Demo'),
               pinned: true,
               floating: true,
+              automaticallyImplyLeading: false,
               expandedHeight: 200.0,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(

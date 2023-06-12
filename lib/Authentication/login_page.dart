@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hexcolor/hexcolor.dart';
 // import 'package:list_tile_switch/list_tile_switch.dart';
-import 'package:agri_app/Authentication/phone.dart';
+import 'package:ai_agri/Authentication/phone.dart';
 import 'package:marquee/marquee.dart';
 // import 'package:provider/provider.dart';
 import '../common/theme_helper.dart';
@@ -226,7 +226,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Marquee(
                           text: 'EnhanceByAI'.tr(),
                           style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
                           scrollAxis: Axis.horizontal,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           blankSpace: 20.0,
@@ -390,75 +392,75 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(height: 20),
 
                               // or continue with
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 25.0),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Divider(
-                                        thickness: 0.5,
-                                        // color: Colors.grey[400],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10.0),
-                                      child: Text(
-                                        'continueWith'.tr(),
-                                        style:
-                                            TextStyle(color: Colors.grey[700]),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Divider(
-                                        thickness: 0.5,
-                                        color: Colors.grey[400],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.symmetric(
+                              //       horizontal: 25.0),
+                              //   child: Row(
+                              //     children: [
+                              //       Expanded(
+                              //         child: Divider(
+                              //           thickness: 0.5,
+                              //           // color: Colors.grey[400],
+                              //         ),
+                              //       ),
+                              //       Padding(
+                              //         padding: const EdgeInsets.symmetric(
+                              //             horizontal: 10.0),
+                              //         child: Text(
+                              //           'continueWith'.tr(),
+                              //           style:
+                              //               TextStyle(color: Colors.grey[700]),
+                              //         ),
+                              //       ),
+                              //       Expanded(
+                              //         child: Divider(
+                              //           thickness: 0.5,
+                              //           color: Colors.grey[400],
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
 
-                              const SizedBox(height: 20),
+                              // const SizedBox(height: 20),
 
                               // google +phone number sign in buttons
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    child: FaIcon(
-                                      FontAwesomeIcons.googlePlus,
-                                      size: 35,
-                                      color: HexColor("#EC2D2F"),
-                                    ),
-                                    onTap: () {
-                                      setState(() {
-                                        signInWithGoogle();
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 50.0,
-                                  ),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     GestureDetector(
+                              //       child: FaIcon(
+                              //         FontAwesomeIcons.googlePlus,
+                              //         size: 35,
+                              //         color: HexColor("#EC2D2F"),
+                              //       ),
+                              //       onTap: () {
+                              //         setState(() {
+                              //           signInWithGoogle();
+                              //         });
+                              //       },
+                              //     ),
+                              //     SizedBox(
+                              //       width: 50.0,
+                              //     ),
 
-                                  //phone number
-                                  GestureDetector(
-                                    child: FaIcon(
-                                      FontAwesomeIcons.phone,
-                                      size: 35,
-                                      color: HexColor("#3E529C"),
-                                    ),
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  phoneSignIn()));
-                                    },
-                                  ),
-                                ],
-                              ),
+                              //     //phone number
+                              //     GestureDetector(
+                              //       child: FaIcon(
+                              //         FontAwesomeIcons.phone,
+                              //         size: 35,
+                              //         color: HexColor("#3E529C"),
+                              //       ),
+                              //       onTap: () {
+                              //         Navigator.push(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //                 builder: (context) =>
+                              //                     phoneSignIn()));
+                              //       },
+                              //     ),
+                              //   ],
+                              // ),
 
                               const SizedBox(height: 30),
                               //Don\'t have an account?

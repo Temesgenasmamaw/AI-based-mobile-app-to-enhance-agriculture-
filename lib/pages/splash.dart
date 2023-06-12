@@ -1,6 +1,6 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app/Authentication/auth.dart';
+import 'package:ai_agri/Authentication/auth.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasySplashScreen(
       title: const Text(
-        "Smart agri_app",
+        "Smart ai_agri",
         style: TextStyle(
           fontSize: 21,
           fontWeight: FontWeight.bold,

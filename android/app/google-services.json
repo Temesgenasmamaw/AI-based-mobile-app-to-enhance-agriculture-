@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "369357708189",
-    "project_id": "smart-agri-app-6e669",
-    "storage_bucket": "smart-agri-app-6e669.appspot.com"
+    "project_number": "308381628245",
+    "project_id": "smart-ai-app-11406",
+    "storage_bucket": "smart-ai-app-11406.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:369357708189:android:6fd3daf54fef1073916d74",
+        "mobilesdk_app_id": "1:308381628245:android:8389fcb0b59231682ba1dc",
         "android_client_info": {
-          "package_name": "com.EthioFruits.agri_app"
+          "package_name": "com.EthioFruits.ai_agri"
         }
       },
       "oauth_client": [
         {
-          "client_id": "369357708189-nk2r5ijct4gdoboe92vk922bgrnujims.apps.googleusercontent.com",
+          "client_id": "308381628245-36bletsak47s3of3a9pc8tnd0cvje1mh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCYa8bgM3oB2mJKor-kOoeVjcUCrefW0rQ"
+          "current_key": "AIzaSyDfsc3jo_hrwt-PLCZ-zVD1p_mHhGjYL8M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "369357708189-nk2r5ijct4gdoboe92vk922bgrnujims.apps.googleusercontent.com",
+              "client_id": "308381628245-36bletsak47s3of3a9pc8tnd0cvje1mh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

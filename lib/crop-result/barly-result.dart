@@ -83,7 +83,7 @@ class _barlyResultState extends State<barlyResult> {
                     fontWeight: FontWeight.bold,
                     color: Colors.red),
               ),
-              Text('suitable'.tr(), style: _style),
+              Text('recommendResult'.tr(), style: _style),
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.all(10),

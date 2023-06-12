@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app/Authentication/login_page.dart';
-import 'package:agri_app/Authentication/registration_page.dart';
-import 'package:agri_app/pages/splash.dart';
+import 'package:ai_agri/Authentication/login_page.dart';
+import 'package:ai_agri/Authentication/registration_page.dart';
+import 'package:ai_agri/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'Screens/SignUp.dart';

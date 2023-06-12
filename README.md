@@ -1,4 +1,4 @@
-# agri_app
+# ai_agri
 
 AI Powered Mobile Application
 

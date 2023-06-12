@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:agri_app/Authentication/login_page.dart';
+// import 'package:ai_agri/Authentication/login_page.dart';
 
 // import 'registration_page.dart';
 

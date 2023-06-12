@@ -84,7 +84,7 @@ class _teffResultState extends State<teffResult> {
                     fontWeight: FontWeight.bold,
                     color: Colors.red),
               ),
-              Text('suitable'.tr(), style: _style),
+              Text('recommendResult'.tr(), style: _style),
               SizedBox(
                 height: 35,
               ),
@@ -286,8 +286,7 @@ class _teffResultState extends State<teffResult> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/R.7212d590e5ecd0bee60df2437b73f3d8?rik=9PJkkFyO2smMUA&pid=ImgRaw&r=0"),
+                                image: AssetImage("assets/teffWedding.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration
@@ -342,8 +341,7 @@ class _teffResultState extends State<teffResult> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/R.7435ab81d8ce0b28c01b1697e5bbc74f?rik=Ob8ZWeehk2G%2bEQ&pid=ImgRaw&r=0"),
+                                image: AssetImage("assets/teffHarvest.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration

@@ -385,8 +385,7 @@ class _barlyResourceState extends State<barlyResource> {
                                 ),
                               ],
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://th.bing.com/th/id/R.7435ab81d8ce0b28c01b1697e5bbc74f?rik=Ob8ZWeehk2G%2bEQ&pid=ImgRaw&r=0"),
+                                image: AssetImage("assets/wheatHarvest.jfif"),
                                 fit: BoxFit.cover,
                               ), //DecorationImage
                             ), //BoxDecoration

@@ -57,7 +57,7 @@ class _phoneSignInState extends State<phoneSignIn> {
                 controller: _phoneController,
                 decoration: InputDecoration(
                   labelText: 'phone number',
-                  hintText: '0952614852',
+                  hintText: '+251952614852',
                 ),
                 keyboardType: TextInputType.phone,
                 onFieldSubmitted: (value) {},

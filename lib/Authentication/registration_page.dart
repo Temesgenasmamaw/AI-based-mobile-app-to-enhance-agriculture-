@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app/Authentication/login_page.dart';
+import 'package:ai_agri/Authentication/login_page.dart';
 
 import '../common/theme_helper.dart';
 import 'widgets/header_widget.dart';

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app/pages/home.dart';
+import 'package:ai_agri/pages/home.dart';
 
 class verifyPhone extends StatefulWidget {
   final String verificationId;
@@ -59,7 +59,7 @@ class _verifyPhoneState extends State<verifyPhone> {
                 controller: _verifyPhoneCodeController,
                 decoration: InputDecoration(
                   labelText: 'enter 6 digits',
-                  hintText: '+251 952614852',
+                  hintText: '123456',
                 ),
                 keyboardType: TextInputType.phone,
                 onFieldSubmitted: (value) {},

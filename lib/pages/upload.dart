@@ -74,20 +74,24 @@ class _UploadImageState extends State<UploadImage> {
     DisInfo(ManDisease: 'ANTH'.tr(), pic: 'anth.png'),
     DisInfo(ManDisease: 'BLAC'.tr(), pic: 'black.png'),
     DisInfo(ManDisease: 'WHITE'.tr(), pic: 'heal.png'),
-    DisInfo(ManDisease: 'HEAL'.tr(), pic: 'heal.png')
+    DisInfo(ManDisease: 'POWDERY'.tr(), pic: 'black.png')
   ];
 
   solutionOne(m) {
     switch (m) {
-      case 'Anthracnose Disease':
+      case 'anthracnose':
         DisInfo instance = disease[0];
         Navigator.pushNamed(context, '/Prediction', arguments: instance);
         break;
-      case 'Powdery Mildew Disease':
+      case 'powdery':
         DisInfo instance = disease[1];
         Navigator.pushNamed(context, '/Prediction', arguments: instance);
         break;
-      case 'White Scale Disease':
+      case 'white scale':
+        DisInfo instance = disease[2];
+        Navigator.pushNamed(context, '/Prediction', arguments: instance);
+        break;
+      case 'black':
         DisInfo instance = disease[2];
         Navigator.pushNamed(context, '/Prediction', arguments: instance);
         break;

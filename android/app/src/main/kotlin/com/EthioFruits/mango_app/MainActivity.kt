@@ -1,4 +1,4 @@
-package com.EthioFruits.agri_app
+package com.EthioFruits.ai_agri
 
 import io.flutter.embedding.android.FlutterActivity
 

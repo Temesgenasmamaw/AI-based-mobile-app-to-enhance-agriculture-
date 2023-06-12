@@ -87,7 +87,7 @@ class _maizeResultState extends State<maizeResult> {
                     fontWeight: FontWeight.bold,
                     color: Colors.red),
               ),
-              Text('suitable'.tr(), style: _style),
+              Text('recommendResult'.tr(), style: _style),
               SizedBox(
                 height: 35,
               ),

@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app/pages/home.dart';
+import 'package:ai_agri/pages/home.dart';
 
 class Language {
   Locale locale;

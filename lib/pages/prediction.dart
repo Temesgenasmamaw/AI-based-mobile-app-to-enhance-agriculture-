@@ -167,10 +167,47 @@ class _PredictionState extends State<Prediction> {
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("NotMangoDefinition".tr(), style: optionStyle1),
-        const SizedBox(
-          height: 10.0,
-        ),
+        Text("Prevention".tr(), style: optionStyle1).tr(),
+        Row(children: [
+          Text('One'.tr()),
+          Expanded(
+              child: Text(
+            'ManagmentOfWhiteOne'.tr(),
+            textAlign: TextAlign.justify,
+          ))
+        ], crossAxisAlignment: CrossAxisAlignment.start),
+        Row(children: [
+          Text('Two'.tr()),
+          Expanded(
+              child: Text(
+            'ManagmentOfWhiteTwo'.tr(),
+            textAlign: TextAlign.justify,
+          ))
+        ], crossAxisAlignment: CrossAxisAlignment.start),
+        Row(children: [
+          Text('Three'.tr()),
+          Expanded(
+              child: Text(
+            'ManagmentOfWhiteThree'.tr(),
+            textAlign: TextAlign.justify,
+          ))
+        ], crossAxisAlignment: CrossAxisAlignment.start),
+        Row(children: [
+          Text('Four'.tr()),
+          Expanded(
+              child: Text(
+            'ManagmentOfWhiteFour'.tr(),
+            textAlign: TextAlign.justify,
+          ))
+        ], crossAxisAlignment: CrossAxisAlignment.start),
+        Row(children: [
+          Text('Five'.tr()),
+          Expanded(
+              child: Text(
+            'ManagmentOfWhiteFive'.tr(),
+            textAlign: TextAlign.justify,
+          ))
+        ], crossAxisAlignment: CrossAxisAlignment.start),
       ],
     ),
   ];
@@ -179,7 +216,7 @@ class _PredictionState extends State<Prediction> {
     'BLAC'.tr(): _widgetList[1],
     'WHITE'.tr(): _widgetList[2],
     'HEAL'.tr(): _widgetList[3],
-    'NOT'.tr(): _widgetList[4],
+    'BLAC'.tr(): _widgetList[4],
   };
 
   @override
