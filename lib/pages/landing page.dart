@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -345,8 +346,8 @@ class _landingPageState extends State<landingPage> {
                       // mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          ' Boost Agricultural productivity',
+                         Text(
+                          'Boost'.tr(),
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -356,7 +357,7 @@ class _landingPageState extends State<landingPage> {
                             onPressed: () {},
                             icon: Icon(Icons.camera),
                             label: Text(
-                              'Capture or upload photo',
+                              'CaptureUpload'.tr(),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
@@ -364,7 +365,7 @@ class _landingPageState extends State<landingPage> {
                             onPressed: () {},
                             icon: Icon(Icons.analytics),
                             label: Text(
-                              'Analyse result',
+                              'AnalyseRresult'.tr(),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
@@ -372,7 +373,7 @@ class _landingPageState extends State<landingPage> {
                             onPressed: () {},
                             icon: Icon(Icons.input),
                             label: Text(
-                              'know suitable crops for farm land',
+                              'KnowSuitableCrop'.tr(),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
@@ -380,7 +381,7 @@ class _landingPageState extends State<landingPage> {
                             onPressed: () {},
                             icon: Icon(Icons.info),
                             label: Text(
-                              'Get info for type of disese',
+                              'GetDiseaseInfo'.tr(),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),
@@ -388,7 +389,7 @@ class _landingPageState extends State<landingPage> {
                             onPressed: () {},
                             icon: Icon(Icons.info),
                             label: Text(
-                              'know info for crops and fruits',
+                              'CropInfo'.tr(),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 19),
                             )),

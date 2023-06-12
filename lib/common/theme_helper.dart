@@ -10,7 +10,7 @@ class ThemeHelper {
       hintText: hintText,
       hintStyle: TextStyle(color: Colors.black),
       labelStyle: TextStyle(color: Colors.black),
-      // fillColor: Colors.black,
+      fillColor: Colors.black,
       // suffixIcon: Icon(Icons.visibility),
       // filled: true,
       contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),

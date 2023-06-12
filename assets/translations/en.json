@@ -164,7 +164,14 @@
 "maizeResult":"maize is suitable crop type for your farm land.",
 "wheatResult":"wheat is suitable crop type for your farm land.",
 "barleyResult":"barley is suitable crop type for your farm land.",
-"suitable":"is suitable crop type for your farm land."
+"CaptureUpload":"Capture or upload photo.",
+"AnalyseRresult":"Analyse result.",
+"KnowSuitableCrop":"know suitable crops for farm land.",
+"GetDiseaseInfo":"Get info for type of disese."
+,"CropInfo":"know info for crops and fruits.",
+"Boost":"Boost Agricultural productivity."
+
+
 
 
 

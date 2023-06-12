@@ -251,6 +251,7 @@ class _LoginPageState extends State<LoginPage> {
                               // email
                               Container(
                                 child: TextFormField(
+                                  autofillHints: ['email', 'username'],
                                   style: TextStyle(color: Colors.black),
                                   textInputAction: TextInputAction.next,
                                   controller: emailController,
@@ -335,7 +336,7 @@ class _LoginPageState extends State<LoginPage> {
                                 // decoration:
                                 //     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
-                             
+
                               SizedBox(height: 15.0),
 
                               //forgot password
@@ -364,7 +365,6 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration:
                                     ThemeHelper().buttonBoxDecoration(context),
                                 child: ElevatedButton(
-                                   
                                     style: ThemeHelper().buttonStyle(),
                                     child: Padding(
                                       padding:

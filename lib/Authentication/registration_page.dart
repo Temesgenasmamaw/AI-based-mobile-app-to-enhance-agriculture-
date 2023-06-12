@@ -22,10 +22,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
   bool checkboxValue = false;
+  bool _passwordInVisible = true;
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   // bool _isObscure = true;
 
@@ -40,10 +41,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
           );
         });
     try {
-      if (passwordController.text.trim() == confirmController.text.trim()) {
+      if (_passwordController.text.trim() ==
+          _confirmPasswordController.text.trim()) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
+          email: _emailController.text,
+          password: _passwordController.text,
         );
         //pop the leading circle
         Navigator.pop(context);
@@ -180,10 +182,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         //email address
                         Container(
                           child: TextFormField(
-                            controller: emailController,
+                            controller: _emailController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "UserName".tr(), "EnterUserName".tr()),
                             keyboardType: TextInputType.emailAddress,
+                            style: TextStyle(color: Colors.black),
                             validator: (val) {
                               if (val!.isEmpty) {
                                 return "pleaseEnterEmail".tr();
@@ -215,46 +218,173 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         // ),
 
                         //password
-                        Container(
-                          child: TextFormField(
-                            controller: passwordController,
-                            obscureText: true,
-                            decoration: ThemeHelper().textInputDecoration(
-                              "password".tr(),
-                              "EnterPassword".tr(),
-                            ),
-                            validator: (val) {
-                              if (val!.isEmpty) {
-                                return "pleaseEnterPassword".tr();
-                              }
-                              return null;
-                            },
-                          ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
+                        // Container(
+                        //   child: TextFormField(
+                        //     style: TextStyle(color: Colors.black),
+                        //     controller: passwordController,
+                        //     obscureText: true,
+                        //     decoration: ThemeHelper().textInputDecoration(
+                        //       "password".tr(),
+                        //       "EnterPassword".tr(),
+                        //     ),
+                        //     validator: (val) {
+                        //       if (val!.isEmpty) {
+                        //         return "pleaseEnterPassword".tr();
+                        //       }
+                        //       return null;
+                        //     },
+                        //   ),
+                        //   decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        // ),
+                        // SizedBox(
+                        //   height: 20,
+                        // ),
 
-                        //password
+                        // //confirm password
+                        // Container(
+                        //   child: TextFormField(
+                        //     style: TextStyle(color: Colors.black),
+                        //     obscureText: true,
+                        //     controller: confirmController,
+                        //     decoration: ThemeHelper().textInputDecoration(
+                        //       "confirmPassword".tr(),
+                        //       "confirmPassword".tr(),
+                        //     ),
+                        //     validator: (val) {
+                        //       if (val!.isEmpty) {
+                        //         return "pleaseConfirm".tr();
+                        //       }
+                        //       return null;
+                        //     },
+                        //   ),
+                        //   decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        // ),
+                        // SizedBox(height: 15.0),
+
+                        //new password
                         Container(
                           child: TextFormField(
-                            obscureText: true,
-                            controller: confirmController,
-                            decoration: ThemeHelper().textInputDecoration(
-                              "confirmPassword".tr(),
-                              "confirmPassword".tr(),
+                            controller: _passwordController,
+                            obscureText: _passwordInVisible,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              hintText: 'EnterPassword'.tr(),
+                              labelStyle: TextStyle(color: Colors.black),
+                              label: Text('password').tr(),
+                              prefixIcon: Icon(
+                                Icons.lock,
+                                color: Colors.blueAccent,
+                              ),
+                              // filled: true,
+                              hintStyle: TextStyle(color: Colors.black),
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20, 10, 20, 10),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(color: Colors.grey)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      // color: Colors.grey.shade400
+                                      )),
+                              errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      color: Colors.red, width: 2.0)),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      color: Colors.red, width: 2.0)),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _passwordInVisible
+                                      ? Icons.visibility_off
+                                      : Icons
+                                          .visibility, //change icon based on boolean value
+                                  color: Theme.of(context).primaryColorDark,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _passwordInVisible =
+                                        !_passwordInVisible; //change boolean value
+                                  });
+                                },
+                              ),
                             ),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return "pleaseConfirm".tr();
+                                return 'pleaseEnterPassword'.tr();
                               }
                               return null;
                             },
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+
+                          // decoration:
+                          //     ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 15.0),
+                        SizedBox(height: 20.0),
+
+                        //new confirm password
+                        Container(
+                          child: TextFormField(
+                            controller: _confirmPasswordController,
+                            obscureText: _passwordInVisible,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              hintText: 'EnterPassword'.tr(),
+                              labelStyle: TextStyle(color: Colors.black),
+                              label: Text('password').tr(),
+                              prefixIcon: Icon(
+                                Icons.lock,
+                                color: Colors.blueAccent,
+                              ),
+                              // filled: true,
+                              hintStyle: TextStyle(color: Colors.black),
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20, 10, 20, 10),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(color: Colors.grey)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      // color: Colors.grey.shade400
+                                      )),
+                              errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      color: Colors.red, width: 2.0)),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  borderSide: BorderSide(
+                                      color: Colors.red, width: 2.0)),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _passwordInVisible
+                                      ? Icons.visibility_off
+                                      : Icons
+                                          .visibility, //change icon based on boolean value
+                                  color: Theme.of(context).primaryColorDark,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _passwordInVisible =
+                                        !_passwordInVisible; //change boolean value
+                                  });
+                                },
+                              ),
+                            ),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'pleaseEnterPassword'.tr();
+                              }
+                              return null;
+                            },
+                          ),
+
+                          // decoration:
+                          //     ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
                         //check box
                         FormField<bool>(
                           builder: (state) {
@@ -263,6 +393,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 Row(
                                   children: <Widget>[
                                     Checkbox(
+                                        hoverColor: Colors.black,
                                         checkColor: Colors.red,
                                         focusColor: Colors.green,
                                         value: checkboxValue,
@@ -357,7 +488,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
-                                      color: Colors.black),
+                                      color: Colors.blueAccent),
                                 ),
                               ])),
                             ),
